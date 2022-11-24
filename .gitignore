@@ -1,0 +1,6 @@
+.idea
+__pycache__
+experiments
+wandb
+.ipynb_checkpoints
+*.ipynb
