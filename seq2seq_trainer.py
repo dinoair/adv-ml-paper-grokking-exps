@@ -21,16 +21,16 @@ class Seq2SeqTrainer:
         self.batch_size = self.config['batch_size']
 
         learning_rate = self.config['learning_rate']
+
         hugginface_pretrained_model = self.config['hf_transformer']
-        trainsformer_based_model = AutoModel.from_pretrained(hugginface_pretrained_model).to(self.device)
-        self.encoder = TransformerBasedEncoder(trainsformer_based_model)
-        
+        transformer_based_model = AutoModel.from_pretrained(hugginface_pretrained_model)
+        self.encoder = TransformerBasedEncoder(transformer_based_model).to(self.device)
         self.encoder_optimizer = optim.Adam(self.encoder.parameters(), lr=learning_rate)
 
         decoder_hidden_size = self.config['hidden_encoder_size']
         self.decoder = RecurrentDecoder(vocab_size=len(self.target_tokenizer.word2index),
                                         hidden_size=decoder_hidden_size).to(self.device)
-        self.decoder_optimizer = optim.Adam(self.encoder.parameters(), lr=learning_rate)
+        self.decoder_optimizer = optim.Adam(self.decoder.parameters(), lr=learning_rate)
 
         self.criterion = nn.NLLLoss()
 
@@ -38,7 +38,7 @@ class Seq2SeqTrainer:
         self.layers2freeze = self.config['layers_to_freeze']
 
         self.predictor = Seq2SeqPredictor(config=self.config, criterion=self.criterion,
-                                   target_tokenizer=self.target_tokenizer, device=self.device)
+                                          target_tokenizer=self.target_tokenizer, device=self.device)
 
         wandb_config = {key: self.config[key] for key in ["learning_rate", "hidden_encoder_size", "epochs",
                                                           "batch_size", "hf_transformer",
@@ -95,8 +95,6 @@ class Seq2SeqTrainer:
                     train_batch_loss = self.train_on_batch(input_data, target_data)
                     train_epoch_loss += train_batch_loss
 
-                self.wandb_run.log({"train_loss": train_epoch_loss / len(train_dataloader)})
-
                 val_epoch_loss, val_exm_epoch_acc = 0, 0
                 self.encoder.disable_bert_training()
                 for batch in val_dataloader:
@@ -109,8 +107,9 @@ class Seq2SeqTrainer:
                     val_metrics = calculate_batch_metrics(target_data['original_query'], eval_result['predicted_query'])
                     val_exm_epoch_acc += val_metrics['exact_match']
 
-                self.wandb_run.log({"val_loss": val_epoch_loss / len(val_dataloader)})
-                self.wandb_run.log({"val_exact_match": val_exm_epoch_acc / len(val_dataloader)})
+                self.wandb_run.log({"train_loss": train_epoch_loss / len(train_dataloader),
+                                    "val_loss": val_epoch_loss / len(val_dataloader),
+                                    "val_exact_match": val_exm_epoch_acc / len(val_dataloader)})
         except KeyboardInterrupt:
             pass
 

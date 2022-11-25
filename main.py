@@ -53,12 +53,10 @@ def main():
     batch_size = config['batch_size']
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
-    
-    train_dataloader_sample = [list(train_dataloader)[0]]
 
     trainer = Seq2SeqTrainer(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
 
-    trainer.train(train_dataloader_sample, train_dataloader_sample)
+    trainer.train(train_dataloader, dev_dataloader)
 
 
 if __name__ == "__main__":

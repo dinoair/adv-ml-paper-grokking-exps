@@ -1,16 +1,16 @@
 ---
 data:
-  train: "/home/jovyan/comp_gen/data/text2sparql_vol_01_train.json"
-  dev: "/home/jovyan/comp_gen/data/text2sparql_vol_01_dev.json"
+  train: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_train.json"
+  dev: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_dev.json"
   test: ""
 
-hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
-hf_transformer: "DeepPavlov/rubert-base-cased-conversational"
+hf_tokenizer: "cointegrated/rubert-tiny"
+hf_transformer: "cointegrated/rubert-tiny"
 
 epochs: 1000
 learning_rate: 0.001
-batch_size: 128
-hidden_encoder_size: 768
+batch_size: 32
+hidden_encoder_size: 312
 layers_to_freeze: 9
 save_model_on_epoch: 100
 
