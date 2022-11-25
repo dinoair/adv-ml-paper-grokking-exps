@@ -1,5 +1,6 @@
 import torch
 from torch import optim
+from tqdm import tqdm
 from models.transformer_based_encoder import TransformerBasedEncoder
 from models.recurrent_decoder import RecurrentDecoder
 from torch import nn
@@ -22,13 +23,13 @@ class Seq2SeqTrainer:
         learning_rate = self.config['learning_rate']
         hugginface_pretrained_model = self.config['hf_transformer']
         trainsformer_based_model = AutoModel.from_pretrained(hugginface_pretrained_model).to(self.device)
-
         self.encoder = TransformerBasedEncoder(trainsformer_based_model)
+        
         self.encoder_optimizer = optim.Adam(self.encoder.parameters(), lr=learning_rate)
 
         decoder_hidden_size = self.config['hidden_encoder_size']
         self.decoder = RecurrentDecoder(vocab_size=len(self.target_tokenizer.word2index),
-                                        hidden_size=decoder_hidden_size)
+                                        hidden_size=decoder_hidden_size).to(self.device)
         self.decoder_optimizer = optim.Adam(self.encoder.parameters(), lr=learning_rate)
 
         self.criterion = nn.NLLLoss()
@@ -86,7 +87,7 @@ class Seq2SeqTrainer:
         epoch = 0
         val_exm_epoch_acc = 0
         try:
-            for epoch in range(self.epoch_num):
+            for epoch in tqdm(range(self.epoch_num)):
                 train_epoch_loss = 0
                 self.encoder.enable_some_bert_layers_training(self.layers2freeze)
                 for batch in train_dataloader:
@@ -111,11 +112,7 @@ class Seq2SeqTrainer:
                 self.wandb_run.log({"val_loss": val_epoch_loss / len(val_dataloader)})
                 self.wandb_run.log({"val_exact_match": val_exm_epoch_acc / len(val_dataloader)})
         except KeyboardInterrupt:
-            utils.save_seq2seq(self.encoder, self.encoder_optimizer, self.decoder, self.decoder_optimizer,
-                               os.path.join(self.config['save_model_path'], f"{self.config['run_name']}_seq2seq.tar"))
-            print(f'Dump model to {self.config["save_model_path"]} on {epoch} epoch!')
-            print("Last val exact match: ", val_exm_epoch_acc / len(val_dataloader))
-            self.wandb_run.finish()
+            pass
 
         utils.save_seq2seq(self.encoder, self.encoder_optimizer, self.decoder, self.decoder_optimizer,
                            os.path.join(self.config['save_model_path'], f"{self.config['run_name']}_seq2seq.tar"))

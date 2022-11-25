@@ -1,16 +1,16 @@
 import torch
+from copy import deepcopy
 import torch.nn as nn
 
 
 class TransformerBasedEncoder(nn.Module):
     def __init__(self, bert_model):
         super(TransformerBasedEncoder, self).__init__()
-        self.bert_module = bert_model
+        self.bert_module = deepcopy(bert_model)
 
     def forward(self, input_batch):
-        with torch.no_grad():
-            bert_output = self.bert_module(
-                **{key: input_batch[key] for key in ['input_ids', 'token_type_ids', 'attention_mask']})
+        bert_output = self.bert_module(
+            **{key: input_batch[key] for key in ['input_ids', 'token_type_ids', 'attention_mask']})
 
         return {
             "last_hiddens": bert_output.last_hidden_state,

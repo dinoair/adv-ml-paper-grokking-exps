@@ -43,7 +43,7 @@ def main():
                                        question_list=train_questions_list,
                                        sparql_list=train_sparql_list,
                                        dev=DEVICE)
-
+    
     dev_dataset = Text2SparqlDataset(tokenized_question_list=dev_tokenized_questions_list,
                                    tokenized_sparql_list=dev_tokenized_sparqls_list,
                                    question_list=dev_questions_list,
@@ -53,10 +53,12 @@ def main():
     batch_size = config['batch_size']
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+    
+    train_dataloader_sample = [list(train_dataloader)[0]]
 
     trainer = Seq2SeqTrainer(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
 
-    trainer.train(train_dataloader, dev_dataloader)
+    trainer.train(train_dataloader_sample, train_dataloader_sample)
 
 
 if __name__ == "__main__":
