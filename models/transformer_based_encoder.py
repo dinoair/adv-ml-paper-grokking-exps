@@ -21,7 +21,7 @@ class TransformerBasedEncoder(nn.Module):
         for layer in self.bert_module.encoder.layer:
             for param in layer.parameters():
                 param.requires_grad = False
-        self.bert_module.pooler.requires_grad_(False)
+        self.bert_module.pooler.requires_grad(False)
 
     def enable_some_bert_layers_training(self, layers2freeze):
         layers4freeze = [*[self.bert_module.encoder.layer[:layers2freeze]] + [self.bert_module.embeddings]]
@@ -34,4 +34,4 @@ class TransformerBasedEncoder(nn.Module):
             for param in layer.parameters():
                 param.requires_grad = True
                 
-        self.bert_module.pooler.requires_grad_(True)
+        self.bert_module.pooler.requires_grad(True)
