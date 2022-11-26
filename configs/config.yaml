@@ -2,18 +2,22 @@
 data:
   train: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_train.json"
   dev: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_dev.json"
-  test: ""
+  test: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_test.json"
 
 hf_tokenizer: "cointegrated/rubert-tiny"
 hf_transformer: "cointegrated/rubert-tiny"
+
+save_model_path: "experiments"
+inference_model_name: "base language variation model full data_seq2seq_em_68.tar"
+
+predictions_path: "predictions"
 
 epochs: 1000
 learning_rate: 0.001
 batch_size: 32
 hidden_encoder_size: 312
-layers_to_freeze: 9
+layers_to_freeze: 2
 save_model_on_epoch: 100
 
-save_model_path: "experiments"
 run_name: "Base text2sparql model one batch"
 

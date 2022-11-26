@@ -4,3 +4,4 @@ experiments
 wandb
 .ipynb_checkpoints
 *.ipynb
+predictions

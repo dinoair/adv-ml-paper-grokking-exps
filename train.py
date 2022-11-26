@@ -1,13 +1,15 @@
-import yaml
 import json
 import os
-import torch
+
 import numpy as np
-from seq2seq_trainer import Seq2SeqTrainer
-from transformers import AutoTokenizer
-from seq2seq_dataset import Text2SparqlDataset
-from sparql_tokenizer import SPARQLTokenizer
+import torch
+import yaml
 from torch.utils.data import DataLoader
+from transformers import AutoTokenizer
+
+from seq2seq_dataset import Text2SparqlDataset
+from seq2seq_trainer import Seq2SeqTrainer
+from sparql_tokenizer import SPARQLTokenizer
 
 
 def main():

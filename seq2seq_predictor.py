@@ -1,4 +1,10 @@
+import os
+
 import torch
+from tqdm import tqdm
+
+import metrics
+import utils
 
 
 class Seq2SeqPredictor:
@@ -8,6 +14,10 @@ class Seq2SeqPredictor:
         self.batch_size = self.config['batch_size']
         self.target_tokenizer = target_tokenizer
         self.criterion = criterion
+
+        self.model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["predictions_path"])
+        if not os.path.exists(self.model_save_path):
+            os.makedirs(self.model_save_path)
 
     def evaluate_batch(self, encoder, decoder, input_tensor, target_data=None):
         result_dict = dict()
@@ -52,3 +62,32 @@ class Seq2SeqPredictor:
             result_dict['predicted_query'] = batch_preds_list
 
         return result_dict
+
+    def predict(self, encoder, decoder, dataloader):
+        exact_match = 0
+        predicted_queries, true_queries = [], []
+
+        encoder.disable_bert_training()
+
+        for batch in tqdm(dataloader):
+            input_data, target_data = batch['nl'], batch['sparql']
+
+            eval_result = self.evaluate_batch(encoder, decoder, input_data, target_data)
+
+            pred_metrics = metrics.calculate_batch_metrics(target_data['original_query'], eval_result['predicted_query'])
+            exact_match += pred_metrics['exact_match']
+
+            predicted_queries += eval_result['predicted_query']
+            true_queries += target_data['original_query']
+
+        exact_match = exact_match / len(dataloader)
+        result_dict = {
+            "exact_match_score": exact_match,
+            "predicted_queries": predicted_queries,
+            "true_queries": true_queries
+        }
+        save_preds_path = os.path.join(os.environ['PROJECT_PATH'], self.config['predictions_path'],
+                                       f'{self.config["inference_model_name"].split(".")[0]}_preds.json')
+        utils.save_dict(result_dict, save_preds_path)
+        return result_dict
+

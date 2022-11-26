@@ -1,19 +1,21 @@
+import os
+
 import torch
+from torch import nn
 from torch import optim
 from tqdm import tqdm
-from models.transformer_based_encoder import TransformerBasedEncoder
-from models.recurrent_decoder import RecurrentDecoder
-from torch import nn
 from transformers import AutoModel
-from seq2seq_predictor import Seq2SeqPredictor
-from metrics import calculate_batch_metrics
+
 import utils
 import wandb
-import os
+from metrics import calculate_batch_metrics
+from models.recurrent_decoder import RecurrentDecoder
+from models.transformer_based_encoder import TransformerBasedEncoder
+from seq2seq_predictor import Seq2SeqPredictor
 
 
 class Seq2SeqTrainer:
-    def __init__(self, config, device, target_tokenizer):
+    def __init__(self, config, device, target_tokenizer, train_phase=True):
         self.config = config
         self.device = device
 
@@ -40,17 +42,18 @@ class Seq2SeqTrainer:
         self.predictor = Seq2SeqPredictor(config=self.config, criterion=self.criterion,
                                           target_tokenizer=self.target_tokenizer, device=self.device)
 
-        wandb_config = {key: self.config[key] for key in ["learning_rate", "hidden_encoder_size", "epochs",
-                                                          "batch_size", "hf_transformer",
-                                                          "layers_to_freeze", "batch_size", "run_name"]}
+        if train_phase:
+            wandb_config = {key: self.config[key] for key in ["learning_rate", "hidden_encoder_size", "epochs",
+                                                              "batch_size", "hf_transformer",
+                                                              "layers_to_freeze", "batch_size", "run_name"]}
 
-        self.wandb_run = wandb.init(project="text2sparql_language_variation", entity="oleg_oleg_96",
-                                    config=wandb_config)
-        self.wandb_run.name = self.config['run_name']
+            self.wandb_run = wandb.init(project="text2sparql_language_variation", entity="oleg_oleg_96",
+                                        config=wandb_config)
+            self.wandb_run.name = self.config['run_name']
 
-        self.model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["save_model_path"])
-        if not os.path.exists(self.model_save_path):
-            os.makedirs(self.model_save_path)
+            self.model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["save_model_path"])
+            if not os.path.exists(self.model_save_path):
+                os.makedirs(self.model_save_path)
 
     def train_on_batch(self, input_data, target_data):
         self.encoder_optimizer.zero_grad()

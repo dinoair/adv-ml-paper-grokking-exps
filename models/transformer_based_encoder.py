@@ -1,5 +1,5 @@
-import torch
 from copy import deepcopy
+
 import torch.nn as nn
 
 
@@ -7,8 +7,6 @@ class TransformerBasedEncoder(nn.Module):
     def __init__(self, bert_model):
         super(TransformerBasedEncoder, self).__init__()
         self.bert_module = deepcopy(bert_model)
-        
-        
 
     def forward(self, input_batch):
         bert_output = self.bert_module(
