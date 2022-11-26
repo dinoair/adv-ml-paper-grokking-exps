@@ -94,6 +94,7 @@ class Seq2SeqTrainer:
                     input_data, target_data = batch['nl'], batch['sparql']
                     train_batch_loss = self.train_on_batch(input_data, target_data)
                     train_epoch_loss += train_batch_loss
+                train_epoch_loss = train_epoch_loss / len(train_dataloader)
 
                 val_epoch_loss, val_exm_epoch_acc = 0, 0
                 self.encoder.disable_bert_training()
@@ -106,15 +107,19 @@ class Seq2SeqTrainer:
 
                     val_metrics = calculate_batch_metrics(target_data['original_query'], eval_result['predicted_query'])
                     val_exm_epoch_acc += val_metrics['exact_match']
-
-                self.wandb_run.log({"train_loss": train_epoch_loss / len(train_dataloader),
-                                    "val_loss": val_epoch_loss / len(val_dataloader),
-                                    "val_exact_match": val_exm_epoch_acc / len(val_dataloader)})
+                    
+                
+                val_epoch_loss = val_epoch_loss / len(val_dataloader)
+                val_exm_epoch_acc = val_exm_epoch_acc / len(val_dataloader)
+                
+                self.wandb_run.log({"train_loss": train_epoch_loss,
+                                    "val_loss": val_epoch_loss,
+                                    "val_exact_match": val_exm_epoch_acc})
         except KeyboardInterrupt:
             pass
 
         utils.save_seq2seq(self.encoder, self.encoder_optimizer, self.decoder, self.decoder_optimizer,
                            os.path.join(self.config['save_model_path'], f"{self.config['run_name']}_seq2seq.tar"))
         print(f'Dump model to {self.config["save_model_path"]} on {epoch} epoch!')
-        print("Last val exact match: ", val_exm_epoch_acc / len(val_dataloader))
+        print("Last val exact match: ", val_exm_epoch_acc)
         self.wandb_run.finish()

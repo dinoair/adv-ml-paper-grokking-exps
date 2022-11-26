@@ -49,7 +49,7 @@ def main():
                                    question_list=dev_questions_list,
                                    sparql_list=dev_sparql_list,
                                    dev=DEVICE)
-
+    
     batch_size = config['batch_size']
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
