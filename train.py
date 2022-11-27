@@ -58,7 +58,8 @@ def main():
 
     trainer = Seq2SeqTrainer(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
 
-    trainer.train(train_dataloader, dev_dataloader)
+    train_dataloader_sample = [list(train_dataloader)[0]]
+    trainer.train(train_dataloader_sample, train_dataloader_sample)
 
 
 if __name__ == "__main__":

@@ -1,12 +1,24 @@
+import sys
 from copy import deepcopy
 
 import torch.nn as nn
 
 
 class TransformerBasedEncoder(nn.Module):
-    def __init__(self, bert_model):
+    def __init__(self, bert_model, n_last_layers2train):
         super(TransformerBasedEncoder, self).__init__()
         self.bert_module = deepcopy(bert_model)
+        self.disable_bert_training()
+
+        if n_last_layers2train >= 1 and n_last_layers2train < len(self.bert_module.encoder.layer):
+            self.modules2train = [*self.bert_module.encoder.layer[-n_last_layers2train:], self.bert_module.pooler]
+        elif n_last_layers2train == 0:
+            self.modules2train = [self.bert_module.pooler]
+        elif n_last_layers2train == -1:
+            self.modules2train = []
+        else:
+            print('Wrong params amount!')
+            sys.exit()
 
     def forward(self, input_batch):
         bert_output = self.bert_module(
@@ -18,20 +30,13 @@ class TransformerBasedEncoder(nn.Module):
         }
 
     def disable_bert_training(self):
-        for layer in self.bert_module.encoder.layer:
-            for param in layer.parameters():
-                param.requires_grad = False
-        self.bert_module.pooler.requires_grad(False)
+        for module in self.bert_module.parameters():
+            module.requires_grad = False
 
-    def enable_some_bert_layers_training(self, layers2freeze):
-        layers4freeze = [*[self.bert_module.encoder.layer[:layers2freeze]] + [self.bert_module.embeddings]]
-        layers2train = [*self.bert_module.encoder.layer[layers2freeze - len(self.bert_module.encoder.layer):]]
-        for layer in layers4freeze:
-            for param in layer.parameters():
-                param.requires_grad = False
-
-        for layer in layers2train:
-            for param in layer.parameters():
+    def enable_bert_layers_training(self):
+        for module in self.modules2train:
+            for param in module.parameters():
                 param.requires_grad = True
-                
-        self.bert_module.pooler.requires_grad(True)
+
+        # for name, param in self.bert_module.named_parameters():
+        #     print(name, param.requires_grad)

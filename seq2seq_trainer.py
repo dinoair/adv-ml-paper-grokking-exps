@@ -26,7 +26,8 @@ class Seq2SeqTrainer:
 
         hugginface_pretrained_model = self.config['hf_transformer']
         transformer_based_model = AutoModel.from_pretrained(hugginface_pretrained_model)
-        self.encoder = TransformerBasedEncoder(transformer_based_model).to(self.device)
+        trainable_layers_num = self.config['n_last_layers2train']
+        self.encoder = TransformerBasedEncoder(transformer_based_model, trainable_layers_num).to(self.device)
         self.encoder_optimizer = optim.Adam(self.encoder.parameters(), lr=learning_rate)
 
         decoder_hidden_size = self.config['hidden_encoder_size']
@@ -37,7 +38,6 @@ class Seq2SeqTrainer:
         self.criterion = nn.NLLLoss()
 
         self.epoch_num = self.config['epochs']
-        self.layers2freeze = self.config['layers_to_freeze']
 
         self.predictor = Seq2SeqPredictor(config=self.config, criterion=self.criterion,
                                           target_tokenizer=self.target_tokenizer, device=self.device)
@@ -45,7 +45,7 @@ class Seq2SeqTrainer:
         if train_phase:
             wandb_config = {key: self.config[key] for key in ["learning_rate", "hidden_encoder_size", "epochs",
                                                               "batch_size", "hf_transformer",
-                                                              "layers_to_freeze", "batch_size", "run_name"]}
+                                                              "n_last_layers2train", "batch_size", "run_name"]}
 
             self.wandb_run = wandb.init(project="text2sparql_language_variation", entity="oleg_oleg_96",
                                         config=wandb_config)
@@ -92,7 +92,7 @@ class Seq2SeqTrainer:
         try:
             for epoch in tqdm(range(self.epoch_num)):
                 train_epoch_loss = 0
-                self.encoder.enable_some_bert_layers_training(self.layers2freeze)
+                self.encoder.enable_bert_layers_training()
                 for batch in train_dataloader:
                     input_data, target_data = batch['nl'], batch['sparql']
                     train_batch_loss = self.train_on_batch(input_data, target_data)
