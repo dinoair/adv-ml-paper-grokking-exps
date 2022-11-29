@@ -1,27 +1,24 @@
 ---
 data:
-  train: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_train.json"
-  dev: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_dev.json"
-  test: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/text2sparql_vol_01_test.json"
-
-hf_tokenizer: "cointegrated/rubert-tiny"
-hf_transformer: "cointegrated/rubert-tiny"
+  train: "/home/jovyan/comp_gen/data/text2sparql_vol_01_train.json"
+  dev: "/home/jovyan/comp_gen/data/text2sparql_vol_01_dev.json"
+  test: "/home/jovyan/comp_gen/data/text2sparql_vol_01_test.json"
 
 # for training
-#hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
-#hf_transformer: "DeepPavlov/rubert-base-cased-conversational"
+hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
+hf_transformer: "DeepPavlov/rubert-base-cased-conversational"
 
 epochs: 1000
-learning_rate: 0.001
-batch_size: 32
-hidden_encoder_size: 312
-n_last_layers2train: -1
+learning_rate: 0.0001
+batch_size: 512
+hidden_encoder_size: 768
+n_last_layers2train: 3
 save_model_on_epoch: 100
 
-run_name: "Base text2sparql model one batch"
+run_name: "last 3 layers+pooler+decoder on base"
 
 # for testing
 save_model_path: "experiments"
-inference_model_name: "base language variation model full data_seq2seq_em_68.tar"
+inference_model_name: "last 3 layers+pooler+decoder on base_seq2seq.tar"
 
 predictions_path: "predictions"

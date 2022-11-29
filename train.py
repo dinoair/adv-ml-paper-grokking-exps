@@ -57,9 +57,11 @@ def main():
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 
     trainer = Seq2SeqTrainer(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
-
-    train_dataloader_sample = [list(train_dataloader)[0]]
-    trainer.train(train_dataloader_sample, train_dataloader_sample)
+    
+    # если хотим проверить на 1ом батче
+    # train_dataloader_sample = [list(train_dataloader)[0]]
+    
+    trainer.train(train_dataloader, dev_dataloader)
 
 
 if __name__ == "__main__":
