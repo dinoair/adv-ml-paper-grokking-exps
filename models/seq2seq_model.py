@@ -1,11 +1,11 @@
 import torch
 from torch import nn
-from text2sparql.models.recurrent_decoder import RecurrentDecoder
-from text2sparql.models.transformer_based_encoder import TransformerBasedEncoder
-from text2sparql.models.seq2seq_attention import Seq2seqAttention
+from models.recurrent_decoder import RecurrentDecoder
+from models.transformer_based_encoder import TransformerBasedEncoder
+from models.seq2seq_attention import Seq2seqAttention
 
 from transformers import AutoModel
-from text2sparql.sparql_tokenizer import SPARQLTokenizer
+from sparql_tokenizer import SPARQLTokenizer
 
 from transformers import AdamW
 

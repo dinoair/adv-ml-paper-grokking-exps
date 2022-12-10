@@ -10,7 +10,7 @@ from transformers import AutoTokenizer
 from seq2seq_dataset import Text2SparqlDataset
 from seq2seq_trainer import Seq2SeqTrainer
 from sparql_tokenizer import SPARQLTokenizer
-from text2sparql.models.seq2seq_model import Seq2seqModel
+from models.seq2seq_model import Seq2seqModel
 
 
 def main():

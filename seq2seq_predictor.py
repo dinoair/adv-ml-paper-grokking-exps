@@ -1,13 +1,11 @@
 import os
 
-import torch
 from tqdm import tqdm
 
 import metrics
 import utils
 
-from text2sparql.models.seq2seq_model import Seq2seqModel
-
+from models.seq2seq_model import Seq2seqModel
 
 
 class Seq2SeqPredictor:
@@ -32,7 +30,8 @@ class Seq2SeqPredictor:
 
             eval_result = self.seq2seq_model.evaluate_batch(input_data, target_data)
 
-            pred_metrics = metrics.calculate_batch_metrics(target_data['original_query'], eval_result['predicted_query'])
+            pred_metrics = metrics.calculate_batch_metrics(target_data['original_query'],
+                                                           eval_result['predicted_query'])
             exact_match += pred_metrics['exact_match']
 
             input_questions += input_data['original_question']
@@ -50,4 +49,3 @@ class Seq2SeqPredictor:
                                        f'{self.config["inference_model_name"].split(".")[0]}_preds.json')
         utils.save_dict(result_dict, save_preds_path)
         return result_dict
-

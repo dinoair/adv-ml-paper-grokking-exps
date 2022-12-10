@@ -1,7 +1,7 @@
 import unittest
 import torch
 
-from text2sparql.models.recurrent_decoder import RecurrentDecoder
+from models.recurrent_decoder import RecurrentDecoder
 
 
 class RecurrentDecoderTest(unittest.TestCase):

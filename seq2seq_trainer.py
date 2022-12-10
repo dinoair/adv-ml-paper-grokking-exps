@@ -1,18 +1,14 @@
 import os
 
-import torch
-from torch import nn
-from torch import optim
+
 from tqdm import tqdm
-from transformers import AutoModel
 
 import utils
 import wandb
 from metrics import calculate_batch_metrics
-from models.recurrent_decoder import RecurrentDecoder
-from models.transformer_based_encoder import TransformerBasedEncoder
+
 from seq2seq_predictor import Seq2SeqPredictor
-from text2sparql.models.seq2seq_model import Seq2seqModel
+from models.seq2seq_model import Seq2seqModel
 
 
 class Seq2SeqTrainer:

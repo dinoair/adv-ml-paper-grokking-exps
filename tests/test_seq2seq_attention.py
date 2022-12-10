@@ -1,6 +1,6 @@
 import unittest
 import torch
-from text2sparql.models.seq2seq_attention import Seq2seqAttention
+from models.seq2seq_attention import Seq2seqAttention
 
 
 class Seq2seqAttentionTest(unittest.TestCase):

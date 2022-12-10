@@ -1,6 +1,7 @@
 import torch
 from torch.utils.data import Dataset
 
+
 class Text2SparqlDataset(Dataset):
     def __init__(self, tokenized_question_list, tokenized_sparql_list,
                  question_list, sparql_list, dev):
