@@ -12,6 +12,7 @@ from seq2seq_dataset import Text2SparqlDataset
 from seq2seq_predictor import Seq2SeqPredictor
 from seq2seq_trainer import Seq2SeqTrainer
 from sparql_tokenizer import SPARQLTokenizer
+from text2sparql.models.seq2seq_model import Seq2seqModel
 
 
 def main():
@@ -25,8 +26,8 @@ def main():
     tokenizer_name = config['hf_tokenizer']
     RU_TOKENIZER = AutoTokenizer.from_pretrained(tokenizer_name)
 
-    train_data = json.load(open(config['data']['train'], 'r'))
-    test_data = json.load(open(config['data']['test'], 'r'))
+    train_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r'))
+    test_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['test']), 'r'))
 
     train_sparql_list = [sample['masked_sparql_query'] for sample in train_data]
     test_sparql_list = [sample['masked_sparql_query'] for sample in test_data]
@@ -51,18 +52,14 @@ def main():
     saved_model_path = os.path.join(os.environ['PROJECT_PATH'], config['save_model_path'],
                                     config['inference_model_name'])
     model_checkpoint = torch.load(saved_model_path, map_location=torch.device(DEVICE))
-    encoder_state_dict = model_checkpoint['encoder_state_dict']
-    decoder_state_dict = model_checkpoint['decoder_state_dict']
+    seq2seq_state_dict = model_checkpoint['model_state_dict']
 
-    trainer = Seq2SeqTrainer(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER, train_phase=False)
-    trainer.encoder.load_state_dict(encoder_state_dict)
-    trainer.decoder.load_state_dict(decoder_state_dict)
+    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
+    seq2seq_model.load_state_dict(seq2seq_state_dict)
 
-    predictor = Seq2SeqPredictor(config=config, criterion=nn.NLLLoss(),
-                                 target_tokenizer=SPARQL_TOKENIZER, device=DEVICE)
+    predictor = Seq2SeqPredictor(seq2seq_model=seq2seq_model, config=config)
 
-    prediction_result = predictor.predict(encoder=trainer.encoder, decoder=trainer.decoder,
-                                          dataloader=test_dataloader)
+    prediction_result = predictor.predict(test_dataloader)
 
     print('Exact match: ', prediction_result["exact_match_score"])
 

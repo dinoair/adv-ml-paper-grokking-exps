@@ -10,6 +10,7 @@ from transformers import AutoTokenizer
 from seq2seq_dataset import Text2SparqlDataset
 from seq2seq_trainer import Seq2SeqTrainer
 from sparql_tokenizer import SPARQLTokenizer
+from text2sparql.models.seq2seq_model import Seq2seqModel
 
 
 def main():
@@ -23,8 +24,8 @@ def main():
     tokenizer_name = config['hf_tokenizer']
     RU_TOKENIZER = AutoTokenizer.from_pretrained(tokenizer_name)
 
-    train_data = json.load(open(config['data']['train'], 'r'))
-    dev_data = json.load(open(config['data']['dev'], 'r'))
+    train_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r'))
+    dev_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['dev']), 'r'))
 
     train_sparql_list = [sample['masked_sparql_query'] for sample in train_data]
     dev_sparql_list = [sample['masked_sparql_query'] for sample in dev_data]
@@ -56,12 +57,14 @@ def main():
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 
-    trainer = Seq2SeqTrainer(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
+    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
+
+    trainer = Seq2SeqTrainer(seq2seq_model=seq2seq_model, config=config)
     
     # если хотим проверить на 1ом батче
-    # train_dataloader_sample = [list(train_dataloader)[0]]
+    train_dataloader_sample = [list(train_dataloader)[0]]
     
-    trainer.train(train_dataloader, dev_dataloader)
+    trainer.train(train_dataloader_sample, train_dataloader_sample)
 
 
 if __name__ == "__main__":

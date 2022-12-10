@@ -1,24 +1,22 @@
 ---
 data:
-  train: "/home/jovyan/comp_gen/data/text2sparql_vol_01_train.json"
-  dev: "/home/jovyan/comp_gen/data/text2sparql_vol_01_dev.json"
-  test: "/home/jovyan/comp_gen/data/text2sparql_vol_01_test.json"
+  train: "dataset/text2sparql_vol_01_train.json"
+  dev: "dataset/text2sparql_vol_01_dev.json"
+  test: "dataset/text2sparql_vol_01_test.json"
 
 # for training
-hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
-hf_transformer: "DeepPavlov/rubert-base-cased-conversational"
+hf_tokenizer: "cointegrated/rubert-tiny"
+hf_transformer: "cointegrated/rubert-tiny"
 
 epochs: 1000
 learning_rate: 0.0001
-batch_size: 512
-hidden_encoder_size: 768
-n_last_layers2train: 3
-save_model_on_epoch: 100
+batch_size: 32
+n_last_layers2train: 1
 
-run_name: "last 3 layers+pooler+decoder on base"
+run_name: "last 3 layers+pooler+decoder on base on batch"
 
 # for testing
 save_model_path: "experiments"
-inference_model_name: "last 3 layers+pooler+decoder on base_seq2seq.tar"
+inference_model_name: "last 3 layers+pooler+decoder on base on batch_seq2seq.tar"
 
 predictions_path: "predictions"
