@@ -1,14 +1,12 @@
 import os
 
-
+import wandb
 from tqdm import tqdm
 
 import utils
-import wandb
 from metrics import calculate_batch_metrics
-
-from seq2seq_predictor import Seq2SeqPredictor
 from models.seq2seq_model import Seq2seqModel
+from seq2seq_predictor import Seq2SeqPredictor
 
 
 class Seq2SeqTrainer:
@@ -27,8 +25,9 @@ class Seq2SeqTrainer:
                                                               "batch_size", "hf_transformer",
                                                               "n_last_layers2train", "batch_size", "run_name"]}
 
-            self.wandb_run = wandb.init(project="text2sparql_language_variation", entity="oleg_oleg_96",
+            self.wandb_run = wandb.init(project="text2sparql_language_variation", entity=os.environ['WANDB_LOGIN'],
                                         config=wandb_config)
+
             self.wandb_run.name = self.config['run_name']
 
             self.model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["save_model_path"])

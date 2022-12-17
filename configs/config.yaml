@@ -10,6 +10,7 @@ hf_transformer: "cointegrated/rubert-tiny"
 
 epochs: 1000
 learning_rate: 0.0001
+num_warmup_steps: 42
 batch_size: 32
 n_last_layers2train: 1
 

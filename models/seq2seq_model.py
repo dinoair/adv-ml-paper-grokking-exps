@@ -1,13 +1,13 @@
 import torch
 from torch import nn
-from models.recurrent_decoder import RecurrentDecoder
-from models.transformer_based_encoder import TransformerBasedEncoder
-from models.seq2seq_attention import Seq2seqAttention
-
-from transformers import AutoModel
-from sparql_tokenizer import SPARQLTokenizer
-
 from transformers import AdamW
+from transformers import get_linear_schedule_with_warmup
+from transformers import AutoModel
+
+from models.recurrent_decoder import RecurrentDecoder
+from models.seq2seq_attention import Seq2seqAttention
+from models.transformer_based_encoder import TransformerBasedEncoder
+from sparql_tokenizer import SPARQLTokenizer
 
 
 class Seq2seqModel(nn.Module):
@@ -36,7 +36,8 @@ class Seq2seqModel(nn.Module):
                                 {"params": self.attention_module.parameters()},
                                 {"params": self.decoder.parameters()},
                                 {"params": self.attention_head.parameters()}])
-
+        self.scheduler = get_linear_schedule_with_warmup(self.optimizer, config['num_warmup_steps'],
+                                                         self.batch_size * config['epochs'])
         self.criterion = nn.NLLLoss()
 
     def train_on_batch(self, input_data, target_data):
@@ -61,7 +62,6 @@ class Seq2seqModel(nn.Module):
                                                           batch_size=self.batch_size)
             # decoder_output - ([1, batch_size, dim])
 
-
             weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
             # weighted_decoder_output - ([batch_size, dim])
             concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
@@ -78,6 +78,7 @@ class Seq2seqModel(nn.Module):
 
         loss.backward()
         self.optimizer.step()
+        self.scheduler.step()
 
         return loss.item()
 
