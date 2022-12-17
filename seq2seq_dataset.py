@@ -24,7 +24,7 @@ class Text2SparqlDataset(Dataset):
                                                                           self.question_list[idx]
 
         sparql_tokens, sparql_query = self.tokenized_sparql_list[idx], self.sparql_list[idx]
-        sparql_tokens = torch.tensor(sparql_tokens).to(self.device)
+        sparql_tokens = torch.tensor(sparql_tokens).to(torch.long).to(self.device)
         return {
             "nl": {
                 "input_ids": nl_tokens,

@@ -12,5 +12,5 @@ def save_model(model, optimizer, path):
 
 
 def save_dict(d, path):
-    json.dump(d, open(path, 'w'), ensure_ascii=False, indent=4)
+    json.dump(d, open(path, 'w', encoding="utf-8"), ensure_ascii=False, indent=4)
     return f"Saved dict to {path}"
