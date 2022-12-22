@@ -19,13 +19,13 @@ def main():
     else:
         DEVICE = 'cpu'
 
-    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs/config.yaml"), 'r')), Loader=yaml.Loader)
+    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs/config.yaml"), 'r', encoding="utf-8")), Loader=yaml.Loader)
 
     tokenizer_name = config['hf_tokenizer']
     RU_TOKENIZER = AutoTokenizer.from_pretrained(tokenizer_name)
 
-    train_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r'))
-    test_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['test']), 'r'))
+    train_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r', encoding="utf-8"))
+    test_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['test']), 'r', encoding="utf-8"))
 
     train_sparql_list = [sample['masked_sparql_query'] for sample in train_data]
     test_sparql_list = [sample['masked_sparql_query'] for sample in test_data]
