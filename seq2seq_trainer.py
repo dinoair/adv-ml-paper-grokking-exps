@@ -65,7 +65,8 @@ class Seq2SeqTrainer:
 
                 self.wandb_run.log({"train_loss": train_epoch_loss,
                                     "val_loss": val_epoch_loss,
-                                    "val_exact_match": val_exm_epoch_acc})
+                                    "val_exact_match": val_exm_epoch_acc,
+                                    "learning_rate": self.seq2seq_model.scheduler.optimizer.param_groups[0]['lr']})
         except KeyboardInterrupt:
             pass
 
