@@ -28,7 +28,7 @@ class Seq2seqModel(nn.Module):
         decoder_hidden_state = self.encoder.bert_module.pooler.dense.weight.shape[0]
         self.decoder: RecurrentDecoder = RecurrentDecoder(hidden_size=decoder_hidden_state,
                                                           vocab_size=len(target_tokenizer.word2index)).to(self.device)
-        self.attention_head = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index)).to(self.device)
+        self.attention_head = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index), bias=False).to(self.device)
 
         self.softmax = nn.LogSoftmax(dim=1).to(self.device)
 
@@ -61,7 +61,6 @@ class Seq2seqModel(nn.Module):
                                                           hidden_state=decoder_hidden,
                                                           batch_size=self.batch_size)
             # decoder_output - ([1, batch_size, dim])
-
             weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
             # weighted_decoder_output - ([batch_size, dim])
             concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)

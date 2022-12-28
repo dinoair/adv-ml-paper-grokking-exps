@@ -10,8 +10,11 @@ class TransformerBasedEncoder(nn.Module):
         self.bert_module = deepcopy(bert_model)
         self.disable_bert_training()
 
-        if n_last_layers2train >= 1 and n_last_layers2train < len(self.bert_module.encoder.layer):
+        if 1 <= n_last_layers2train < len(self.bert_module.encoder.layer):
             self.modules2train = [*self.bert_module.encoder.layer[-n_last_layers2train:], self.bert_module.pooler]
+        elif n_last_layers2train == len(self.bert_module.encoder.layer):
+            self.modules2train = [*self.bert_module.encoder.layer[-n_last_layers2train:],
+                                  self.bert_module.pooler, self.bert_module.embeddings]
         elif n_last_layers2train == 0:
             self.modules2train = [self.bert_module.pooler]
         elif n_last_layers2train == -1:
