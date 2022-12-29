@@ -19,6 +19,6 @@ run_name: "pooler+decoder on tiny on batch"
 
 # for testing
 save_model_path: "experiments"
-inference_model_name: "last 3 layers+pooler+decoder on base on batch_seq2seq.tar"
+inference_model_name: "last 3 layers+pooler+attention+decoder on base_seq2seq.tar"
 
 predictions_path: "predictions"

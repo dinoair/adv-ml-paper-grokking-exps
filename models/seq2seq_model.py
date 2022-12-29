@@ -80,6 +80,7 @@ class Seq2seqModel(nn.Module):
             else:
                 linear_vocab_proj = self.vocab_projection_layer(decoder_output)
 
+
             target_vocab_distribution = self.softmax(linear_vocab_proj)
             _, top_index = target_vocab_distribution.topk(1)
             decoder_input = top_index.reshape(1, self.batch_size, 1)
