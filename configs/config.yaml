@@ -1,8 +1,8 @@
 ---
 data:
-  train: "dataset/text2sparql_vol_01_train.json"
-  dev: "dataset/text2sparql_vol_01_dev.json"
-  test: "dataset/text2sparql_vol_01_test.json"
+  train: "dataset/lang_var_train_vol_01.json"
+  dev: "dataset/lang_var_dev_vol_01.json"
+  test: "dataset/lang_var_test_vol_01.json"
 
 # for training
 hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
