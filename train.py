@@ -19,12 +19,14 @@ def main():
     else:
         DEVICE = 'cpu'
 
-    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs/config.yaml"), 'r', encoding="utf-8")), Loader=yaml.Loader)
+    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs/config.yaml"), 'r', encoding="utf-8")),
+                       Loader=yaml.Loader)
 
     tokenizer_name = config['hf_tokenizer']
     RU_TOKENIZER = AutoTokenizer.from_pretrained(tokenizer_name)
 
-    train_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r', encoding="utf-8"))
+    train_data = json.load(
+        open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r', encoding="utf-8"))
     dev_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['dev']), 'r', encoding="utf-8"))
 
     train_sparql_list = [sample['masked_sparql_query'] for sample in train_data]
@@ -46,25 +48,26 @@ def main():
                                        question_list=train_questions_list,
                                        sparql_list=train_sparql_list,
                                        dev=DEVICE)
-    
+
     dev_dataset = Text2SparqlDataset(tokenized_question_list=dev_tokenized_questions_list,
-                                   tokenized_sparql_list=dev_tokenized_sparqls_list,
-                                   question_list=dev_questions_list,
-                                   sparql_list=dev_sparql_list,
-                                   dev=DEVICE)
-    
+                                     tokenized_sparql_list=dev_tokenized_sparqls_list,
+                                     question_list=dev_questions_list,
+                                     sparql_list=dev_sparql_list,
+                                     dev=DEVICE)
+
     batch_size = config['batch_size']
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 
-    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
+    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
+                                 total_train_steps=len(train_dataset))
 
     trainer = Seq2SeqTrainer(seq2seq_model=seq2seq_model, config=config)
-    
+
     # если хотим проверить на 1ом батче
-    train_dataloader_sample = [list(train_dataloader)[0]]
-    
-    trainer.train(train_dataloader_sample, train_dataloader_sample)
+    # train_dataloader_sample = [list(train_dataloader)[0]]
+
+    trainer.train(train_dataloader, dev_dataloader)
 
 
 if __name__ == "__main__":

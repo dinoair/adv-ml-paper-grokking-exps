@@ -1,20 +1,21 @@
 ---
 data:
-  train: "dataset/lang_var_train_vol_01.json"
-  dev: "dataset/lang_var_dev_vol_01.json"
-  test: "dataset/lang_var_test_vol_01.json"
+  train: "dataset/language_variation_split/lang_var_train_vol_01.json"
+  dev: "dataset/language_variation_split/lang_var_dev_vol_01.json"
+  test: "dataset/language_variation_split/lang_var_test_vol_01.json"
 
 # for training
 hf_tokenizer: "cointegrated/rubert-tiny"
 hf_transformer: "cointegrated/rubert-tiny"
+enable_attention: True
 
 epochs: 1000
 learning_rate: 0.0001
 num_warmup_steps: 42
 batch_size: 32
-n_last_layers2train: 1
+n_last_layers2train: 0
 
-run_name: "last 3 layers+pooler+decoder on base on batch"
+run_name: "pooler+decoder on tiny on batch"
 
 # for testing
 save_model_path: "experiments"

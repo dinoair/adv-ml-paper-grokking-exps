@@ -11,33 +11,41 @@ from sparql_tokenizer import SPARQLTokenizer
 
 
 class Seq2seqModel(nn.Module):
-    def __init__(self, config: dict, device: str, target_tokenizer: SPARQLTokenizer):
+    def __init__(self, config: dict, device: str, target_tokenizer: SPARQLTokenizer, total_train_steps: int):
         super(Seq2seqModel, self).__init__()
+        self.config = config
         self.device = device
         self.target_tokenizer = target_tokenizer
-        self.batch_size = config['batch_size']
+        self.batch_size = self.config['batch_size']
 
-        hugginface_pretrained_model = config['hf_transformer']
+        hugginface_pretrained_model = self.config['hf_transformer']
         transformer_based_model = AutoModel.from_pretrained(hugginface_pretrained_model)
-        trainable_layers_num = config['n_last_layers2train']
+        trainable_layers_num = self.config['n_last_layers2train']
         self.encoder: TransformerBasedEncoder = TransformerBasedEncoder(transformer_based_model,
                                                                         trainable_layers_num).to(self.device)
-
-        self.attention_module = Seq2seqAttention().to(self.device)
 
         decoder_hidden_state = self.encoder.bert_module.pooler.dense.weight.shape[0]
         self.decoder: RecurrentDecoder = RecurrentDecoder(hidden_size=decoder_hidden_state,
                                                           vocab_size=len(target_tokenizer.word2index)).to(self.device)
-        self.attention_head = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index)).to(self.device)
 
         self.softmax = nn.LogSoftmax(dim=1).to(self.device)
 
         self.optimizer = AdamW([{"params": self.encoder.parameters()},
-                                {"params": self.attention_module.parameters()},
-                                {"params": self.decoder.parameters()},
-                                {"params": self.attention_head.parameters()}])
+                                {"params": self.decoder.parameters()}])
+
+        if self.config['enable_attention']:
+            self.attention_module = Seq2seqAttention().to(self.device)
+            self.optimizer.add_param_group({"params": self.attention_module.parameters()})
+            self.vocab_projection_layer = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index)).to(
+                self.device)
+            self.optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
+        else:
+            self.vocab_projection_layer = nn.Linear(decoder_hidden_state, len(target_tokenizer.word2index)).to(
+                self.device)
+            self.optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
+
         self.scheduler = get_linear_schedule_with_warmup(self.optimizer, config['num_warmup_steps'],
-                                                         self.batch_size * config['epochs'])
+                                                         total_train_steps // self.batch_size * config['epochs'])
         self.criterion = nn.NLLLoss()
 
     def train_on_batch(self, input_data, target_data):
@@ -60,17 +68,19 @@ class Seq2seqModel(nn.Module):
             decoder_output, decoder_hidden = self.decoder(input_data=decoder_input,
                                                           hidden_state=decoder_hidden,
                                                           batch_size=self.batch_size)
-            # decoder_output - ([1, batch_size, dim])
+            # Добавляем взвешивание механизмом внимания
+            if self.config['enable_attention']:
+                # decoder_output - ([1, batch_size, dim])
+                weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
+                # weighted_decoder_output - ([batch_size, dim])
+                concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
+                # concated_attn_decoder - ([batch_size, 2 * dim])
+                linear_vocab_proj = self.vocab_projection_layer(concated_attn_decoder)
+                # concated_attn_decoder - ([batch_size, vocab_size])
+            else:
+                linear_vocab_proj = self.vocab_projection_layer(decoder_output)
 
-            weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
-            # weighted_decoder_output - ([batch_size, dim])
-            concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
-            # concated_attn_decoder - ([batch_size, 2 * dim])
-            linear_vocab_proj = self.attention_head(concated_attn_decoder)
-            # concated_attn_decoder - ([batch_size, vocab_size])
             target_vocab_distribution = self.softmax(linear_vocab_proj)
-            # concated_attn_decoder - ([batch_size, vocab_size])
-
             _, top_index = target_vocab_distribution.topk(1)
             decoder_input = top_index.reshape(1, self.batch_size, 1)
 
@@ -102,15 +112,19 @@ class Seq2seqModel(nn.Module):
                                                               hidden_state=decoder_hidden,
                                                               batch_size=self.batch_size)
 
-                weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
-                # weighted_decoder_output - ([batch_size, dim])
-                concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
-                # concated_attn_decoder - ([batch_size, 2 * dim])
-                linear_vocab_proj = self.attention_head(concated_attn_decoder)
-                # concated_attn_decoder - ([batch_size, vocab_size])
-                target_vocab_distribution = self.softmax(linear_vocab_proj)
-                # concated_attn_decoder - ([batch_size, vocab_size])
+                # Добавляем взвешивание механизмом внимания
+                if self.config['enable_attention']:
+                    # decoder_output - ([1, batch_size, dim])
+                    weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
+                    # weighted_decoder_output - ([batch_size, dim])
+                    concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
+                    # concated_attn_decoder - ([batch_size, 2 * dim])
+                    linear_vocab_proj = self.vocab_projection_layer(concated_attn_decoder)
+                    # concated_attn_decoder - ([batch_size, vocab_size])
+                else:
+                    linear_vocab_proj = self.vocab_projection_layer(decoder_output)
 
+                target_vocab_distribution = self.softmax(linear_vocab_proj)
                 _, top_index = target_vocab_distribution.topk(1)
                 decoder_input = top_index.reshape(1, self.batch_size, 1)
 
