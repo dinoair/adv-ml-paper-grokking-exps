@@ -52,7 +52,8 @@ def main():
     model_checkpoint = torch.load(saved_model_path, map_location=torch.device(DEVICE))
     seq2seq_state_dict = model_checkpoint['model_state_dict']
 
-    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
+    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
+                                 total_train_steps=len(train_sparql_list))
     seq2seq_model.load_state_dict(seq2seq_state_dict)
 
     predictor = Seq2SeqPredictor(seq2seq_model=seq2seq_model, config=config)

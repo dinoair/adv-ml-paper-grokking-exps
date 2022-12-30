@@ -60,7 +60,7 @@ def main():
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 
     seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
-                                 total_train_steps=len(train_dataset))
+                                 total_train_steps=len(train_sparql_list))
 
     trainer = Seq2SeqTrainer(seq2seq_model=seq2seq_model, config=config)
 
