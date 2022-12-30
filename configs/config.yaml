@@ -7,17 +7,18 @@ data:
 # for training
 hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
 hf_transformer: "DeepPavlov/rubert-base-cased-conversational"
+enable_attention: True
 
 epochs: 1000
 learning_rate: 0.0001
-num_warmup_steps: 42
+num_warmup_steps: 10000
 batch_size: 32
-n_last_layers2train: 0
+n_last_layers2train: 3
 
-run_name: "pooler_bert_with_gru_attention_one_batch"
+run_name: "3_layer_bert_decoder_attention_cp"
 
 # for testing
 save_model_path: "experiments"
-inference_model_name: "last 3 layers+pooler+attention+decoder on base_seq2seq.tar"
+inference_model_name: "3_layer_bert_decoder_attention_seq2seq.tar"
 
 predictions_path: "predictions"
