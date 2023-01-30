@@ -1,0 +1,8 @@
+---
+language: "english"
+dataset_path: ""
+save_split_dir_path: "dataset/language_variation_split"
+split_size:
+  train: 0.6
+  dev: 0.2
+  test: 0.2
