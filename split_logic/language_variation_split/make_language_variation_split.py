@@ -11,6 +11,11 @@ LANGUAGE2KEY_MAPPING = {
     "english": "en_question"
 }
 
+LANG_QUESTION2QUESTION_MAPPING = {
+    "ru_question": "question",
+    "en_question": "question",
+}
+
 def split_train_dev_test_by_indexes(index_list, train_frac, dev_frac, test_frac):
     np.random.shuffle(index_list)
 
@@ -56,19 +61,19 @@ if __name__ == "__main__":
     train_samples = []
     for idx in train_dataset_indexes:
         train_sample = dataset[idx]
-        new_train_sample = {key: train_sample[key] for key in expected_keys}
+        new_train_sample = {LANG_QUESTION2QUESTION_MAPPING.get(key, key): train_sample[key] for key in expected_keys}
         train_samples.append(new_train_sample)
 
     dev_samples = []
     for idx in dev_dataset_indexes:
         dev_sample = dataset[idx]
-        new_dev_sample = {key: dev_sample[key] for key in expected_keys}
+        new_dev_sample = {LANG_QUESTION2QUESTION_MAPPING.get(key, key): dev_sample[key] for key in expected_keys}
         dev_samples.append(new_dev_sample)
 
     test_samples = []
     for idx in test_dataset_indexes:
         test_sample = dataset[idx]
-        new_test_sample = {key: test_sample[key] for key in expected_keys}
+        new_test_sample = {LANG_QUESTION2QUESTION_MAPPING.get(key, key): test_sample[key] for key in expected_keys}
         test_samples.append(new_test_sample)
 
     print(f'Train dataset size: {len(train_samples)}')
