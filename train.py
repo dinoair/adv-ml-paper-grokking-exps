@@ -66,6 +66,7 @@ def main():
 
     # если хотим проверить на 1ом батче
     # train_dataloader_sample = [list(train_dataloader)[0]]
+    # trainer.train(train_dataloader_sample, train_dataloader_sample)
 
     trainer.train(train_dataloader, dev_dataloader)
 

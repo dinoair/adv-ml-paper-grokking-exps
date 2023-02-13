@@ -20,6 +20,7 @@ class Seq2SeqPredictor:
 
     def predict(self, dataloader):
         exact_match = 0
+        graph_match = 0
         input_questions = []
         predicted_queries, true_queries = [], []
 
@@ -30,17 +31,20 @@ class Seq2SeqPredictor:
 
             eval_result = self.seq2seq_model.evaluate_batch(input_data, target_data)
 
-            pred_metrics = metrics.calculate_batch_metrics(target_data['original_query'],
-                                                           eval_result['predicted_query'])
+            pred_metrics = metrics.calculate_batch_metrics(eval_result['predicted_query'],
+                                                           target_data['original_query'])
             exact_match += pred_metrics['exact_match']
+            graph_match += pred_metrics['graph_match']
 
             input_questions += input_data['original_question']
             predicted_queries += eval_result['predicted_query']
             true_queries += target_data['original_query']
 
         exact_match = exact_match / len(dataloader)
+        graph_match = graph_match / len(dataloader)
         result_dict = {
             "exact_match_score": exact_match,
+            "graph_match_score": graph_match,
             "predicted_queries": predicted_queries,
             "true_queries": true_queries,
             "input_questions": input_questions

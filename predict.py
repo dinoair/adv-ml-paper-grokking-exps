@@ -61,6 +61,7 @@ def main():
     prediction_result = predictor.predict(test_dataloader)
 
     print('Exact match: ', prediction_result["exact_match_score"])
+    print('Graph match: ', prediction_result["graph_match_score"])
 
 
 if __name__ == "__main__":
