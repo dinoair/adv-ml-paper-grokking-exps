@@ -29,15 +29,15 @@ def main():
         open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r', encoding="utf-8"))
     dev_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['dev']), 'r', encoding="utf-8"))
 
-    train_sparql_list = [sample['masked_sparql_query'] for sample in train_data]
-    dev_sparql_list = [sample['masked_sparql_query'] for sample in dev_data]
+    train_sparql_list = [sample['masked_sparql'] for sample in train_data]
+    dev_sparql_list = [sample['masked_sparql'] for sample in dev_data]
     SPARQL_TOKENIZER = SPARQLTokenizer(train_sparql_list, pad_flag=True)
 
     train_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in train_sparql_list])
     dev_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in dev_sparql_list])
 
-    train_questions_list = [sample['filled_paraphrased_canonical'] for sample in train_data]
-    dev_questions_list = [sample['filled_paraphrased_canonical'] for sample in dev_data]
+    train_questions_list = [sample['question'] for sample in train_data]
+    dev_questions_list = [sample['question'] for sample in dev_data]
 
     train_tokenized_questions_list = RU_TOKENIZER(train_questions_list, return_tensors="pt", padding=True,
                                                   truncation=True)

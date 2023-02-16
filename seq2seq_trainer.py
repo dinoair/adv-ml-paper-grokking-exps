@@ -1,12 +1,12 @@
 import os
 
-import wandb
 from tqdm import tqdm
 
 import utils
 from metrics import calculate_batch_metrics
 from models.seq2seq_model import Seq2seqModel
 from seq2seq_predictor import Seq2SeqPredictor
+from utils import TXTLogger
 
 
 class Seq2SeqTrainer:
@@ -21,23 +21,14 @@ class Seq2SeqTrainer:
         self.predictor = Seq2SeqPredictor(seq2seq_model=seq2seq_model, config=config)
 
         if train_phase:
-            wandb_config = {key: self.config[key] for key in ["learning_rate", "epochs",
-                                                              "batch_size", "hf_transformer",
-                                                              "n_last_layers2train", "batch_size", "run_name"]}
-
-            self.wandb_run = wandb.init(project="text2sparql_language_variation", entity=os.environ['WANDB_LOGIN'],
-                                        config=wandb_config)
-
-            self.wandb_run.name = self.config['run_name']
-
-            self.model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["save_model_path"])
-            if not os.path.exists(self.model_save_path):
-                os.makedirs(self.model_save_path)
+            model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["save_model_path"])
+            self.logger = TXTLogger(work_dir=model_save_path, filename=self.config['run_name'])
 
     def train(self, train_dataloader, val_dataloader):
         epoch = 0
         val_exm_epoch_acc = 0
         val_gm_epoch_acc = 0
+        current_epoch_gm = 0
         try:
             for epoch in tqdm(range(self.epoch_num)):
                 train_epoch_loss = 0
@@ -66,17 +57,26 @@ class Seq2SeqTrainer:
                 val_exm_epoch_acc = val_exm_epoch_acc / len(val_dataloader)
                 val_gm_epoch_acc = val_gm_epoch_acc / len(val_dataloader)
 
-                self.wandb_run.log({"train_loss": train_epoch_loss,
-                                    "val_loss": val_epoch_loss,
-                                    "val_exact_match": val_exm_epoch_acc,
-                                    "val_graph_match": val_gm_epoch_acc,
-                                    "learning_rate": self.seq2seq_model.scheduler.optimizer.param_groups[0]['lr']})
+                self.logger.log({"epoch": epoch,
+                                "train_loss": train_epoch_loss,
+                                "val_loss": val_epoch_loss,
+                                "val_exact_match": val_exm_epoch_acc,
+                                "val_graph_match": val_gm_epoch_acc,
+                                "learning_rate": self.seq2seq_model.encoder_optimizer_scheduler.optimizer.param_groups[0]['lr']})
+                if current_epoch_gm < val_gm_epoch_acc:
+                    current_epoch_gm = val_gm_epoch_acc
+                    utils.save_model(model=self.seq2seq_model,
+                                     optimizer_list=[self.seq2seq_model.encoder_optimizer,
+                                                     self.seq2seq_model.decoder_optimizer],
+                                     path=os.path.join(self.config['save_model_path'],
+                                    f"{self.config['run_name']}_epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_seq2seq.tar"))
         except KeyboardInterrupt:
             pass
 
-        utils.save_model(model=self.seq2seq_model, optimizer=self.seq2seq_model.optimizer,
-                         path=os.path.join(self.config['save_model_path'], f"{self.config['run_name']}_seq2seq.tar"))
+        utils.save_model(model=self.seq2seq_model,
+                         optimizer_list=[self.seq2seq_model.encoder_optimizer, self.seq2seq_model.decoder_optimizer],
+                         path=os.path.join(self.config['save_model_path'],
+                                           f"{self.config['run_name']}_epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_seq2seq.tar"))
         print(f'Dump model to {self.config["save_model_path"]} on {epoch} epoch!')
         print("Last val exact match: ", val_exm_epoch_acc)
         print("Last val graph match: ", val_gm_epoch_acc)
-        self.wandb_run.finish()

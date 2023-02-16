@@ -16,6 +16,7 @@ LANG_QUESTION2QUESTION_MAPPING = {
     "en_question": "question",
 }
 
+
 def split_train_dev_test_by_indexes(index_list, train_frac, dev_frac, test_frac):
     np.random.shuffle(index_list)
 
@@ -44,17 +45,17 @@ if __name__ == "__main__":
     split_dir_saving_path = config['save_split_dir_path']
     saving_path_dir = os.path.join(os.environ['PROJECT_PATH'], split_dir_saving_path)
 
-
     language = config['language']
     assert language in ['russian', 'english']
 
     train_frac, dev_frac, test_frac = config['split_size']['train'], \
-                                      config['split_size']['dev'], \
-                                      config['split_size']['test']
+        config['split_size']['dev'], \
+        config['split_size']['test']
 
-    train_dataset_indexes, dev_dataset_indexes, test_dataset_indexes = split_train_dev_test_by_indexes(list(range(0, len(dataset))),
-                                                                                                    train_frac,
-                                                                                                    dev_frac, test_frac)
+    train_dataset_indexes, dev_dataset_indexes, test_dataset_indexes = split_train_dev_test_by_indexes(
+        list(range(0, len(dataset))),
+        train_frac,
+        dev_frac, test_frac)
 
     expected_keys = [LANGUAGE2KEY_MAPPING[language], 'sparql', 'masked_sparql', 'attribute_mapping_dict', 'source']
 
@@ -80,7 +81,6 @@ if __name__ == "__main__":
     print(f'Dev dataset size: {len(dev_samples)}')
     print(f'Test dataset size: {len(test_samples)}')
 
-
     json.dump(train_samples, open(os.path.join(saving_path_dir, f'{language}_train_split.json'), 'w'),
               ensure_ascii=False, indent=4)
     json.dump(dev_samples, open(os.path.join(saving_path_dir, f'{language}_dev_split.json'), 'w'),
@@ -89,7 +89,3 @@ if __name__ == "__main__":
               ensure_ascii=False, indent=4)
 
     print(f'Splits prepared and saved to {saving_path_dir} !')
-
-
-
-
