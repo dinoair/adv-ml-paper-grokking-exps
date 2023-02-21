@@ -1,21 +1,21 @@
 ---
 data:
-  train: "dataset/language_variation_split/lang_var_train_vol_01.json"
-  dev: "dataset/language_variation_split/lang_var_dev_vol_01.json"
-  test: "dataset/language_variation_split/lang_var_test_vol_01.json"
+  train: "dataset/language_variation_split/english_train_split.json"
+  dev: "dataset/language_variation_split/english_dev_split.json"
+  test: "dataset/language_variation_split/english_test_split.json"
 
 # for training
-hf_tokenizer: "DeepPavlov/rubert-base-cased-conversational"
-hf_transformer: "DeepPavlov/rubert-base-cased-conversational"
+hf_tokenizer: "prajjwal1/bert-tiny"
+hf_transformer: "prajjwal1/bert-tiny"
 enable_attention: True
 
 epochs: 1000
-learning_rate: 0.0001
+learning_rate: 0.001
 num_warmup_steps: 10000
 batch_size: 32
-n_last_layers2train: 3
+n_last_layers2train: 1
 
-run_name: "3_layer_bert_decoder_attention_cp"
+run_name: "2_layer_tiny_bert_one_batch_english_iid"
 
 # for testing
 save_model_path: "experiments"

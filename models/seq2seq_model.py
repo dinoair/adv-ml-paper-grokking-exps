@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 import torch.optim as optim
-from transformers import get_linear_schedule_with_warmup
+from transformers import get_constant_schedule_with_warmup
 from transformers import AutoModel
 
 from models.recurrent_decoder import RecurrentDecoder
@@ -11,7 +11,7 @@ from sparql_tokenizer import SPARQLTokenizer
 
 
 class Seq2seqModel(nn.Module):
-    def __init__(self, config: dict, device: str, target_tokenizer: SPARQLTokenizer, total_train_steps: int):
+    def __init__(self, config: dict, device: str, target_tokenizer: SPARQLTokenizer, total_train_samples: int):
         super(Seq2seqModel, self).__init__()
         self.config = config
         self.device = device
@@ -30,28 +30,27 @@ class Seq2seqModel(nn.Module):
 
         self.softmax = nn.LogSoftmax(dim=1).to(self.device)
 
-        self.encoder_optimizer = optim.AdamW([{"params": self.encoder.parameters()}])
-        self.decoder_optimizer = optim.AdamW([{"params": self.decoder.parameters()}])
-
+        model_params = list(self.encoder.parameters()) + list(self.decoder.parameters())
+        self.optimizer = optim.AdamW(model_params, lr=self.config['learning_rate'])
 
         if self.config['enable_attention']:
             self.attention_module = Seq2seqAttention().to(self.device)
-            self.decoder_optimizer.add_param_group({"params": self.attention_module.parameters()})
+            self.optimizer.add_param_group({"params": self.attention_module.parameters()})
             self.vocab_projection_layer = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index)).to(
                 self.device)
-            self.decoder_optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
+            self.optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
         else:
             self.vocab_projection_layer = nn.Linear(decoder_hidden_state, len(target_tokenizer.word2index)).to(
                 self.device)
-            self.decoder_optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
+            self.optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
 
-        self.encoder_optimizer_scheduler = get_linear_schedule_with_warmup(self.encoder_optimizer, config['num_warmup_steps'],
-                                                         total_train_steps // self.batch_size * config['epochs'])
+        total_train_steps = total_train_samples * config['epochs']
+        self.optimizer_scheduler = get_constant_schedule_with_warmup(optimizer=self.optimizer,
+                                                                   num_warmup_steps=int(total_train_steps * 0.01))
         self.criterion = nn.NLLLoss()
 
     def train_on_batch(self, input_data, target_data):
-        self.encoder_optimizer.zero_grad()
-        self.decoder_optimizer.zero_grad()
+        self.optimizer.zero_grad()
 
         encoder_output = self.encoder(input_data)
 
@@ -90,9 +89,8 @@ class Seq2seqModel(nn.Module):
             loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
 
         loss.backward()
-        self.encoder_optimizer.step()
-        self.encoder_optimizer_scheduler.step()
-        self.decoder_optimizer.step()
+        self.optimizer.step()
+        self.optimizer_scheduler.step()
 
         return loss.item()
 

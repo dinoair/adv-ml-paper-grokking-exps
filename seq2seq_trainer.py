@@ -19,10 +19,9 @@ class Seq2SeqTrainer:
         self.epoch_num = self.config['epochs']
 
         self.predictor = Seq2SeqPredictor(seq2seq_model=seq2seq_model, config=config)
-
+        self.save_dir_path = os.path.join(os.environ["PROJECT_PATH"], self.config['save_model_path'], self.config['run_name'])
         if train_phase:
-            model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["save_model_path"])
-            self.logger = TXTLogger(work_dir=model_save_path, filename=self.config['run_name'])
+            self.logger = TXTLogger(work_dir=self.save_dir_path)
 
     def train(self, train_dataloader, val_dataloader):
         epoch = 0
@@ -62,21 +61,20 @@ class Seq2SeqTrainer:
                                 "val_loss": val_epoch_loss,
                                 "val_exact_match": val_exm_epoch_acc,
                                 "val_graph_match": val_gm_epoch_acc,
-                                "learning_rate": self.seq2seq_model.encoder_optimizer_scheduler.optimizer.param_groups[0]['lr']})
+                                "learning_rate": self.seq2seq_model.optimizer_scheduler.optimizer.param_groups[0]['lr']})
                 if current_epoch_gm < val_gm_epoch_acc:
                     current_epoch_gm = val_gm_epoch_acc
                     utils.save_model(model=self.seq2seq_model,
-                                     optimizer_list=[self.seq2seq_model.encoder_optimizer,
-                                                     self.seq2seq_model.decoder_optimizer],
-                                     path=os.path.join(self.config['save_model_path'],
-                                    f"{self.config['run_name']}_epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_seq2seq.tar"))
+                                     optimizer_list=[self.seq2seq_model.optimizer],
+                                     dir_path=self.save_dir_path,
+                                     filename=f"epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_seq2seq.tar")
         except KeyboardInterrupt:
             pass
 
         utils.save_model(model=self.seq2seq_model,
-                         optimizer_list=[self.seq2seq_model.encoder_optimizer, self.seq2seq_model.decoder_optimizer],
-                         path=os.path.join(self.config['save_model_path'],
-                                           f"{self.config['run_name']}_epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_seq2seq.tar"))
+                         optimizer_list=[self.seq2seq_model.optimizer],
+                         dir_path=self.save_dir_path,
+                         filename=f"epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_seq2seq.tar")
         print(f'Dump model to {self.config["save_model_path"]} on {epoch} epoch!')
         print("Last val exact match: ", val_exm_epoch_acc)
         print("Last val graph match: ", val_gm_epoch_acc)

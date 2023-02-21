@@ -1,16 +1,18 @@
-import json
 import re
 import os
 import torch
 import json
 
 
-def save_model(model, optimizer_list, path):
+def save_model(model, optimizer_list, dir_path, filename):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+    model_save_path = os.path.join(dir_path, filename)
     save_dict = {'model_state_dict': model.state_dict()}
     for idx, opt in enumerate(optimizer_list):
         save_dict[f"optimizer_{idx}"] = opt
-    torch.save(save_dict, path)
-    return f"Saved model to {path}"
+    torch.save(save_dict, model_save_path)
+    return f"Saved model to {model_save_path}"
 
 
 def save_dict(d, path):
@@ -29,9 +31,9 @@ def get_triplet_from_sparql(sparql_query):
 
 
 class TXTLogger:
-    def __init__(self, work_dir, filename):
+    def __init__(self, work_dir):
         self.save_dir = work_dir
-        self.filename = filename
+        self.filename = "progress_log.txt"
 
         if not os.path.exists(self.save_dir):
             os.makedirs(self.save_dir)

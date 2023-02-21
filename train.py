@@ -59,14 +59,14 @@ def main():
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
     dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
 
-    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
-                                 total_train_steps=len(train_sparql_list))
-
-    trainer = Seq2SeqTrainer(seq2seq_model=seq2seq_model, config=config)
 
     # если хотим проверить на 1ом батче
     # train_dataloader_sample = [list(train_dataloader)[0]]
-    # trainer.train(train_dataloader_sample, train_dataloader_sample)
+
+    seq2seq_model = Seq2seqModel(config=config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
+                                 total_train_samples=len(train_dataloader) * batch_size)
+
+    trainer = Seq2SeqTrainer(seq2seq_model=seq2seq_model, config=config)
 
     trainer.train(train_dataloader, dev_dataloader)
 
