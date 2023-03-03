@@ -73,7 +73,8 @@ def main():
         train_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in train_sparql_list])
         dev_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in dev_sparql_list])
 
-        seq2seq = Seq2seqModel(model_config=model_config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER)
+        seq2seq = Seq2seqModel(model_config=model_config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
+                               train_dataset_size=len(train_questions_list))
         trainer = Seq2SeqTrainer(seq2seq_model=seq2seq, config=config, model_config=model_config)
         target_tokenizer = SPARQL_TOKENIZER
 

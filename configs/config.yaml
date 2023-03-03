@@ -5,21 +5,24 @@ data:
   test: "dataset/language_variation_split/english_test_split.json"
 
 model:
-  used_model: "vanilla"
+  used_model: "t5"
   vanilla:
-    tokenizer: "cointegrated/rubert-tiny"
-    model: "cointegrated/rubert-tiny"
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/bert_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/bert_base"
     enable_attention: True
     epochs_num: 1000
-    learning_rate: 0.0001
-    warmup_steps: 10000
+    bert_finetune_rate: 0.00006
+    learning_rate: 0.0005
+    bert_warmup_init_finetuning_learning_rate: 0.00003
+    warm_up_init_learning_rate: 0.0005
+    warmup_steps: 4000
     batch_size: 32
     n_last_layers2train: 1
   t5:
-    tokenizer: "t5-small"
-    model: "t5-small"
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/t5_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/t5_base"
     epochs_num: 1000
-    learning_rate: 0.0001
+    learning_rate: 0.001
     warmup_steps: 1000
     batch_size: 32
 

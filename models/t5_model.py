@@ -1,8 +1,9 @@
 import torch
 from torch import nn
-import torch.optim as optim
 from torch.nn import CrossEntropyLoss
 from transformers import T5ForConditionalGeneration
+from transformers.optimization import Adafactor
+
 
 
 class T5Model(nn.Module):
@@ -16,8 +17,8 @@ class T5Model(nn.Module):
         hugginface_pretrained_model = self.model_config['model']
         self.t5_model = T5ForConditionalGeneration.from_pretrained(hugginface_pretrained_model).to(self.device)
         self.t5_model.resize_token_embeddings(len(tokenizer))
-
-        self.optimizer = optim.AdamW(self.t5_model.parameters(), lr=self.model_config['learning_rate'])
+        # as in https://arxiv.org/pdf/1910.10683.pdf for fine-tuning
+        self.optimizer = Adafactor(self.t5_model.parameters(), lr=self.model_config['learning_rate'], relative_step=False)
         self.criterion = CrossEntropyLoss(ignore_index=-100)
 
     def train_on_batch(self, input_data, target_data):
