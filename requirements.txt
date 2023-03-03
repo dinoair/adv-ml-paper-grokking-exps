@@ -2,4 +2,5 @@ torch==1.10.2
 transformers==4.20.1
 tqdm
 PyYAML
-wandb==0.13.5
+sentencepiece
+protobuf==3.20.1

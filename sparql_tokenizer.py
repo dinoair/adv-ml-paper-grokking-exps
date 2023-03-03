@@ -3,11 +3,12 @@ class SPARQLTokenizer:
         self.pad_flag = pad_flag
         self.word2index = {}
         self.word2count = {}
-        self.index2word = {0: "SOS", 1: "EOS", 2: "UNK", 3: "PAD"}
-        self.word2index = {"SOS": 0, "EOS": 1, "UNK": 2, 'PAD': 3}
+        self.index2word = {0: "SOS", 1: "EOS", 2: "UNK", 3: "PAD", 4:" "}
+        self.word2index = {"SOS": 0, "EOS": 1, "UNK": 2, 'PAD': 3, " ":4}
         self.n_words = len(self.word2index)
         self.predicates_count = dict()
         self.max_sent_len = -1
+        self.special_tokens_set = {'SOS', 'EOS', 'PAD'}
 
         for sent in language_list:
             self.add_query(sent)
@@ -16,7 +17,7 @@ class SPARQLTokenizer:
                 if sent_words_amount > self.max_sent_len:
                     self.max_sent_len = sent_words_amount
 
-        print(f'Tokenizer fitted - {len(self.word2index)} tokens')
+        print(f'SPARQL tokenizer fitted - {len(self.word2index)} tokens')
 
     def add_query(self, sentence):
         for word in sentence.split(' '):
@@ -61,7 +62,10 @@ class SPARQLTokenizer:
 
     def decode(self, token_list):
         predicted_tokens = []
-        for token_id in token_list:
-            predicted_tokens.append(self.index2word[token_id])
 
-        return predicted_tokens
+        for token_id in token_list:
+            predicted_token = self.index2word[token_id]
+            predicted_tokens.append(predicted_token)
+        filtered_tokens = list(filter(lambda x: x not in self.special_tokens_set, predicted_tokens))
+
+        return filtered_tokens

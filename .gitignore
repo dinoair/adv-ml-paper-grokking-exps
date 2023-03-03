@@ -1,8 +1,8 @@
 .idea
 __pycache__
 experiments
-wandb
 .ipynb_checkpoints
 *.ipynb
 predictions
 .DS_Store
+.pytest_cache

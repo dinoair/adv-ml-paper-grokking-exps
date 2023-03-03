@@ -4,18 +4,26 @@ data:
   dev: "dataset/language_variation_split/english_dev_split.json"
   test: "dataset/language_variation_split/english_test_split.json"
 
-# for training
-hf_tokenizer: "prajjwal1/bert-tiny"
-hf_transformer: "prajjwal1/bert-tiny"
-enable_attention: True
+model:
+  used_model: "vanilla"
+  vanilla:
+    tokenizer: "cointegrated/rubert-tiny"
+    model: "cointegrated/rubert-tiny"
+    enable_attention: True
+    epochs_num: 1000
+    learning_rate: 0.0001
+    warmup_steps: 10000
+    batch_size: 32
+    n_last_layers2train: 1
+  t5:
+    tokenizer: "t5-small"
+    model: "t5-small"
+    epochs_num: 1000
+    learning_rate: 0.0001
+    warmup_steps: 1000
+    batch_size: 32
 
-epochs: 1000
-learning_rate: 0.001
-num_warmup_steps: 10000
-batch_size: 32
-n_last_layers2train: 1
-
-run_name: "1_layer_tiny_bert_one_batch_english_iid"
+run_name: "t5_one_batch_test_run"
 
 # for testing
 save_model_path: "experiments"

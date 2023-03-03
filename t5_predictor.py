@@ -1,16 +1,12 @@
+from models.t5_model import T5Model
 import os
-
 from tqdm import tqdm
-
-import metrics
+from metrics import calculate_batch_metrics
 import utils
 
-from models.seq2seq_model import Seq2seqModel
-
-
-class Seq2SeqPredictor:
-    def __init__(self, seq2seq_model: Seq2seqModel, config):
-        self.seq2seq_model = seq2seq_model
+class T5Predictor:
+    def __init__(self, t5_model: T5Model, config):
+        self.t5_model = t5_model
         self.config = config
 
         self.model_save_path = os.path.join(os.environ["PROJECT_PATH"], self.config["predictions_path"])
@@ -23,14 +19,12 @@ class Seq2SeqPredictor:
         input_questions = []
         predicted_queries, true_queries = [], []
 
-        self.seq2seq_model.encoder.disable_bert_training()
-        self.seq2seq_model.eval()
         for batch in tqdm(dataloader):
             input_data, target_data = batch['nl'], batch['sparql']
 
-            eval_result = self.seq2seq_model.evaluate_batch(input_data, target_data)
+            eval_result = self.t5_model.evaluate_batch(input_data, target_data)
 
-            pred_metrics = metrics.calculate_batch_metrics(eval_result['predicted_query'],
+            pred_metrics = calculate_batch_metrics(eval_result['predicted_query'],
                                                            target_data['original_query'])
             exact_match += pred_metrics['exact_match']
             graph_match += pred_metrics['graph_match']

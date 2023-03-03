@@ -1,4 +1,5 @@
 import torch
+import numpy as np
 from torch import nn
 import torch.optim as optim
 from transformers import get_constant_schedule_with_warmup
@@ -11,16 +12,16 @@ from sparql_tokenizer import SPARQLTokenizer
 
 
 class Seq2seqModel(nn.Module):
-    def __init__(self, config: dict, device: str, target_tokenizer: SPARQLTokenizer, total_train_samples: int):
+    def __init__(self, model_config: dict, device: str, target_tokenizer: SPARQLTokenizer):
         super(Seq2seqModel, self).__init__()
-        self.config = config
+        self.model_config = model_config
         self.device = device
         self.target_tokenizer = target_tokenizer
-        self.batch_size = self.config['batch_size']
+        self.batch_size = self.model_config['batch_size']
 
-        hugginface_pretrained_model = self.config['hf_transformer']
+        hugginface_pretrained_model = self.model_config['model']
         transformer_based_model = AutoModel.from_pretrained(hugginface_pretrained_model)
-        trainable_layers_num = self.config['n_last_layers2train']
+        trainable_layers_num = self.model_config['n_last_layers2train']
         self.encoder: TransformerBasedEncoder = TransformerBasedEncoder(transformer_based_model,
                                                                         trainable_layers_num).to(self.device)
 
@@ -31,9 +32,9 @@ class Seq2seqModel(nn.Module):
         self.softmax = nn.LogSoftmax(dim=1).to(self.device)
 
         model_params = list(self.encoder.parameters()) + list(self.decoder.parameters())
-        self.optimizer = optim.AdamW(model_params, lr=self.config['learning_rate'])
+        self.optimizer = optim.AdamW(model_params, lr=self.model_config['learning_rate'])
 
-        if self.config['enable_attention']:
+        if self.model_config['enable_attention']:
             self.attention_module = Seq2seqAttention().to(self.device)
             self.optimizer.add_param_group({"params": self.attention_module.parameters()})
             self.vocab_projection_layer = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index)).to(
@@ -44,9 +45,8 @@ class Seq2seqModel(nn.Module):
                 self.device)
             self.optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
 
-        total_train_steps = total_train_samples * config['epochs']
         self.optimizer_scheduler = get_constant_schedule_with_warmup(optimizer=self.optimizer,
-                                                                   num_warmup_steps=int(total_train_steps * 0.01))
+                                                                     num_warmup_steps=1000)
         self.criterion = nn.NLLLoss()
 
     def train_on_batch(self, input_data, target_data):
@@ -70,7 +70,7 @@ class Seq2seqModel(nn.Module):
                                                           hidden_state=decoder_hidden,
                                                           batch_size=self.batch_size)
             # Добавляем взвешивание механизмом внимания
-            if self.config['enable_attention']:
+            if self.model_config['enable_attention']:
                 # decoder_output - ([1, batch_size, dim])
                 weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
                 # weighted_decoder_output - ([batch_size, dim])
@@ -94,7 +94,7 @@ class Seq2seqModel(nn.Module):
 
         return loss.item()
 
-    def evaluate_batch(self, input_data, target_data=None):
+    def evaluate_batch(self, input_data, target_data):
         result_dict = dict()
 
         with torch.no_grad():
@@ -115,7 +115,7 @@ class Seq2seqModel(nn.Module):
                                                               batch_size=self.batch_size)
 
                 # Добавляем взвешивание механизмом внимания
-                if self.config['enable_attention']:
+                if self.model_config['enable_attention']:
                     # decoder_output - ([1, batch_size, dim])
                     weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
                     # weighted_decoder_output - ([batch_size, dim])
@@ -130,26 +130,21 @@ class Seq2seqModel(nn.Module):
                 _, top_index = target_vocab_distribution.topk(1)
                 decoder_input = top_index.reshape(1, self.batch_size, 1)
 
-                if target_data is not None:
-                    target_tensor = target_data['input_ids'].view(self.batch_size,
-                                                                  self.target_tokenizer.max_sent_len, 1)
-                    loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
+                target_tensor = target_data['input_ids'].view(self.batch_size,
+                                                              self.target_tokenizer.max_sent_len, 1)
+                loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
                 decoder_result_list.append(list(decoder_input.flatten().cpu().numpy()))
 
-            if target_data is not None:
-                result_dict['loss'] = loss.item()
+            result_dict['loss'] = loss.item()
+            decoder_result_transposed = np.array(decoder_result_list).T
+            decoder_result_transposed_lists = [list(array) for array in decoder_result_transposed]
 
-            batch_preds_list = [[] for _ in range(self.batch_size)]
-            for batch in decoder_result_list:
-                for idx, sample_idx in enumerate(batch):
-                    query_token = self.target_tokenizer.index2word[sample_idx]
-                    batch_preds_list[idx].append(query_token)
+            decoded_query_list = []
+            for sample in decoder_result_transposed_lists:
+                decoded_query_tokens = self.target_tokenizer.decode(sample)
+                query = " ".join(decoded_query_tokens)
+                decoded_query_list.append(query)
 
-            for idx in range(self.batch_size):
-                filtered_sample = list(filter(lambda x: x not in ['SOS', 'EOS', 'PAD'], batch_preds_list[idx]))
-                query = " ".join(filtered_sample)
-                batch_preds_list[idx] = query
-
-            result_dict['predicted_query'] = batch_preds_list
+            result_dict['predicted_query'] = decoded_query_list
 
         return result_dict
