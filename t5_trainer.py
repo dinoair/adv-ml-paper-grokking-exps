@@ -19,6 +19,7 @@ class T5Trainer:
                                           self.config['run_name'])
         if train_phase:
             self.logger = utils.TXTLogger(work_dir=self.save_dir_path)
+            self.logger.log(self.model_config)
 
     def train(self, train_dataloader, val_dataloader):
         epoch = 0

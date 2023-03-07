@@ -21,6 +21,7 @@ class Seq2SeqTrainer:
         self.save_dir_path = os.path.join(os.environ["PROJECT_PATH"], self.config['save_model_path'], self.config['run_name'])
         if train_phase:
             self.logger = TXTLogger(work_dir=self.save_dir_path)
+            self.logger.log(self.model_config)
 
     def train(self, train_dataloader, val_dataloader):
         epoch = 0
