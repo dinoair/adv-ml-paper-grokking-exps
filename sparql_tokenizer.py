@@ -6,7 +6,6 @@ class SPARQLTokenizer:
         self.index2word = {0: "SOS", 1: "EOS", 2: "UNK", 3: "PAD", 4:" "}
         self.word2index = {"SOS": 0, "EOS": 1, "UNK": 2, 'PAD': 3, " ":4}
         self.n_words = len(self.word2index)
-        self.predicates_count = dict()
         self.max_sent_len = -1
         self.special_tokens_set = {'SOS', 'EOS', 'PAD'}
 
@@ -29,16 +28,9 @@ class SPARQLTokenizer:
             else:
                 self.word2count[word] += 1
 
-            if word.startswith('dr:') or word.startswith('wdt:'):
-                if word in self.predicates_count:
-                    self.predicates_count[word] += 1
-                else:
-                    self.predicates_count[word] = 1
-
     def pad_sent(self, token_ids_list):
         if len(token_ids_list) < self.max_sent_len:
-            padded_token_ids_list = token_ids_list + [self.word2index['PAD']] * (
-                        self.max_sent_len - len(token_ids_list))
+            padded_token_ids_list = token_ids_list + [self.word2index['EOS']] + [self.word2index['PAD']] * (self.max_sent_len - len(token_ids_list) - 1)
         else:
             padded_token_ids_list = token_ids_list[:self.max_sent_len - 1] + [self.word2index['EOS']]
         return padded_token_ids_list

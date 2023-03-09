@@ -58,7 +58,7 @@ def main():
         train_tokenized_questions_list = t5_tokenizer(text_list=train_questions_list, max_length=512)
         dev_tokenized_questions_list = t5_tokenizer(text_list=dev_questions_list, max_length=512)
         train_tokenized_sparqls_list = t5_tokenizer(text_list=train_sparql_list, max_length=128)
-        dev_tokenized_sparqls_list = t5_tokenizer(dev_sparql_list, max_length=128)
+        dev_tokenized_sparqls_list = t5_tokenizer(text_list=dev_sparql_list, max_length=128)
 
         t5_model = T5Model(model_config=model_config, device=DEVICE, tokenizer=t5_tokenizer)
         trainer = T5Trainer(t5_model=t5_model, config=config, model_config=model_config)
@@ -66,9 +66,9 @@ def main():
 
     elif model_name == 'vanilla':
         tokenizer = AutoTokenizer.from_pretrained(model_config['tokenizer'])
-        train_tokenized_questions_list = tokenizer(train_questions_list, padding="max_length",
+        train_tokenized_questions_list = tokenizer(train_questions_list, padding="longest", max_length=512,
                                                    truncation=True, return_token_type_ids=True)
-        dev_tokenized_questions_list = tokenizer(dev_questions_list, padding="max_length",
+        dev_tokenized_questions_list = tokenizer(dev_questions_list, padding="longest", max_length=512,
                                                  truncation=True, return_token_type_ids=True)
         train_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in train_sparql_list])
         dev_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in dev_sparql_list])
@@ -101,7 +101,7 @@ def main():
     # если хотим проверить на 1ом батче
     # train_dataloader_sample = [list(train_dataloader)[0]]
 
-    trainer.train(train_dataloader, dev_dataloader)
+    trainer.train(dev_dataloader, dev_dataloader)
 
 
 if __name__ == "__main__":

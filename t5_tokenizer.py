@@ -11,7 +11,7 @@ class T5Tokenizer:
         self.index2word = dict()
         self.built_token_mapping()
 
-        self.t5_underscore_token = self.index2word[3]
+        self.t5_underscore_token = '▁'
         self.special_tokens_set = set(["SOS", "EOS", "UNK", "PAD", " ", self.t5_underscore_token])
         self.special_tokens_set.update(set(self.hf_tokenizer.all_special_tokens))
 
