@@ -14,6 +14,7 @@ import lr_scheduler
 class Seq2seqModel(nn.Module):
     def __init__(self, model_config: dict, device: str, target_tokenizer: SPARQLTokenizer, train_dataset_size):
         super(Seq2seqModel, self).__init__()
+        self.model_name = "vanilla"
         self.model_config = model_config
         self.device = device
         self.target_tokenizer = target_tokenizer
@@ -56,6 +57,7 @@ class Seq2seqModel(nn.Module):
         self.criterion = nn.NLLLoss()
 
     def train_on_batch(self, input_data, target_data):
+        self.encoder.enable_bert_layers_training()
         self.optimizer.zero_grad()
 
         encoder_output = self.encoder(input_data)
@@ -101,6 +103,7 @@ class Seq2seqModel(nn.Module):
         return loss.item()
 
     def evaluate_batch(self, input_data, target_data):
+        self.encoder.disable_bert_training()
         result_dict = dict()
 
         with torch.no_grad():

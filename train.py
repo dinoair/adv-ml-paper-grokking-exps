@@ -7,12 +7,11 @@ import yaml
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 
-from seq2seq_dataset import Text2SparqlDataset
-from seq2seq_trainer import Seq2SeqTrainer
+from text2sparql_dataset import Text2SparqlDataset
 from sparql_tokenizer import SPARQLTokenizer
 from models.seq2seq_model import Seq2seqModel
 from models.t5_model import T5Model
-from t5_trainer import T5Trainer
+from trainer import Trainer
 from t5_tokenizer import T5Tokenizer
 
 
@@ -61,7 +60,7 @@ def main():
         dev_tokenized_sparqls_list = t5_tokenizer(text_list=dev_sparql_list, max_length=128)
 
         t5_model = T5Model(model_config=model_config, device=DEVICE, tokenizer=t5_tokenizer)
-        trainer = T5Trainer(t5_model=t5_model, config=config, model_config=model_config)
+        trainer = Trainer(model=t5_model, config=config, model_config=model_config)
         target_tokenizer = t5_tokenizer
 
     elif model_name == 'vanilla':
@@ -75,7 +74,7 @@ def main():
 
         seq2seq = Seq2seqModel(model_config=model_config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
                                train_dataset_size=len(train_questions_list))
-        trainer = Seq2SeqTrainer(seq2seq_model=seq2seq, config=config, model_config=model_config)
+        trainer = Trainer(model=seq2seq, config=config, model_config=model_config)
         target_tokenizer = SPARQL_TOKENIZER
 
     train_dataset = Text2SparqlDataset(tokenized_question_list=train_tokenized_questions_list,
@@ -95,13 +94,13 @@ def main():
                                      dev=DEVICE)
 
     train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
-    dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=True, drop_last=True)
+    dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
 
 
     # если хотим проверить на 1ом батче
     # train_dataloader_sample = [list(train_dataloader)[0]]
 
-    trainer.train(dev_dataloader, dev_dataloader)
+    trainer.train(train_dataloader, dev_dataloader)
 
 
 if __name__ == "__main__":

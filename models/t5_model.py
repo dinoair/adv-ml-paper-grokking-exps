@@ -9,6 +9,7 @@ from transformers.optimization import Adafactor
 class T5Model(nn.Module):
     def __init__(self, model_config, device, tokenizer):
         super(T5Model, self).__init__()
+        self.model_name = "T5"
         self.model_config = model_config
         self.device = device
         self.tokenizer = tokenizer
