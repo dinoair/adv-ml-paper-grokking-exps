@@ -1,8 +1,8 @@
+import json
 import os.path
 
-import yaml
-import json
 import numpy as np
+import yaml
 
 np.random.seed(42)
 

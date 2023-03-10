@@ -1,5 +1,7 @@
 import unittest
+
 import torch
+
 from models.seq2seq_attention import Seq2seqAttention
 
 

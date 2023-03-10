@@ -1,5 +1,5 @@
-from torch import nn
 import torch
+from torch import nn
 
 
 class Seq2seqAttention(nn.Module):

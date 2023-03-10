@@ -1,5 +1,3 @@
-import re
-
 from graph_match import Graph
 from utils import get_triplet_from_sparql
 

@@ -1,7 +1,8 @@
-import re
-import os
-import torch
 import json
+import os
+import re
+
+import torch
 
 
 def save_model(model, optimizer_list, dir_path, filename):

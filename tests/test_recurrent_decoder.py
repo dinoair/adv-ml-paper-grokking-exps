@@ -1,4 +1,5 @@
 import unittest
+
 import torch
 
 from models.recurrent_decoder import RecurrentDecoder

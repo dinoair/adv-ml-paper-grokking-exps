@@ -7,12 +7,12 @@ import yaml
 from torch.utils.data import DataLoader
 from transformers import AutoTokenizer
 
-from text2sparql_dataset import Text2SparqlDataset
-from sparql_tokenizer import SPARQLTokenizer
 from models.seq2seq_model import Seq2seqModel
 from models.t5_model import T5Model
-from trainer import Trainer
+from sparql_tokenizer import SPARQLTokenizer
 from t5_tokenizer import T5Tokenizer
+from text2sparql_dataset import Text2SparqlDataset
+from trainer import Trainer
 
 
 def main():

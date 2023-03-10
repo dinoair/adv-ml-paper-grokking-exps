@@ -1,14 +1,14 @@
-import torch
 import numpy as np
-from torch import nn
+import torch
 import torch.optim as optim
+from torch import nn
 from transformers import AutoModel
 
+import lr_scheduler
 from models.recurrent_decoder import RecurrentDecoder
 from models.seq2seq_attention import Seq2seqAttention
 from models.transformer_based_encoder import TransformerBasedEncoder
 from sparql_tokenizer import SPARQLTokenizer
-import lr_scheduler
 
 
 class Seq2seqModel(nn.Module):

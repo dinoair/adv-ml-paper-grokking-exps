@@ -1,7 +1,9 @@
-from tqdm import tqdm
-from metrics import calculate_batch_metrics
-import utils
 import os
+
+from tqdm import tqdm
+
+import utils
+from metrics import calculate_batch_metrics
 
 
 class Trainer:
@@ -16,6 +18,8 @@ class Trainer:
                                           self.config['run_name'])
         if train_phase:
             self.logger = utils.TXTLogger(work_dir=self.save_dir_path)
+            self.model_config['model_name'] = self.model.model_name
+            utils.save_dict(self.model_config, os.path.join(self.save_dir_path, 'model_config.json'))
             self.logger.log(self.model_config)
 
     def train(self, train_dataloader, val_dataloader):
