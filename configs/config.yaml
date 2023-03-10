@@ -1,14 +1,14 @@
 ---
 data:
-  train: "dataset/language_variation_split/english_train_split.json"
-  dev: "dataset/language_variation_split/english_dev_split.json"
-  test: "dataset/language_variation_split/english_test_split.json"
+  train: "dataset/language_variation_split/russian_train_split.json"
+  dev: "dataset/language_variation_split/russian_dev_split.json"
+  test: "dataset/language_variation_split/russian_test_split.json"
 
 model:
   used_model: "t5"
   vanilla:
-    tokenizer: "/home/etutubalina/somov-od/pretrained_models/bert_base_tokenizer"
-    model: "/home/etutubalina/somov-od/pretrained_models/bert_base"
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/ru_bert_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/ru_bert_base"
     enable_attention: True
     epochs_num: 1000
     bert_finetune_rate: 0.00006
@@ -17,19 +17,17 @@ model:
     warm_up_init_learning_rate: 0.0005
     warmup_steps: 4000
     batch_size: 32
-    n_last_layers2train: 1
+    n_last_layers2train: 12
   t5:
-    tokenizer: "/home/etutubalina/somov-od/pretrained_models/t5_base_tokenizer"
-    model: "/home/etutubalina/somov-od/pretrained_models/t5_base"
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/ruT5_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/ruT5_base"
     epochs_num: 1000
     learning_rate: 0.001
     warmup_steps: 1000
     batch_size: 32
 
-run_name: "t5_one_batch_test_run"
+run_name: "ru_iid_t5_run"
 
 # for testing
 save_model_path: "experiments"
-inference_model_name: "3_layer_bert_decoder_attention_seq2seq.tar"
-
-predictions_path: "predictions"
+inference_model_name: "en_iid_t5_run_test/epoch_0_gm_0_em_0_t5.tar"
