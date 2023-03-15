@@ -16,6 +16,20 @@ def extract_predicates(sparql_query):
     predicates_list = extract_predicates_fn(sparql_query)
     return predicates_list
 
+def extract_dataset_predicates(queries_list):
+    predicates_list = []
+    for sparql_query in queries_list:
+        predicates_list += extract_predicates(sparql_query)
+    predicates_set = set(predicates_list)
+    return predicates_set
+
+def build_whole_vocab_set(queries_list):
+    queries_tokens = set()
+    for query in queries_list:
+        queries_tokens.update(query.split())
+    queries_tokens_set = list(queries_tokens)
+    return queries_tokens_set
+
 
 def split_train_dev_test_by_indexes(index_list, train_frac, dev_frac, test_frac):
     index_len = len(index_list)

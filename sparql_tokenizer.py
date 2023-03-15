@@ -1,32 +1,35 @@
+import json
+
+
 class SPARQLTokenizer:
-    def __init__(self, language_list, pad_flag):
+    def __init__(self, query_list, vocab_path, pad_flag):
         self.pad_flag = pad_flag
         self.word2index = {}
         self.word2count = {}
-        self.index2word = {0: "SOS", 1: "EOS", 2: "UNK", 3: "PAD", 4:" "}
-        self.word2index = {"SOS": 0, "EOS": 1, "UNK": 2, 'PAD': 3, " ":4}
+        self.index2word = {0: "SOS", 1: "EOS", 2: "UNK", 3: "PAD", 4: " "}
+        self.word2index = {"SOS": 0, "EOS": 1, "UNK": 2, 'PAD': 3, " ": 4}
         self.n_words = len(self.word2index)
         self.max_sent_len = -1
         self.special_tokens_set = {'SOS', 'EOS', 'PAD'}
 
-        for sent in language_list:
-            self.add_query(sent)
-            if pad_flag:
-                sent_words_amount = len(sent.split())
-                if sent_words_amount > self.max_sent_len:
-                    self.max_sent_len = sent_words_amount
+        self.load_vocab(vocab_path)
+        for sent in query_list:
+            sent_words_amount = len(sent.split())
+            if sent_words_amount > self.max_sent_len:
+                self.max_sent_len = sent_words_amount
 
         print(f'SPARQL tokenizer fitted - {len(self.word2index)} tokens')
 
-    def add_query(self, sentence):
-        for word in sentence.split(' '):
-            if word not in self.word2index:
-                self.word2index[word] = self.n_words
-                self.word2count[word] = 1
-                self.index2word[self.n_words] = word
+    def load_vocab(self, dir_path):
+        token_list = json.load(open(dir_path, 'r'))
+        for token in token_list:
+            if token not in self.word2index:
+                self.word2index[token] = self.n_words
+                self.word2count[token] = 1
+                self.index2word[self.n_words] = token
                 self.n_words += 1
             else:
-                self.word2count[word] += 1
+                self.word2count[token] += 1
 
     def pad_sent(self, token_ids_list):
         if len(token_ids_list) < self.max_sent_len:

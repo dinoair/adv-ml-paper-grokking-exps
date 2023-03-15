@@ -24,6 +24,8 @@ if __name__ == '__main__':
     dataset = json.load(open(dataset_path, 'r', encoding='utf-8'))
     np.random.shuffle(dataset)
 
+    query_vocab_set = split_utils.build_whole_vocab_set([sample['masked_sparql'] for sample in dataset])
+
     chernoff_alpha_coef = config['alpha']
     language = config['language']
     assert language in ['russian', 'english']
@@ -49,19 +51,17 @@ if __name__ == '__main__':
     if config['load_compounds_from_file']:
         atoms_and_compound_cache_handler.load_cache(saving_path_dir)
 
-    train_size = config['split_size']['train']
-    dev_size = config['split_size']['dev']
-    test_size = config['split_size']['test']
+    train_frac, dev_frac, test_frac = config['split_size']['train'], \
+                                      config['split_size']['dev'], \
+                                      config['split_size']['test']
 
-    train_samples = updated_dataset[:int(round(train_size * len(updated_dataset)))]
-    test_samples = updated_dataset[int(round(train_size * len(updated_dataset))):]
+    train_samples = updated_dataset[:int(round(train_frac * len(updated_dataset)))]
+    test_samples = updated_dataset[int(round(train_frac * len(updated_dataset))):]
 
     train_tokens = []
     for sample in train_samples:
         train_tokens += sample['masked_sparql'].split()
     train_tokens_set = set(train_tokens)
-    cleaned_test_samples = split_utils.check_and_clear_dataset(dataset_sample=test_samples,
-                                                               target_dataset_tokens_set=train_tokens_set)
 
     tmcd_train, tmcd_test = tmcd_utils.swap_examples(
         train_samples,
@@ -75,8 +75,8 @@ if __name__ == '__main__':
         coef=chernoff_alpha_coef
     )
 
-    tmcd_dev = tmcd_test[:int(round(dev_size * len(updated_dataset)))]
-    tmcd_test = tmcd_test[int(round(dev_size * len(updated_dataset))):]
+    tmcd_dev = tmcd_test[:int(round(dev_frac * len(updated_dataset)))]
+    tmcd_test = tmcd_test[int(round(dev_frac * len(updated_dataset))):]
 
     print(f'Train dataset size: {len(tmcd_train)}')
     print(f'Dev dataset size: {len(tmcd_dev)}')
@@ -91,6 +91,9 @@ if __name__ == '__main__':
     json.dump(tmcd_test,
               open(os.path.join(saving_path_dir, f'{language}_test_split_coef_{chernoff_alpha_coef}.json'), 'w'),
               ensure_ascii=False, indent=4)
+    json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'dataset/dataset_vocab.json'), 'w'),
+              ensure_ascii=False, indent=4)
+
     print(f'Splits prepared and saved to {saving_path_dir} !')
 
     if config['save_parsed_compounds']:

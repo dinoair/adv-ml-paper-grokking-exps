@@ -36,11 +36,12 @@ def main():
         open(os.path.join(os.environ['PROJECT_PATH'], config['data']['train']), 'r', encoding="utf-8"))
     test_data = json.load(
         open(os.path.join(os.environ['PROJECT_PATH'], config['data']['test']), 'r', encoding="utf-8"))
+    dataset_vocab_path = os.path.join(os.environ['PROJECT_PATH'], config['data']['dataset_vocab'])
 
     train_sparql_list = [sample['masked_sparql'] for sample in train_data]
     test_sparql_list = [sample['masked_sparql'] for sample in test_data]
 
-    SPARQL_TOKENIZER = SPARQLTokenizer(train_sparql_list, pad_flag=True)
+    SPARQL_TOKENIZER = SPARQLTokenizer(train_sparql_list, vocab_path=dataset_vocab_path, pad_flag=True)
 
     train_questions_list = [sample['question'] for sample in train_data]
     test_questions_list = [sample['question'] for sample in test_data]
