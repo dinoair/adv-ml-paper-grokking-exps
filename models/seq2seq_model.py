@@ -68,15 +68,17 @@ class Seq2seqModel(nn.Module):
         decoder_input = torch.tensor([[0] * self.batch_size],
                                      dtype=torch.long, device=self.device).view(1, self.batch_size, 1)
         decoder_hidden = pooler.view(1, self.batch_size, -1)
+        decoder_cell_state = torch.zeros(1, self.batch_size, decoder_hidden.shape[-1])
 
         target_tensor = target_data['input_ids'].view(self.batch_size, self.target_tokenizer.max_sent_len, 1)
 
         target_length = target_tensor.shape[1]
         loss = 0.0
         for idx in range(target_length):
-            decoder_output, decoder_hidden = self.decoder(input_data=decoder_input,
-                                                          hidden_state=decoder_hidden,
-                                                          batch_size=self.batch_size)
+            decoder_output, decoder_hidden, decoder_cell_state = self.decoder(input_data=decoder_input,
+                                                                              hidden_state=decoder_hidden,
+                                                                              cell_state=decoder_cell_state,
+                                                                              batch_size=self.batch_size)
             # Добавляем взвешивание механизмом внимания
             if self.model_config['enable_attention']:
                 # decoder_output - ([1, batch_size, dim])
@@ -96,6 +98,7 @@ class Seq2seqModel(nn.Module):
 
             loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
 
+        loss = loss / target_length
         loss.backward()
         self.optimizer.step()
         self.optimizer_scheduler.step()
@@ -115,13 +118,15 @@ class Seq2seqModel(nn.Module):
             decoder_input = torch.tensor([[0] * self.batch_size],
                                          dtype=torch.long, device=self.device).view(1, self.batch_size, 1)
             decoder_hidden = pooler.view(1, self.batch_size, -1)
+            decoder_cell_state = torch.zeros(1, self.batch_size, decoder_hidden.shape[-1])
 
             decoder_result_list = []
             loss = 0.0
             for idx in range(self.target_tokenizer.max_sent_len):
-                decoder_output, decoder_hidden = self.decoder(input_data=decoder_input,
-                                                              hidden_state=decoder_hidden,
-                                                              batch_size=self.batch_size)
+                decoder_output, decoder_hidden, decoder_cell_state = self.decoder(input_data=decoder_input,
+                                                                                  hidden_state=decoder_hidden,
+                                                                                  cell_state=decoder_cell_state,
+                                                                                  batch_size=self.batch_size)
 
                 # Добавляем взвешивание механизмом внимания
                 if self.model_config['enable_attention']:
@@ -144,6 +149,7 @@ class Seq2seqModel(nn.Module):
                 loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
                 decoder_result_list.append(list(decoder_input.flatten().cpu().numpy()))
 
+            loss = loss / self.target_tokenizer.max_sent_len
             result_dict['loss'] = loss.item()
             decoder_result_transposed = np.array(decoder_result_list).T
             decoder_result_transposed_lists = [list(array) for array in decoder_result_transposed]
