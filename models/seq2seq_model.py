@@ -69,7 +69,7 @@ class Seq2seqModel(nn.Module):
         decoder_input = torch.tensor([[0] * self.batch_size],
                                      dtype=torch.long, device=self.device).view(1, self.batch_size, 1)
         decoder_hidden = pooler.view(1, self.batch_size, -1)
-        decoder_cell_state = torch.zeros(1, self.batch_size, decoder_hidden.shape[-1])
+        decoder_cell_state = torch.zeros(1, self.batch_size, decoder_hidden.shape[-1], device=self.device)
 
         target_tensor = target_data['input_ids'].view(self.batch_size, self.target_tokenizer.max_sent_len, 1)
 
@@ -124,7 +124,7 @@ class Seq2seqModel(nn.Module):
             decoder_input = torch.tensor([[0] * self.batch_size],
                                          dtype=torch.long, device=self.device).view(1, self.batch_size, 1)
             decoder_hidden = pooler.view(1, self.batch_size, -1)
-            decoder_cell_state = torch.zeros(1, self.batch_size, decoder_hidden.shape[-1])
+            decoder_cell_state = torch.zeros(1, self.batch_size, decoder_hidden.shape[-1], device=self.device)
 
             decoder_result_list = []
             loss = 0.0
