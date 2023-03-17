@@ -1,8 +1,5 @@
 ---
-language: "english"
-dataset_path: ""
+language: "russian"
+dataset_path: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/merged_dataset/merged_dataset_vol_4.3.json"
 save_split_dir_path: "dataset/language_variation_split"
-split_size:
-  train: 0.6
-  dev: 0.2
-  test: 0.2
+dataset_train_frac: 0.6

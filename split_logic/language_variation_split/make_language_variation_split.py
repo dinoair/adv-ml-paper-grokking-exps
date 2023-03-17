@@ -25,14 +25,9 @@ if __name__ == "__main__":
     language = config['language']
     assert language in ['russian', 'english']
 
-    train_frac, dev_frac, test_frac = config['split_size']['train'], \
-                                      config['split_size']['dev'], \
-                                      config['split_size']['test']
+    train_frac = config['dataset_train_frac']
 
-    train_dataset_indexes, dev_dataset_indexes, test_dataset_indexes = split_utils.split_train_dev_test_by_indexes(
-        list(range(0, len(dataset))),
-        train_frac,
-        dev_frac, test_frac)
+    train_dataset_indexes, test_dataset_indexes = split_utils.split_train_test_by_indexes(list(range(0, len(dataset))), train_frac)
 
     expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'sparql', 'masked_sparql', 'attribute_mapping_dict',
                      'source']
@@ -42,9 +37,20 @@ if __name__ == "__main__":
         new_sample = {split_utils.LANG_QUESTION2QUESTION_MAPPING.get(key, key): sample[key] for key in expected_keys}
         updated_dataset.append(new_sample)
 
-    train_samples = [updated_dataset[idx] for idx in train_dataset_indexes]
-    dev_samples = [updated_dataset[idx] for idx in dev_dataset_indexes]
+    train_tokens_set = set()
+    train_samples = []
+    for idx in train_dataset_indexes:
+        masked_sparql = updated_dataset[idx]['masked_sparql']
+        train_tokens_set = train_tokens_set.union(masked_sparql.split())
+        train_samples.append(updated_dataset[idx])
+
     test_samples = [updated_dataset[idx] for idx in test_dataset_indexes]
+    # проверяем, что все токены из трейна есть в тесте
+    cleaned_test_samples = split_utils.align_test_dataset_with_train_tokens(test_samples, target_dataset_tokens_set=train_tokens_set,
+                                                                            target_key_name='masked_sparql')
+
+    dev_samples = cleaned_test_samples[:len(cleaned_test_samples) // 2]
+    test_samples = cleaned_test_samples[len(cleaned_test_samples) // 2:]
 
     print(f'Train dataset size: {len(train_samples)}')
     print(f'Dev dataset size: {len(dev_samples)}')

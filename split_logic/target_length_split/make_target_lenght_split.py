@@ -6,7 +6,6 @@ import yaml
 
 from split_logic import split_utils
 
-
 np.random.seed(42)
 
 if __name__ == "__main__":
@@ -35,32 +34,41 @@ if __name__ == "__main__":
         updated_dataset.append(new_sample)
 
     sparql_queries_tokens_lenght_list = [len(sample['masked_sparql'].split()) for sample in updated_dataset]
-    token_lenght_median = np.percentile(sparql_queries_tokens_lenght_list, 50)
+    token_lenght_percentile = np.percentile(sparql_queries_tokens_lenght_list, config['train_percentile'])
 
-    target_length_train, target_length_test = [], []
+    # Короткие и длинные запросы могут не пересекаться по токенам,
+    # так как в длинных запросах используются новые предикаты или субъекты/объекты
+    # Поэтому в давайте в тесте оставим короткие запросы, а в трейне длинные запросы
+    train_samples, test_samples = [], []
     train_tokens = []
+    train_tokens_set = set()
     for sample in updated_dataset:
         sparql_queries_tokens = sample['masked_sparql'].split()
-        if len(sparql_queries_tokens) <= token_lenght_median:
-            target_length_train.append(sample)
+        if len(sparql_queries_tokens) <= token_lenght_percentile:
+            test_samples.append(sample)
         else:
-            target_length_test.append(sample)
+            train_samples.append(sample)
+            train_tokens_set = train_tokens_set.union(sparql_queries_tokens)
 
-    target_length_dev = target_length_test[:len(target_length_test) // 2]
-    target_length_test = target_length_test[len(target_length_test) // 2:]
+    cleaned_test_samples = split_utils.align_test_dataset_with_train_tokens(test_samples,
+                                                                            target_dataset_tokens_set=train_tokens_set,
+                                                                            target_key_name='masked_sparql')
 
-    print(f'Train dataset size: {len(target_length_train)}')
-    print(f'Dev dataset size: {len(target_length_dev)}')
-    print(f'Test dataset size: {len(target_length_test)}')
+    dev_samples = cleaned_test_samples[:len(cleaned_test_samples) // 2]
+    test_samples = cleaned_test_samples[len(cleaned_test_samples) // 2:]
 
-    json.dump(target_length_train,
-              open(os.path.join(saving_path_dir, f'{language}_train_split.json'), 'w'),
+    print(f'Train dataset size: {len(train_samples)}')
+    print(f'Dev dataset size: {len(dev_samples)}')
+    print(f'Test dataset size: {len(test_samples)}')
+
+    json.dump(train_samples,
+              open(os.path.join(saving_path_dir, f'{language}_train_split_above_{config["train_percentile"]}_percentile.json'), 'w'),
               ensure_ascii=False, indent=4)
-    json.dump(target_length_dev,
-              open(os.path.join(saving_path_dir, f'{language}_dev_split.json'), 'w'),
+    json.dump(dev_samples,
+              open(os.path.join(saving_path_dir, f'{language}_dev_split_below_{config["train_percentile"]}_percentile.json'), 'w'),
               ensure_ascii=False, indent=4)
-    json.dump(target_length_test,
-              open(os.path.join(saving_path_dir, f'{language}_test_split.json'), 'w'),
+    json.dump(test_samples,
+              open(os.path.join(saving_path_dir, f'{language}_test_split_below_{config["train_percentile"]}_percentile.json'), 'w'),
               ensure_ascii=False, indent=4)
     json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'dataset/dataset_vocab.json'), 'w'),
               ensure_ascii=False, indent=4)

@@ -4,7 +4,7 @@ import os
 import numpy as np
 import yaml
 
-import atom_and_compound_cache
+from split_logic.grammar import atom_and_compound_cache
 import tmcd_utils
 from split_logic import split_utils
 from split_logic.grammar.sparql_parser import SPARQLParser
@@ -33,10 +33,6 @@ if __name__ == '__main__':
     expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'sparql', 'masked_sparql', 'attribute_mapping_dict',
                      'source']
 
-    train_frac, dev_frac, test_frac = config['split_size']['train'], \
-                                      config['split_size']['dev'], \
-                                      config['split_size']['test']
-
     queries_list = []
     updated_dataset = []
     for sample in dataset:
@@ -47,23 +43,20 @@ if __name__ == '__main__':
 
     sparql_compound_parser = SPARQLParser(sparql_queries_list=queries_list)
     atoms_and_compound_cache_handler = atom_and_compound_cache.AtomAndCompoundCache(parser=sparql_compound_parser,
-                                                                                    query_key_name='masked_sparql_no_indexes')
+                                                                                    query_key_name='masked_sparql_no_indexes',
+                                                                                    return_compound_list_flag=True)
     if config['load_compounds_from_file']:
         atoms_and_compound_cache_handler.load_cache(saving_path_dir)
 
-    train_frac, dev_frac, test_frac = config['split_size']['train'], \
-                                      config['split_size']['dev'], \
-                                      config['split_size']['test']
-
-    train_samples = updated_dataset[:int(round(train_frac * len(updated_dataset)))]
-    test_samples = updated_dataset[int(round(train_frac * len(updated_dataset))):]
+    train_samples = updated_dataset[:len(updated_dataset) // 2]
+    test_samples = updated_dataset[len(updated_dataset) // 2:]
 
     train_tokens = []
     for sample in train_samples:
         train_tokens += sample['masked_sparql'].split()
     train_tokens_set = set(train_tokens)
 
-    tmcd_train, tmcd_test = tmcd_utils.swap_examples(
+    train_samples, test_samples = tmcd_utils.swap_examples(
         train_samples,
         test_samples,
         get_compounds_fn=atoms_and_compound_cache_handler.get_compounds,
@@ -75,20 +68,20 @@ if __name__ == '__main__':
         coef=chernoff_alpha_coef
     )
 
-    tmcd_dev = tmcd_test[:int(round(dev_frac * len(updated_dataset)))]
-    tmcd_test = tmcd_test[int(round(dev_frac * len(updated_dataset))):]
+    dev_samples = test_samples[:len(test_samples) // 2]
+    test_samples = test_samples[len(test_samples) // 2:]
 
-    print(f'Train dataset size: {len(tmcd_train)}')
-    print(f'Dev dataset size: {len(tmcd_dev)}')
-    print(f'Test dataset size: {len(tmcd_test)}')
+    print(f'Train dataset size: {len(train_samples)}')
+    print(f'Dev dataset size: {len(dev_samples)}')
+    print(f'Test dataset size: {len(test_samples)}')
 
-    json.dump(tmcd_test,
+    json.dump(train_samples,
               open(os.path.join(saving_path_dir, f'{language}_train_split_coef_{chernoff_alpha_coef}.json'), 'w'),
               ensure_ascii=False, indent=4)
-    json.dump(tmcd_dev,
+    json.dump(dev_samples,
               open(os.path.join(saving_path_dir, f'{language}_dev_split_coef_{chernoff_alpha_coef}.json'), 'w'),
               ensure_ascii=False, indent=4)
-    json.dump(tmcd_test,
+    json.dump(test_samples,
               open(os.path.join(saving_path_dir, f'{language}_test_split_coef_{chernoff_alpha_coef}.json'), 'w'),
               ensure_ascii=False, indent=4)
     json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'dataset/dataset_vocab.json'), 'w'),

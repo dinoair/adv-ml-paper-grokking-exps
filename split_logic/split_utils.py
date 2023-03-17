@@ -31,25 +31,17 @@ def build_whole_vocab_set(queries_list):
     return queries_tokens_set
 
 
-def split_train_dev_test_by_indexes(index_list, train_frac, dev_frac, test_frac):
+def split_train_test_by_indexes(index_list, train_frac):
     index_len = len(index_list)
     train_end_idx = int(round(index_len * train_frac))
-    dev_end_idx = train_end_idx + int(round(index_len * dev_frac))
-    test_end_idx = dev_end_idx + int(round(index_len * test_frac))
 
     train_indexes = index_list[:train_end_idx]
-    dev_indexes = index_list[train_end_idx:dev_end_idx]
-    test_indexes = index_list[dev_end_idx:]
+    test_indexes = index_list[train_end_idx:]
 
-    if len(dev_indexes) > len(test_indexes):
-        dev_indexes = dev_indexes[:-1]
-    elif len(test_indexes) > len(dev_indexes):
-        test_indexes = test_indexes[:-1]
-
-    return train_indexes, dev_indexes, test_indexes
+    return train_indexes, test_indexes
 
 
-def check_and_clear_dataset(dataset_sample, target_dataset_tokens_set, target_key_name='masked_sparql'):
+def align_test_dataset_with_train_tokens(dataset_sample, target_dataset_tokens_set, target_key_name='masked_sparql'):
     cleared_data = []
     count = 0
     for elem in dataset_sample:
@@ -60,7 +52,6 @@ def check_and_clear_dataset(dataset_sample, target_dataset_tokens_set, target_ke
         else:
             cleared_data.append(elem)
     if count > 0:
-        print('Size before clearing: ', len(dataset_sample))
-        print('Deleted samples: ', count)
-        print('Size after clearing: ', len(cleared_data))
+        print('Test size before clearing: ', len(dataset_sample))
+        print('Test size after clearing: ', len(cleared_data))
     return cleared_data
