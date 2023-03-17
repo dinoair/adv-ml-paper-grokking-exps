@@ -11,7 +11,7 @@ def save_model(model, optimizer_list, dir_path, filename):
     model_save_path = os.path.join(dir_path, filename)
     save_dict = {'model_state_dict': model.state_dict()}
     for idx, opt in enumerate(optimizer_list):
-        save_dict[f"optimizer_{idx}"] = opt
+        save_dict[f"optimizer_{idx}"] = opt.state_dict()
     torch.save(save_dict, model_save_path)
     return f"Saved model to {model_save_path}"
 

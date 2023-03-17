@@ -81,14 +81,14 @@ class Trainer:
                     utils.save_model(model=self.model,
                                      optimizer_list=[self.model.optimizer],
                                      dir_path=self.save_dir_path,
-                                     filename=f"epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_{self.model.model_name}.tar")
+                                     filename=f"epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_{self.model.model_name}.pt")
         except KeyboardInterrupt:
             pass
 
         utils.save_model(model=self.model,
                          optimizer_list=[self.model.optimizer],
                          dir_path=self.save_dir_path,
-                         filename=f"epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_{self.model.model_name}.tar")
+                         filename=f"epoch_{epoch}_gm_{round(val_gm_epoch_acc, 2)}_em_{round(val_exm_epoch_acc, 2)}_{self.model.model_name}.pt")
         print(f'Dump model to {self.config["save_model_path"]} on {epoch} epoch!')
         print("Last val exact match: ", val_exm_epoch_acc)
         print("Last val graph match: ", val_gm_epoch_acc)

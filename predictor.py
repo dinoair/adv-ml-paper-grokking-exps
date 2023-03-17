@@ -44,7 +44,7 @@ class Predictor:
         }
 
         model_dir_name, model_name = self.config["inference_model_name"].split('/')
-        model_name = self.config["inference_model_name"].split('/')[-1].replace(".tar", "")
+        model_name = self.config["inference_model_name"].split('/')[-1].replace(".pt", "")
         save_preds_path = os.path.join(os.environ['PROJECT_PATH'], self.config['save_model_path'],
                                        model_dir_name,
                                        f'{model_name}_predictions.json')
