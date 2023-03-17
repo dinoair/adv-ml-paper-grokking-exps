@@ -55,6 +55,7 @@ class Seq2seqModel(nn.Module):
                                                                            num_warmup_steps=[self.model_config['warmup_steps'], self.model_config['warmup_steps'], self.model_config['warmup_steps']],
                                                                            num_steps=int(train_dataset_size // self.model_config['batch_size'] * self.model_config['epochs_num']))
         self.criterion = nn.NLLLoss()
+        self.teacher_forcing_ratio = 0.5
 
     def train_on_batch(self, input_data, target_data):
         self.encoder.enable_bert_layers_training()
@@ -93,8 +94,13 @@ class Seq2seqModel(nn.Module):
 
 
             target_vocab_distribution = self.softmax(linear_vocab_proj)
-            _, top_index = target_vocab_distribution.topk(1)
-            decoder_input = top_index.reshape(1, self.batch_size, 1)
+
+            use_teacher_forcing = True if np.random.random() < self.teacher_forcing_ratio else False
+            if use_teacher_forcing:
+                decoder_input = target_tensor[:, idx, :]
+            else:
+                _, top_index = target_vocab_distribution.topk(1)
+                decoder_input = top_index.reshape(1, self.batch_size, 1)
 
             loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
 
