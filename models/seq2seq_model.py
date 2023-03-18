@@ -97,7 +97,7 @@ class Seq2seqModel(nn.Module):
 
             use_teacher_forcing = True if np.random.random() < self.teacher_forcing_ratio else False
             if use_teacher_forcing:
-                decoder_input = target_tensor[:, idx, :]
+                decoder_input = target_tensor[:, idx, :].reshape(1, self.batch_size, 1)
             else:
                 _, top_index = target_vocab_distribution.topk(1)
                 decoder_input = top_index.reshape(1, self.batch_size, 1)
