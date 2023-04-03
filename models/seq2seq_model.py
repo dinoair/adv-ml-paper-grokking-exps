@@ -1,4 +1,5 @@
 import numpy as np
+import os
 import torch
 import torch.optim as optim
 from torch import nn
@@ -26,9 +27,20 @@ class Seq2seqModel(nn.Module):
         self.encoder: TransformerBasedEncoder = TransformerBasedEncoder(transformer_based_model,
                                                                         trainable_layers_num).to(self.device)
 
-        decoder_hidden_state = self.encoder.bert_module.pooler.dense.weight.shape[0]
-        self.decoder: RecurrentDecoder = RecurrentDecoder(hidden_size=decoder_hidden_state,
-                                                          vocab_size=len(target_tokenizer.word2index)).to(self.device)
+        decoder_hidden_state_size = self.encoder.bert_module.pooler.dense.weight.shape[0]
+        if self.model_config['use_pretrained_embeddings']:
+            trained_embeddings = torch.load(os.path.join(os.environ['PROJECT_PATH'],
+                                                         self.model_config['pretrained_embeddings_path']))
+            decoder_input_size = trained_embeddings.shape[-1]
+            self.decoder: RecurrentDecoder = RecurrentDecoder(input_size=decoder_input_size,
+                                                              hidden_size=decoder_hidden_state_size,
+                                                              vocab_size=len(target_tokenizer.word2index),
+                                                              trained_embeddings=trained_embeddings).to(self.device)
+        else:
+            self.decoder: RecurrentDecoder = RecurrentDecoder(input_size=self.model_config['embeddings_size'],
+                                                              hidden_size=decoder_hidden_state_size,
+                                                              vocab_size=len(target_tokenizer.word2index),
+                                                              trained_embeddings=None).to(self.device)
 
         self.softmax = nn.LogSoftmax(dim=1).to(self.device)
 
@@ -40,10 +52,10 @@ class Seq2seqModel(nn.Module):
 
         if self.model_config['enable_attention']:
             self.attention_module = Seq2seqAttention().to(self.device)
-            self.vocab_projection_layer = nn.Linear(2 * decoder_hidden_state, len(target_tokenizer.word2index)).to(
+            self.vocab_projection_layer = nn.Linear(2 * decoder_hidden_state_size, len(target_tokenizer.word2index)).to(
                 self.device)
         else:
-            self.vocab_projection_layer = nn.Linear(decoder_hidden_state, len(target_tokenizer.word2index)).to(
+            self.vocab_projection_layer = nn.Linear(decoder_hidden_state_size, len(target_tokenizer.word2index)).to(
                 self.device)
 
         self.optimizer.add_param_group({"params": self.vocab_projection_layer.parameters()})
@@ -128,6 +140,7 @@ class Seq2seqModel(nn.Module):
 
             decoder_result_list = []
             loss = 0.0
+            hidden_states_list = []
             for idx in range(self.target_tokenizer.max_sent_len):
                 decoder_output, decoder_hidden, decoder_cell_state = self.decoder(input_data=decoder_input,
                                                                                   hidden_state=decoder_hidden,
@@ -155,6 +168,9 @@ class Seq2seqModel(nn.Module):
                 loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
                 decoder_result_list.append(list(decoder_input.flatten().cpu().numpy()))
 
+                #decoder_hidden - (batch_size, hidden_dim) * max_sent_len -> [max_sent_len, batch_size, hidden_dim]
+                hidden_states_list.append(decoder_hidden)
+
             loss = loss / self.target_tokenizer.max_sent_len
             result_dict['loss'] = loss.item()
             decoder_result_transposed = np.array(decoder_result_list).T
@@ -167,5 +183,7 @@ class Seq2seqModel(nn.Module):
                 decoded_query_list.append(query)
 
             result_dict['predicted_query'] = decoded_query_list
+            result_dict['predicted_hidden_states'] = torch.stack(hidden_states_list).cpu().numpy()
+
 
         return result_dict
