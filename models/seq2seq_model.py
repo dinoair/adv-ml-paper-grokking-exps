@@ -28,7 +28,7 @@ class Seq2seqModel(nn.Module):
                                                                         trainable_layers_num).to(self.device)
 
         decoder_hidden_state_size = self.encoder.bert_module.pooler.dense.weight.shape[0]
-        if self.model_config['use_pretrained_embeddings']:
+        if self.model_config.get('use_pretrained_embeddings', False):
             trained_embeddings = torch.load(os.path.join(os.environ['PROJECT_PATH'],
                                                          self.model_config['pretrained_embeddings_path']))
             decoder_input_size = trained_embeddings.shape[-1]
