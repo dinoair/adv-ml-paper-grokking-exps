@@ -69,7 +69,7 @@ class Seq2seqModel(nn.Module):
         self.criterion = nn.NLLLoss()
         self.teacher_forcing_ratio = 0.5
 
-    def train_on_batch(self, input_data, target_data):
+    def train_on_batch(self, input_data, target_data=None):
         self.encoder.enable_bert_layers_training()
         self.optimizer.zero_grad()
 
@@ -95,9 +95,9 @@ class Seq2seqModel(nn.Module):
             # Добавляем взвешивание механизмом внимания
             if self.model_config['enable_attention']:
                 # decoder_output - ([1, batch_size, dim])
-                weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
+                weighted_decoder_output = self.attention_module(decoder_output.squeeze(dim=0), encoder_states)
                 # weighted_decoder_output - ([batch_size, dim])
-                concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
+                concated_attn_decoder = torch.cat([decoder_output.squeeze(dim=0), weighted_decoder_output], dim=1)
                 # concated_attn_decoder - ([batch_size, 2 * dim])
                 linear_vocab_proj = self.vocab_projection_layer(concated_attn_decoder)
                 # concated_attn_decoder - ([batch_size, vocab_size])
@@ -123,7 +123,7 @@ class Seq2seqModel(nn.Module):
 
         return loss.item()
 
-    def evaluate_batch(self, input_data, target_data):
+    def evaluate_batch(self, input_data, target_data=None):
         self.encoder.disable_bert_training()
         result_dict = dict()
 
@@ -150,9 +150,9 @@ class Seq2seqModel(nn.Module):
                 # Добавляем взвешивание механизмом внимания
                 if self.model_config['enable_attention']:
                     # decoder_output - ([1, batch_size, dim])
-                    weighted_decoder_output = self.attention_module(decoder_output.squeeze(), encoder_states)
+                    weighted_decoder_output = self.attention_module(decoder_output.squeeze(dim=0), encoder_states)
                     # weighted_decoder_output - ([batch_size, dim])
-                    concated_attn_decoder = torch.cat([decoder_output.squeeze(), weighted_decoder_output], dim=1)
+                    concated_attn_decoder = torch.cat([decoder_output.squeeze(dim=0), weighted_decoder_output], dim=1)
                     # concated_attn_decoder - ([batch_size, 2 * dim])
                     linear_vocab_proj = self.vocab_projection_layer(concated_attn_decoder)
                     # concated_attn_decoder - ([batch_size, vocab_size])
@@ -163,16 +163,18 @@ class Seq2seqModel(nn.Module):
                 _, top_index = target_vocab_distribution.topk(1)
                 decoder_input = top_index.reshape(1, self.batch_size, 1)
 
-                target_tensor = target_data['input_ids'].view(self.batch_size,
-                                                              self.target_tokenizer.max_sent_len, 1)
-                loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
+                if target_data:
+                    target_tensor = target_data['input_ids'].view(self.batch_size,
+                                                                  self.target_tokenizer.max_sent_len, 1)
+                    loss += self.criterion(target_vocab_distribution.squeeze(), target_tensor[:, idx, :].squeeze())
                 decoder_result_list.append(list(decoder_input.flatten().cpu().numpy()))
 
                 #decoder_hidden - (batch_size, hidden_dim) * max_sent_len -> [max_sent_len, batch_size, hidden_dim]
                 hidden_states_list.append(decoder_hidden)
 
-            loss = loss / self.target_tokenizer.max_sent_len
-            result_dict['loss'] = loss.item()
+            if loss != 0:
+                loss = loss / self.target_tokenizer.max_sent_len
+                result_dict['loss'] = loss.item()
             decoder_result_transposed = np.array(decoder_result_list).T
             decoder_result_transposed_lists = [list(array) for array in decoder_result_transposed]
 
