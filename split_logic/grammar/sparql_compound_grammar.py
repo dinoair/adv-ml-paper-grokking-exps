@@ -9,6 +9,8 @@ class BaseGrammar:
     def __init__(self, predicates_list):
         SPACE_RULE = TokenRule('SPACE', r'\S+')
         MY_RULES = [SPACE_RULE]
+        NUMBER_OF_ENTITIES = 5
+
         self.space_tokenizer = Tokenizer(MY_RULES)
 
         self.select_node = rule('select')
@@ -16,10 +18,10 @@ class BaseGrammar:
 
         self.as_keyword = rule('as')
         self.agg_value_keyword = rule('?value')
-        self.known_subj_node = rule(f'SUBJ')
-        self.known_obj_node = rule(f'OBJ')
-        self.unknown_subj_node = rule(f'?SUBJ')
-        self.unknown_obj_node = rule(f'?OBJ')
+        self.known_subj_node = or_(*[rule(f'SUBJ_{i+1}') for i in range(NUMBER_OF_ENTITIES)])
+        self.known_obj_node = or_(*[rule(f'OBJ_{i+1}') for i in range(NUMBER_OF_ENTITIES)])
+        self.unknown_subj_node = or_(*[rule(f'?SUBJ_{i+1}') for i in range(NUMBER_OF_ENTITIES)])
+        self.unknown_obj_node = or_(*[rule(f'?OBJ_{i+1}') for i in range(NUMBER_OF_ENTITIES)])
         self.all_attrs_node = rule('*')
         self.point_node = rule('.')
 
@@ -49,8 +51,10 @@ class BaseGrammar:
         self.not_equal_node = rule('!=')
         self.comma_node = rule(',')
 
-        MASKED_VALUES = ['STR_VALUE', 'NUM_VALUE']
-        self.masked_value_node = or_(*[rule(f'{mask}') for mask in MASKED_VALUES])
+        self.masked_str_value_node = or_(*[rule(f'STR_VALUE_{i+1}') for i in range(NUMBER_OF_ENTITIES)])
+        self.masked_num_value_node = or_(*[rule(f'NUM_VALUE_{i+1}') for i in range(NUMBER_OF_ENTITIES)])
+        self.masked_value_node = or_(*[self.masked_str_value_node, self.masked_num_value_node])
+
 
         self.order_keyword = rule('order').named('ORDER_KEYWORD')
         self.by_keywords = rule('by').named('BY_KEYWORD')

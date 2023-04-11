@@ -38,12 +38,11 @@ if __name__ == '__main__':
     for sample in dataset:
         new_sample = {split_utils.LANG_QUESTION2QUESTION_MAPPING.get(key, key): sample[key] for key in expected_keys}
         queries_list.append(sample['masked_sparql'])
-        new_sample['masked_sparql_no_indexes'] = SPARQLParser.preprocess_query(sample['masked_sparql'])
         updated_dataset.append(new_sample)
 
     sparql_compound_parser = SPARQLParser(sparql_queries_list=queries_list)
     atoms_and_compound_cache_handler = atom_and_compound_cache.AtomAndCompoundCache(parser=sparql_compound_parser,
-                                                                                    query_key_name='masked_sparql_no_indexes',
+                                                                                    query_key_name='masked_sparql',
                                                                                     return_compound_list_flag=True)
     if config['load_compounds_from_file']:
         atoms_and_compound_cache_handler.load_cache(saving_path_dir)

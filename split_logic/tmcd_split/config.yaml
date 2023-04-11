@@ -2,6 +2,6 @@
 language: "russian"
 dataset_path: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/merged_dataset/merged_dataset_vol_4.3.json"
 save_split_dir_path: "dataset/tmcd_split"
-load_compounds_from_file: True
-save_parsed_compounds: False
+load_compounds_from_file: False
+save_parsed_compounds: True
 alpha: 0.1
