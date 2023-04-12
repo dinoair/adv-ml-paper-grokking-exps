@@ -9,9 +9,9 @@ from transformers import AutoTokenizer
 
 from models.seq2seq_model import Seq2seqModel
 from models.t5_model import T5Model
-from sparql_tokenizer import SPARQLTokenizer
-from t5_tokenizer import T5Tokenizer
-from text2sparql_dataset import Text2SparqlDataset
+from target_tokenizers.query_space_tokenizer import QuerySpaceTokenizer
+from target_tokenizers.t5_tokenizer import T5Tokenizer
+from text2query_dataset import Text2QueryDataset
 from trainer import Trainer
 
 
@@ -35,30 +35,30 @@ def main():
     dev_data = json.load(open(os.path.join(os.environ['PROJECT_PATH'], config['data']['dev']), 'r', encoding="utf-8"))
     dataset_vocab_path = os.path.join(os.environ['PROJECT_PATH'], config['data']['dataset_vocab'])
 
-    train_sparql_list = [sample['masked_sparql'] for sample in train_data]
-    dev_sparql_list = [sample['masked_sparql'] for sample in dev_data]
+    train_query_list = [sample['masked_query'] for sample in train_data]
+    dev_query_list = [sample['masked_query'] for sample in dev_data]
 
-    SPARQL_TOKENIZER = SPARQLTokenizer(train_sparql_list, vocab_path=dataset_vocab_path, pad_flag=True)
+    QUERY_SPACE_TOKENIZER = QuerySpaceTokenizer(train_query_list, vocab_path=dataset_vocab_path, pad_flag=True)
 
     train_questions_list = [sample['question'] for sample in train_data]
     dev_questions_list = [sample['question'] for sample in dev_data]
 
     train_tokenized_questions_list = []
     dev_tokenized_questions_list = []
-    train_tokenized_sparqls_list = []
-    dev_tokenized_sparqls_list = []
+    train_tokenized_query_list = []
+    dev_tokenized_query_list = []
     trainer = None
     target_tokenizer = None
     if model_name == 't5':
         t5_tokenizer = T5Tokenizer(model_config=model_config)
         print('Before tokenizer vocab size: ', len(t5_tokenizer))
-        t5_tokenizer.add_tokens(list(SPARQL_TOKENIZER.word2index.keys()))
+        t5_tokenizer.add_tokens(list(QUERY_SPACE_TOKENIZER.word2index.keys()))
         print('After tokenizer vocab size: ', len(t5_tokenizer))
 
         train_tokenized_questions_list = t5_tokenizer(text_list=train_questions_list, max_length=512)
         dev_tokenized_questions_list = t5_tokenizer(text_list=dev_questions_list, max_length=512)
-        train_tokenized_sparqls_list = t5_tokenizer(text_list=train_sparql_list, max_length=128)
-        dev_tokenized_sparqls_list = t5_tokenizer(text_list=dev_sparql_list, max_length=128)
+        train_tokenized_query_list = t5_tokenizer(text_list=train_query_list, max_length=128)
+        dev_tokenized_query_list = t5_tokenizer(text_list=dev_query_list, max_length=128)
 
         t5_model = T5Model(model_config=model_config, device=DEVICE, tokenizer=t5_tokenizer)
         trainer = Trainer(model=t5_model, config=config, model_config=model_config)
@@ -70,26 +70,26 @@ def main():
                                                    truncation=True, return_token_type_ids=True)
         dev_tokenized_questions_list = tokenizer(dev_questions_list, padding="longest", max_length=512,
                                                  truncation=True, return_token_type_ids=True)
-        train_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in train_sparql_list])
-        dev_tokenized_sparqls_list = np.array([SPARQL_TOKENIZER(sparql_query) for sparql_query in dev_sparql_list])
+        train_tokenized_query_list = np.array([QUERY_SPACE_TOKENIZER(query) for query in train_query_list])
+        dev_tokenized_query_list = np.array([QUERY_SPACE_TOKENIZER(query) for query in dev_query_list])
 
-        seq2seq = Seq2seqModel(model_config=model_config, device=DEVICE, target_tokenizer=SPARQL_TOKENIZER,
+        seq2seq = Seq2seqModel(model_config=model_config, device=DEVICE, target_tokenizer=QUERY_SPACE_TOKENIZER,
                                train_dataset_size=len(train_questions_list))
         trainer = Trainer(model=seq2seq, config=config, model_config=model_config)
-        target_tokenizer = SPARQL_TOKENIZER
+        target_tokenizer = QUERY_SPACE_TOKENIZER
 
-    train_dataset = Text2SparqlDataset(tokenized_question_list=train_tokenized_questions_list,
-                                       tokenized_sparql_list=train_tokenized_sparqls_list,
+    train_dataset = Text2QueryDataset(tokenized_question_list=train_tokenized_questions_list,
+                                       tokenized_query_list=train_tokenized_query_list,
                                        question_list=train_questions_list,
-                                       sparql_list=train_sparql_list,
+                                       query_list=train_query_list,
                                        tokenizer=target_tokenizer,
                                        model_type=model_name,
                                        dev=DEVICE)
 
-    dev_dataset = Text2SparqlDataset(tokenized_question_list=dev_tokenized_questions_list,
-                                     tokenized_sparql_list=dev_tokenized_sparqls_list,
+    dev_dataset = Text2QueryDataset(tokenized_question_list=dev_tokenized_questions_list,
+                                     tokenized_query_list=dev_tokenized_query_list,
                                      question_list=dev_questions_list,
-                                     sparql_list=dev_sparql_list,
+                                     query_list=dev_query_list,
                                      tokenizer=target_tokenizer,
                                      model_type=model_name,
                                      dev=DEVICE)
@@ -99,7 +99,7 @@ def main():
 
 
     # если хотим проверить на 1ом батче
-    # train_dataloader_sample = [list(train_dataloader)[0]]
+    train_dataloader_sample = [list(train_dataloader)[0]]
 
     trainer.train(train_dataloader, dev_dataloader)
 

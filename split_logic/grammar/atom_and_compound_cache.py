@@ -1,12 +1,9 @@
 import json
 import os
 
-from split_logic.grammar.sparql_parser import SPARQLParser
-
-
 class AtomAndCompoundCache:
 
-    def __init__(self, parser: SPARQLParser, query_key_name, return_compound_list_flag):
+    def __init__(self, parser, query_key_name, return_compound_list_flag):
         self.query_parser = parser
         self.query_to_atoms = {}
         self.query_to_compounds = {}

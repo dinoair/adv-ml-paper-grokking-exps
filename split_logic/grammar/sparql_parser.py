@@ -8,7 +8,7 @@ from split_logic.grammar import sparql_compound_grammar
 class SPARQLParser:
     def __init__(self, sparql_queries_list):
 
-        predicates_list = split_utils.extract_dataset_predicates(sparql_queries_list)
+        predicates_list = split_utils.extract_sparql_dataset_predicates(sparql_queries_list)
 
         self.compound_parsers_dict = OrderedDict({
             "select_compound": sparql_compound_grammar.SelectGrammar(predicates_list).parser,

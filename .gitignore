@@ -6,3 +6,4 @@ experiments
 predictions
 .DS_Store
 .pytest_cache
+dataset/kgqa

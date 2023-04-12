@@ -15,6 +15,7 @@ if __name__ == '__main__':
 
     config = yaml.load(open('config.yaml', 'r'), Loader=yaml.Loader)
     split_dir_saving_path = config['save_split_dir_path']
+    dataset_dir_path = os.path.dirname(split_dir_saving_path)
     saving_path_dir = os.path.join(os.environ['PROJECT_PATH'], split_dir_saving_path)
 
     if not os.path.exists(saving_path_dir):
@@ -24,25 +25,27 @@ if __name__ == '__main__':
     dataset = json.load(open(dataset_path, 'r', encoding='utf-8'))
     np.random.shuffle(dataset)
 
-    query_vocab_set = split_utils.build_whole_vocab_set([sample['masked_sparql'] for sample in dataset])
+    query_vocab_set = split_utils.build_whole_vocab_set([sample['masked_query'] for sample in dataset])
 
     chernoff_alpha_coef = config['alpha']
     language = config['language']
     assert language in ['russian', 'english']
 
-    expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'sparql', 'masked_sparql', 'attribute_mapping_dict',
+    expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'query', 'masked_query', 'attribute_mapping_dict',
                      'source']
 
     queries_list = []
     updated_dataset = []
     for sample in dataset:
         new_sample = {split_utils.LANG_QUESTION2QUESTION_MAPPING.get(key, key): sample[key] for key in expected_keys}
-        queries_list.append(sample['masked_sparql'])
+        queries_list.append(sample['masked_query'])
         updated_dataset.append(new_sample)
 
-    sparql_compound_parser = SPARQLParser(sparql_queries_list=queries_list)
-    atoms_and_compound_cache_handler = atom_and_compound_cache.AtomAndCompoundCache(parser=sparql_compound_parser,
-                                                                                    query_key_name='masked_sparql',
+    compound_parser = None
+    if config['query_language'] == 'sparql':
+        compound_parser = SPARQLParser(sparql_queries_list=queries_list)
+    atoms_and_compound_cache_handler = atom_and_compound_cache.AtomAndCompoundCache(parser=compound_parser,
+                                                                                    query_key_name='masked_query',
                                                                                     return_compound_list_flag=True)
     if config['load_compounds_from_file']:
         atoms_and_compound_cache_handler.load_cache(saving_path_dir)
@@ -52,7 +55,7 @@ if __name__ == '__main__':
 
     train_tokens = []
     for sample in train_samples:
-        train_tokens += sample['masked_sparql'].split()
+        train_tokens += sample['masked_query'].split()
     train_tokens_set = set(train_tokens)
 
     train_samples, test_samples = tmcd_utils.swap_examples(
@@ -83,7 +86,7 @@ if __name__ == '__main__':
     json.dump(test_samples,
               open(os.path.join(saving_path_dir, f'{language}_test_split_coef_{chernoff_alpha_coef}.json'), 'w'),
               ensure_ascii=False, indent=4)
-    json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'dataset/dataset_vocab.json'), 'w'),
+    json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'{dataset_dir_path}/query_vocab.json'), 'w'),
               ensure_ascii=False, indent=4)
 
     print(f'Splits prepared and saved to {saving_path_dir} !')

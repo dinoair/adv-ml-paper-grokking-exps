@@ -32,7 +32,7 @@ class Trainer:
                 train_epoch_loss = 0
                 self.model.train()
                 for batch in train_dataloader:
-                    input_data, target_data = batch['nl'], batch['sparql']
+                    input_data, target_data = batch['nl'], batch['query']
                     train_batch_loss = self.model.train_on_batch(input_data, target_data)
                     train_epoch_loss += train_batch_loss
                 train_epoch_loss = train_epoch_loss / len(train_dataloader)
@@ -40,7 +40,7 @@ class Trainer:
                 val_epoch_loss, val_exm_epoch_acc, val_gm_epoch_acc = 0, 0, 0
                 self.model.eval()
                 for batch in val_dataloader:
-                    input_data, target_data = batch['nl'], batch['sparql']
+                    input_data, target_data = batch['nl'], batch['query']
 
                     eval_result = self.model.evaluate_batch(input_data=input_data, target_data=target_data)
                     val_epoch_loss += eval_result['loss']
@@ -67,12 +67,12 @@ class Trainer:
                                 "learning_rate": learning_rate})
 
                 self.logger.log('********** Translation example **********')
-                for input_question, true_sparql, pred_sparql in zip(input_data['original_question'][:5],
+                for input_question, true_query, pred_query in zip(input_data['original_question'][:5],
                                                                     target_data['original_query'][:5],
                                                                     eval_result['predicted_query'][:5]):
                     self.logger.log(f"NL: {input_question}")
-                    self.logger.log(f"AQ: {true_sparql}")
-                    self.logger.log(f"PQ: {pred_sparql}")
+                    self.logger.log(f"AQ: {true_query}")
+                    self.logger.log(f"PQ: {pred_query}")
                     self.logger.log(" ")
                 self.logger.log('******************************')
 

@@ -19,7 +19,7 @@ class Predictor:
 
         self.model.eval()
         for batch in tqdm(dataloader):
-            input_data, target_data = batch['nl'], batch['sparql']
+            input_data, target_data = batch['nl'], batch['query']
 
             eval_result = self.model.evaluate_batch(input_data, target_data)
 

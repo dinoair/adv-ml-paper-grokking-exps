@@ -12,12 +12,13 @@ if __name__ == "__main__":
     config = yaml.load(open('config.yaml', 'r'), Loader=yaml.Loader)
 
     dataset_path = config['dataset_path']
+    split_dir_saving_path = config['save_split_dir_path']
+    dataset_dir_path = os.path.dirname(split_dir_saving_path)
     dataset = json.load(open(dataset_path, 'r'))
     np.random.shuffle(dataset)
 
-    query_vocab_set = split_utils.build_whole_vocab_set([sample['masked_sparql'] for sample in dataset])
+    query_vocab_set = split_utils.build_whole_vocab_set([sample['masked_query'] for sample in dataset])
 
-    split_dir_saving_path = config['save_split_dir_path']
     saving_path_dir = os.path.join(os.environ['PROJECT_PATH'], split_dir_saving_path)
     if not os.path.exists(saving_path_dir):
         os.makedirs(saving_path_dir)
@@ -29,7 +30,7 @@ if __name__ == "__main__":
 
     train_dataset_indexes, test_dataset_indexes = split_utils.split_train_test_by_indexes(list(range(0, len(dataset))), train_frac)
 
-    expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'sparql', 'masked_sparql', 'attribute_mapping_dict',
+    expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'query', 'masked_query', 'attribute_mapping_dict',
                      'source']
 
     updated_dataset = []
@@ -40,14 +41,14 @@ if __name__ == "__main__":
     train_tokens_set = set()
     train_samples = []
     for idx in train_dataset_indexes:
-        masked_sparql = updated_dataset[idx]['masked_sparql']
-        train_tokens_set = train_tokens_set.union(masked_sparql.split())
+        masked_query = updated_dataset[idx]['masked_query']
+        train_tokens_set = train_tokens_set.union(masked_query.split())
         train_samples.append(updated_dataset[idx])
 
     test_samples = [updated_dataset[idx] for idx in test_dataset_indexes]
     # проверяем, что все токены из трейна есть в тесте
     cleaned_test_samples = split_utils.align_test_dataset_with_train_tokens(test_samples, target_dataset_tokens_set=train_tokens_set,
-                                                                            target_key_name='masked_sparql')
+                                                                            target_key_name='masked_query')
 
     dev_samples = cleaned_test_samples[:len(cleaned_test_samples) // 2]
     test_samples = cleaned_test_samples[len(cleaned_test_samples) // 2:]
@@ -62,7 +63,7 @@ if __name__ == "__main__":
               ensure_ascii=False, indent=4)
     json.dump(test_samples, open(os.path.join(saving_path_dir, f'{language}_test_split.json'), 'w'),
               ensure_ascii=False, indent=4)
-    json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'dataset/dataset_vocab.json'), 'w'),
+    json.dump(query_vocab_set, open(os.path.join(os.environ['PROJECT_PATH'], f'{dataset_dir_path}/query_vocab.json'), 'w'),
               ensure_ascii=False, indent=4)
 
     print(f'Splits prepared and saved to {saving_path_dir} !')

@@ -11,15 +11,15 @@ LANG_QUESTION2QUESTION_MAPPING = {
 }
 
 
-def extract_predicates(sparql_query):
+def extract_predicates_from_sparql(sparql_query):
     extract_predicates_fn = lambda x: re.findall(r'wdt:\w+|rdfs:\w+|ps:\w+|pq:\w+|p:\w+|wd:\w+', x)
     predicates_list = extract_predicates_fn(sparql_query)
     return predicates_list
 
-def extract_dataset_predicates(queries_list):
+def extract_sparql_dataset_predicates(queries_list):
     predicates_list = []
     for sparql_query in queries_list:
-        predicates_list += extract_predicates(sparql_query)
+        predicates_list += extract_predicates_from_sparql(sparql_query)
     predicates_set = set(predicates_list)
     return predicates_set
 
@@ -41,7 +41,7 @@ def split_train_test_by_indexes(index_list, train_frac):
     return train_indexes, test_indexes
 
 
-def align_test_dataset_with_train_tokens(dataset_sample, target_dataset_tokens_set, target_key_name='masked_sparql'):
+def align_test_dataset_with_train_tokens(dataset_sample, target_dataset_tokens_set, target_key_name='masked_query'):
     cleared_data = []
     count = 0
     for elem in dataset_sample:

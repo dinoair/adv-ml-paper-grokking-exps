@@ -9,11 +9,11 @@ import lr_scheduler
 from models.recurrent_decoder import RecurrentDecoder
 from models.seq2seq_attention import Seq2seqAttention
 from models.transformer_based_encoder import TransformerBasedEncoder
-from sparql_tokenizer import SPARQLTokenizer
+from target_tokenizers.query_space_tokenizer import QuerySpaceTokenizer
 
 
 class Seq2seqModel(nn.Module):
-    def __init__(self, model_config: dict, device: str, target_tokenizer: SPARQLTokenizer, train_dataset_size):
+    def __init__(self, model_config: dict, device: str, target_tokenizer: QuerySpaceTokenizer, train_dataset_size):
         super(Seq2seqModel, self).__init__()
         self.model_name = "vanilla"
         self.model_config = model_config
