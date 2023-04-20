@@ -23,6 +23,7 @@ class T5Model(nn.Module):
         self.criterion = CrossEntropyLoss(ignore_index=-100)
 
     def train_on_batch(self, input_data, target_data):
+        self.t5_model.train()
         self.optimizer.zero_grad()
 
         input_ids, attention_mask = input_data['input_ids'], input_data['attention_mask']
@@ -36,6 +37,7 @@ class T5Model(nn.Module):
         return loss.item()
 
     def evaluate_batch(self, input_data, target_data):
+        self.t5_model.eval()
         result_dict = dict()
         input_ids, attention_mask = input_data['input_ids'], input_data['attention_mask']
         target_ids = target_data['input_ids']
