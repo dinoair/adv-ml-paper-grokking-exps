@@ -11,10 +11,10 @@ class SPARQLParser:
         predicates_list = split_utils.extract_sparql_dataset_predicates(sparql_queries_list)
 
         self.compound_parsers_dict = OrderedDict({
-            "select_compound": sparql_compound_grammar.SelectGrammar(predicates_list).parser,
-            "triplet_compound": sparql_compound_grammar.TripletGrammar(predicates_list).parser,
-            "filter_compound": sparql_compound_grammar.FilterGrammar(predicates_list).parser,
-            "order_compound": sparql_compound_grammar.OrderGrammar(predicates_list).parser,
+            "request": sparql_compound_grammar.RequestGrammar(predicates_list).parser,
+            "triplet": sparql_compound_grammar.TripletGrammar(predicates_list).parser,
+            "filter": sparql_compound_grammar.FilterGrammar(predicates_list).parser,
+            "order": sparql_compound_grammar.OrderGrammar(predicates_list).parser,
         })
 
         self.filter_nans_lambda = lambda x: x is not None
