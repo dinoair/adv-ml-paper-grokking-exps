@@ -41,7 +41,7 @@ def main():
     train_query_list = [sample['masked_query'] for sample in train_data]
     test_query_list = [sample['masked_query'] for sample in test_data]
 
-    QUERY_SPACE_TOKENIZER = QuerySpaceTokenizer(train_query_list, vocab_path=dataset_vocab_path, pad_flag=True)
+    QUERY_SPACE_TOKENIZER = QuerySpaceTokenizer(train_query_list, vocab=dataset_vocab_path, pad_flag=True)
 
     train_questions_list = [sample['question'] for sample in train_data]
     test_questions_list = [sample['question'] for sample in test_data]

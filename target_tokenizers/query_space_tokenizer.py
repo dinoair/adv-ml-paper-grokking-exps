@@ -2,7 +2,7 @@ import json
 
 
 class QuerySpaceTokenizer:
-    def __init__(self, query_list, vocab_path, pad_flag):
+    def __init__(self, query_list, vocab, pad_flag):
         self.pad_flag = pad_flag
         self.word2index = {}
         self.word2count = {}
@@ -12,16 +12,23 @@ class QuerySpaceTokenizer:
         self.max_sent_len = -1
         self.special_tokens_set = {'SOS', 'EOS', 'PAD'}
 
-        self.load_vocab(vocab_path)
+        assert type(vocab) in [list, str]
+        if type(vocab) is str:
+            token_list = json.load(open(vocab, 'r'))
+            self.load_vocab(token_list)
+        elif type(vocab) is list:
+            self.load_vocab(vocab)
+
         for sent in query_list:
             sent_words_amount = len(sent.split())
             if sent_words_amount > self.max_sent_len:
                 self.max_sent_len = sent_words_amount
 
+        self.max_sent_len += 2# always add SOS/EOS
+
         print(f'Code tokenizer fitted - {len(self.word2index)} tokens')
 
-    def load_vocab(self, dir_path):
-        token_list = json.load(open(dir_path, 'r'))
+    def load_vocab(self, token_list):
         for token in token_list:
             if token not in self.word2index:
                 self.word2index[token] = self.n_words
@@ -33,7 +40,7 @@ class QuerySpaceTokenizer:
 
     def pad_sent(self, token_ids_list):
         if len(token_ids_list) < self.max_sent_len:
-            padded_token_ids_list = token_ids_list + [self.word2index['EOS']] + [self.word2index['PAD']] * (self.max_sent_len - len(token_ids_list) - 1)
+            padded_token_ids_list = token_ids_list + [self.word2index['PAD']] * (self.max_sent_len - len(token_ids_list))
         else:
             padded_token_ids_list = token_ids_list[:self.max_sent_len - 1] + [self.word2index['EOS']]
         return padded_token_ids_list
