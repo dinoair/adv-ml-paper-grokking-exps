@@ -1,0 +1,24 @@
+---
+data:
+  train: "dataset/lcquad/tmcd_split/english_train_split_coef_0.1.json"
+  dev: "dataset/lcquad/tmcd_split/english_dev_split_coef_0.1.json"
+  test: "dataset/lcquad/tmcd_split/english_test_split_coef_0.1.json"
+  dataset_vocab: "dataset/lcquad/query_vocab.json"
+
+model:
+  used_model: "t5"
+  t5:
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/t5_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/t5_base"
+    epochs_num: 100
+    learning_rate: 0.001
+    warmup_steps: 1000
+    batch_size: 32
+
+
+test_one_batch: False
+run_name: "en_tmcd_irm_t5"
+
+# for testing
+save_model_path: "experiments"
+inference_model_name: "en_tmcd_vanilla_run_with_pretrained_embs/epoch_119_gm_0.29_em_0.12_vanilla.pt"

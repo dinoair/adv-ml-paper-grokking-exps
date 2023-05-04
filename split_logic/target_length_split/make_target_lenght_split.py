@@ -9,7 +9,8 @@ from split_logic import split_utils
 np.random.seed(42)
 
 if __name__ == "__main__":
-
+    #TODO: Концептуально неверно юзать для LCQUAD target len
+    # если делить - у нас при таком
     config = yaml.load(open('config.yaml', 'r'), Loader=yaml.Loader)
     dataset_path = config['dataset_path']
     split_dir_saving_path = config['save_split_dir_path']
