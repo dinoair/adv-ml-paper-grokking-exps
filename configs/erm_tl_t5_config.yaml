@@ -32,8 +32,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_tl_erm_t5"
+run_name: "en_tl_erm_t5_v3"
 
 # for testing
+model_type: 'erm'
 save_model_path: "experiments"
-inference_model_name: "en_tmcd_vanilla_run_with_pretrained_embs/epoch_119_gm_0.29_em_0.12_vanilla.pt"
+inference_model_name: "en_tl_erm_t5_v3/epoch_99_gm_0.0_em_0.0_t5.pt"

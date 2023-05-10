@@ -22,7 +22,7 @@ class IRMT5Model(nn.Module):
         self.t5_optimizer = Adafactor(self.t5_model.parameters(), lr=self.model_config['learning_rate'], relative_step=False)
         self.criterion = CrossEntropyLoss(ignore_index=-100)
 
-        self.environment_head = dict()
+        self.environment_head = nn.ModuleDict()
         lm_head = nn.Linear(self.t5_model.config.d_model, len(self.tokenizer.index2word))
         for env_name in compound_types_list:
             self.environment_head[env_name] = copy.deepcopy(lm_head).to(self.device)

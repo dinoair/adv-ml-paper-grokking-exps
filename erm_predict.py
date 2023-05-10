@@ -1,6 +1,6 @@
 import json
 import os
-
+import argparse
 import numpy as np
 import torch
 import yaml
@@ -15,14 +15,14 @@ from target_tokenizers.t5_tokenizer import T5Tokenizer
 from text2query_dataset import Text2QueryDataset
 
 
-def main():
+def erm_predict(args):
     if torch.cuda.is_available():
         DEVICE = "cuda"
     else:
         DEVICE = 'cpu'
 
-
-    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs/config.yaml"), 'r', encoding="utf-8")),
+    config_name = args.config_name
+    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs", config_name), 'r', encoding="utf-8")),
                        Loader=yaml.Loader)
     trained_model_path = os.path.join(os.environ['PROJECT_PATH'], config['save_model_path'],
                                       config['inference_model_name'].split("/")[0])
@@ -81,8 +81,8 @@ def main():
         predictor = Predictor(model=seq2seq, config=config)
         target_tokenizer = QUERY_SPACE_TOKENIZER
 
-    test_dataset = Text2QueryDataset(tokenized_question_list=test_tokenized_questions_list,
-                                      tokenized_query_list=test_tokenized_query_list,
+    test_dataset = Text2QueryDataset(tokenized_input_list=test_tokenized_questions_list,
+                                      tokenized_target_list=test_tokenized_query_list,
                                       question_list=test_questions_list,
                                       query_list=test_query_list,
                                       tokenizer=target_tokenizer,
@@ -90,10 +90,12 @@ def main():
                                       dev=DEVICE)
 
     test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
-    # test_dataloader_sample = [list(test_dataloader)[0]]
 
     predictor.predict(test_dataloader)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config_name", type=str, required=True)
+    args = parser.parse_args()
+    erm_predict(args)

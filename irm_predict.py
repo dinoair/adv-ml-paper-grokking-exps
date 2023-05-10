@@ -1,6 +1,7 @@
 import torch
 import yaml
 import os
+import argparse
 import json
 
 from target_tokenizers.query_space_tokenizer import QuerySpaceTokenizer
@@ -8,24 +9,27 @@ from irm_data_handler import IRMDataHandler
 from split_logic.grammar import sparql_parser, atom_and_compound_cache
 from target_tokenizers.t5_tokenizer import T5Tokenizer
 from text2query_dataset import Text2QueryDataset
-from trainer import Trainer
 from models.irm_t5_model import IRMT5Model
 from torch.utils.data import DataLoader
+from predictor import Predictor
 
 
-if __name__ == "__main__":
+def irm_predict(args):
     if torch.cuda.is_available():
         DEVICE = "cuda"
     else:
         DEVICE = 'cpu'
 
-    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs/config.yaml"), 'r', encoding="utf-8")),
+    config_name = args.config_name
+    config = yaml.load((open(os.path.join(os.environ['PROJECT_PATH'], "configs", config_name), 'r', encoding="utf-8")),
                        Loader=yaml.Loader)
 
-    model_config = config['model']
-    model_name = model_config["used_model"]
+    trained_model_path = os.path.join(os.environ['PROJECT_PATH'], config['save_model_path'],
+                                      config['inference_model_name'].split("/")[0])
+
+    model_config = json.load(open(os.path.join(trained_model_path, 'model_config.json'), 'r'))
+    model_name = model_config["model_name"]
     assert model_name in ['t5']
-    model_config = model_config[model_name]
     batch_size = model_config['batch_size']
 
     train_data = json.load(
@@ -57,29 +61,38 @@ if __name__ == "__main__":
     t5_tokenizer.special_tokens_set.update(set(prefix_tokens))
     irm_data_handler = IRMDataHandler(parser=parser_with_cache, tokenizer=t5_tokenizer)
 
+    print('Preparation train envs data')
+    train_env_data = irm_data_handler.form_env_datasets(train_questions_list, train_query_list)
     print('Preparation test envs data')
     test_env_data = irm_data_handler.form_env_datasets(test_questions_list, test_query_list)
 
+    test_full_dataset = Text2QueryDataset(tokenized_input_list=test_env_data["full"]['input'],
+                                  tokenized_target_list=test_env_data["full"]['target'],
+                                  question_list=test_env_data["full"]['question'],
+                                  query_list=test_env_data["full"]['query'],
+                                  tokenizer=t5_tokenizer,
+                                  model_type='t5',
+                                  dev=DEVICE)
+    test_full_dataloader = DataLoader(test_full_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
 
-    test_env_dataloader_dict = {}
-    for env in test_env_data:
-        val_env_dataset = Text2QueryDataset(tokenized_input_list=test_env_data[env]['input'],
-                                      tokenized_target_list=test_env_data[env]['target'],
-                                      question_list=test_env_data[env]['question'],
-                                      query_list=test_env_data[env]['query'],
-                                      tokenizer=t5_tokenizer,
-                                      model_type='t5',
-                                      dev=DEVICE)
-        val_env_dataloader = DataLoader(val_env_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
-        test_env_dataloader_dict[env] = val_env_dataloader
+    # we build compounds head by train data, since its what we been trained on
+    irm_t5_model = IRMT5Model(model_config=model_config, device=DEVICE, tokenizer=t5_tokenizer, compound_types_list=list(train_env_data.keys()))
+    t5_state = torch.load(os.path.join(os.environ['PROJECT_PATH'],
+                                       config['save_model_path'], config['inference_model_name']),
+                          map_location=DEVICE)['model_state_dict']
+    irm_t5_model.load_state_dict(t5_state)
+    predictor = Predictor(model=irm_t5_model, config=config)
 
-    t5_model = IRMT5Model(model_config=model_config, device=DEVICE, tokenizer=t5_tokenizer, compound_types_list=list(test_env_data.keys()))
-    trainer = Trainer(model=t5_model, config=config, model_config=model_config)
+    # test_dataloader_sample = [list(test_full_dataloader)[0]]
 
-    if config['test_one_batch']:
-        trainer.train_with_enviroments(train_env_dataloader_dict, train_env_dataloader_dict)
-    else:
-        trainer.train_with_enviroments(train_env_dataloader_dict, val_env_dataloader_dict)
+    predictor.predict(test_full_dataloader)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config_name", type=str, required=True)
+    args = parser.parse_args()
+    irm_predict(args)
+
 
 
 

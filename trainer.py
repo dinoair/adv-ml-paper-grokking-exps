@@ -86,7 +86,7 @@ class Trainer:
                             }
 
                 val_per_env_dict_loss = {key: value / val_steps_per_epoch for key, value in val_per_env_dict_loss.items()}
-                overall_val_epoch_step = overall_train_epoch_loss / val_steps_per_epoch
+                overall_val_epoch_step = overall_val_epoch_loss / val_steps_per_epoch
                 val_em_epoch_acc = val_em_epoch_acc / val_steps_per_epoch
                 val_gm_epoch_acc = val_gm_epoch_acc / val_steps_per_epoch
 

@@ -10,6 +10,8 @@ class Predictor:
     def __init__(self, model, config):
         self.model = model
         self.config = config
+        self.model_train_type = self.config['model_type']
+        assert self.model_train_type in ['erm', 'irm']
 
     def predict(self, dataloader):
         exact_match = 0
@@ -19,9 +21,12 @@ class Predictor:
 
         self.model.eval()
         for batch in tqdm(dataloader):
-            input_data, target_data = batch['nl'], batch['query']
+            input_data, target_data = batch['input'], batch['target']
 
-            eval_result = self.model.evaluate_batch(input_data, target_data)
+            if self.model_train_type == 'irm':
+                eval_result = self.model.evaluate_batch(input_data, target_data, "full")
+            else:
+                eval_result = self.model.evaluate_batch(input_data, target_data)
 
             pred_metrics = calculate_batch_metrics(eval_result['predicted_query'],
                                                            target_data['original_query'])

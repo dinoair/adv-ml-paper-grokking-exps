@@ -1,8 +1,8 @@
 ---
 data:
-  train: "dataset/lcquad/target_length_split/english_train_split_above_50_percentile.json"
-  dev: "dataset/lcquad/target_length_split/english_dev_split_below_50_percentile.json"
-  test: "dataset/lcquad/target_length_split/english_test_split_below_50_percentile.json"
+  train: "dataset/lcquad/language_variation_split/english_train_split.json"
+  dev: "dataset/lcquad/language_variation_split/english_dev_split.json"
+  test: "dataset/lcquad/language_variation_split/english_test_split.json"
   dataset_vocab: "dataset/lcquad/query_vocab.json"
 
 model:
@@ -23,8 +23,8 @@ model:
     pretrained_embeddings_path: "experiments/pretrained_lm_sparql_embs.pt"
     embeddings_size: 300
   t5:
-    tokenizer: "/home/etutubalina/somov-od/pretrained_models/t5_base_tokenizer"
-    model: "/home/etutubalina/somov-od/pretrained_models/t5_base"
+    tokenizer: "t5-small"
+    model: "t5-small"
     epochs_num: 100
     learning_rate: 0.001
     warmup_steps: 1000
@@ -32,9 +32,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_tl_irm_t5_v3"
+run_name: "en_iid_erm_t5_v3"
 
 # for testing
-model_type: 'irm'
+model_type: 'erm'
 save_model_path: "experiments"
-inference_model_name: "en_tl_irm_t5_v3/epoch_99_gm_1.0_em_1.0_t5.pt"
+inference_model_name: ""

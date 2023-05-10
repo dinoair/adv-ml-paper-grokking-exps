@@ -49,9 +49,6 @@ class IRMDataHandler:
             per_env_data_dict[env_name]['question'].append(pair['question'])
             per_env_data_dict[env_name]['query'].append(pair['query'])
 
-        # tokeize input and target
-        # TODO: если в env нет данных, мы не готовим под него ключи env_name
-
         env_data_dict = dict()
         for env_name in per_env_data_dict:
             if len(per_env_data_dict[env_name]['input']) > 0:
