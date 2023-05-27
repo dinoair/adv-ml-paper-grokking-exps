@@ -28,7 +28,7 @@ if __name__ == "__main__":
     assert language in ['russian', 'english']
 
     expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'query', 'masked_query', 'attribute_mapping_dict',
-                     'source']
+                     'source', 'kb_id']
 
     updated_dataset = []
     for sample in dataset:

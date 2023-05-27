@@ -1,5 +1,5 @@
 ---
 language: "english"
-dataset_path: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/merged_dataset/merged_dataset_vol_4.4.json"
+dataset_path: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/merged_dataset/merged_dataset_vol_4.5.json"
 save_split_dir_path: "dataset/lcquad/target_length_split"
 train_percentile: 50

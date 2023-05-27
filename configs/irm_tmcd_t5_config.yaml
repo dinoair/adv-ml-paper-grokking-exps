@@ -1,15 +1,19 @@
 ---
 data:
+  target_language: "sparql"
   train: "dataset/lcquad/tmcd_split/english_train_split_coef_0.1.json"
   dev: "dataset/lcquad/tmcd_split/english_dev_split_coef_0.1.json"
   test: "dataset/lcquad/tmcd_split/english_test_split_coef_0.1.json"
   dataset_vocab: "dataset/lcquad/query_vocab.json"
+  # если работаем с кейсом, когда в датасете несколько баз
+  db_attributes_dict: "dataset/wikisql/table_id2new_attrs_for_parsing.json"
+  compound_cache_path: "dataset/lcquad/tmcd_split"
 
 model:
   used_model: "t5"
   t5:
-    tokenizer: "t5-small"
-    model: "t5-small"
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/t5_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/t5_base"
     epochs_num: 100
     learning_rate: 0.001
     warmup_steps: 1000
@@ -17,9 +21,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_tmcd_irm_t5_v3"
+run_name: "irm_tmcd_t5_all_run"
 
 # for testing
 model_type: 'irm'
 save_model_path: "experiments"
-inference_model_name: "en_tmcd_irm_t5_v3/epoch_99_gm_0.8_em_0.77_t5.pt"
+inference_model_name: ""

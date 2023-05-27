@@ -7,3 +7,4 @@ predictions
 .DS_Store
 .pytest_cache
 dataset/kgqa
+configs/erm_kgqa_config.yaml

@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 
 import utils
-from metrics import calculate_batch_metrics
+from eval_metrics.metrics import calculate_batch_metrics
 
 
 class Trainer:
@@ -30,7 +30,7 @@ class Trainer:
         current_epoch_em = 0
 
         train_steps_per_epoch = min([len(dataloader) for dataloader in train_env_dict.values()])
-        val_steps_per_epoch = min([len(dataloader) for dataloader in train_env_dict.values()])
+        val_steps_per_epoch = min([len(dataloader) for dataloader in val_env_dict.values()])
 
         try:
             for epoch in tqdm(range(self.epoch_num), desc='Total epochs'):

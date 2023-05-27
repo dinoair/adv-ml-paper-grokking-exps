@@ -1,9 +1,13 @@
 ---
 data:
+  target_language: "sparql"
   train: "dataset/lcquad/language_variation_split/english_train_split.json"
   dev: "dataset/lcquad/language_variation_split/english_dev_split.json"
   test: "dataset/lcquad/language_variation_split/english_test_split.json"
   dataset_vocab: "dataset/lcquad/query_vocab.json"
+  # если работаем с кейсом, когда в датасете несколько баз
+  db_attributes_dict: "dataset/wikisql/table_id2new_attrs_for_parsing.json"
+  compound_cache_path: "dataset/lcquad/tmcd_split"
 
 model:
   used_model: "t5"
@@ -32,9 +36,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_iid_irm_t5_v3"
+run_name: "irm_lv_t5_all_run"
 
 # for testing
 model_type: 'irm'
 save_model_path: "experiments"
-inference_model_name: "en_iid_irm_t5_v3/epoch_99_gm_0.93_em_1.0_t5.pt"
+inference_model_name: ""

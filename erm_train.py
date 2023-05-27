@@ -65,6 +65,34 @@ def run_erm(args):
         train_tokenized_query_list = t5_tokenizer(text_list=train_query_list, max_length=128)
         dev_tokenized_query_list = t5_tokenizer(text_list=dev_query_list, max_length=128)
 
+        # ---------------------------------------------------------
+        # DEBUG IRM PROBLEM
+        # import pickle
+        # irm_data = pickle.load(open(os.path.join(os.environ['PROJECT_PATH'], 'dataset/lcquad/irm_tl_dump.pickle'), 'rb'))
+        # special_tokens = irm_data['special_tokens']
+        #
+        # # irm formatted data
+        # train_input_list = irm_data['train_input']
+        # dev_input_list = irm_data['dev_input']
+        # train_target_list = irm_data['train_target']
+        # dev_target_list = irm_data['dev_target']
+        # # original data
+        # train_questions_list = irm_data['train_questions']
+        # dev_questions_list = irm_data['dev_questions']
+        # train_query_list = irm_data['train_queries']
+        # # compare each string(not full query as in irm)
+        # dev_query_list = irm_data['dev_queries']
+        #
+        # t5_tokenizer.add_tokens(special_tokens)
+        # # Do not do this - so we don have to change original target
+        # # t5_tokenizer.special_tokens_set.update(set(special_tokens))
+        #
+        # train_tokenized_questions_list = t5_tokenizer(text_list=train_input_list, max_length=512)
+        # dev_tokenized_questions_list = t5_tokenizer(text_list=dev_input_list, max_length=512)
+        # train_tokenized_query_list = t5_tokenizer(text_list=train_target_list, max_length=128)
+        # dev_tokenized_query_list = t5_tokenizer(text_list=dev_target_list, max_length=128)
+        #---------------------------------------------------------
+
         t5_model = T5Model(model_config=model_config, device=DEVICE, tokenizer=t5_tokenizer)
         trainer = Trainer(model=t5_model, config=config, model_config=model_config)
         target_tokenizer = t5_tokenizer

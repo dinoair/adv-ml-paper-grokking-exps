@@ -1,5 +1,6 @@
 ---
 data:
+  target_language: "sparql"
   train: "dataset/lcquad/target_length_split/english_train_split_above_50_percentile.json"
   dev: "dataset/lcquad/target_length_split/english_dev_split_below_50_percentile.json"
   test: "dataset/lcquad/target_length_split/english_test_split_below_50_percentile.json"
@@ -32,9 +33,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_tl_erm_t5_v3"
+run_name: "erm_tl_t5_all_run"
 
 # for testing
 model_type: 'erm'
 save_model_path: "experiments"
-inference_model_name: "en_tl_erm_t5_v3/epoch_99_gm_0.0_em_0.0_t5.pt"
+inference_model_name: ""

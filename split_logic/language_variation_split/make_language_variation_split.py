@@ -31,7 +31,7 @@ if __name__ == "__main__":
     train_dataset_indexes, test_dataset_indexes = split_utils.split_train_test_by_indexes(list(range(0, len(dataset))), train_frac)
 
     expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'query', 'masked_query', 'attribute_mapping_dict',
-                     'source']
+                     'source', 'kb_id']
 
     updated_dataset = []
     for sample in dataset:

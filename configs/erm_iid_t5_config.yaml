@@ -1,5 +1,6 @@
 ---
 data:
+  target_language: "sparql"
   train: "dataset/lcquad/language_variation_split/english_train_split.json"
   dev: "dataset/lcquad/language_variation_split/english_dev_split.json"
   test: "dataset/lcquad/language_variation_split/english_test_split.json"
@@ -32,9 +33,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_iid_erm_t5_v3"
+run_name: "erm_lv_t5_all_run"
 
 # for testing
 model_type: 'erm'
 save_model_path: "experiments"
-inference_model_name: "en_iid_erm_t5_v3/epoch_99_gm_0.81_em_0.73_t5.pt"
+inference_model_name: ""

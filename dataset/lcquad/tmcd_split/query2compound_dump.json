@@ -443,8 +443,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2160 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2571 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2160 ?OBJ_3"
+            "?SUBJ_2 ps:P2160 ?OBJ_3",
+            "?SUBJ_2 pq:P2571 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -549,8 +549,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2884 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2144 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2884 ?OBJ_3"
+            "?SUBJ_2 ps:P2884 ?OBJ_3",
+            "?SUBJ_2 pq:P2144 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -858,9 +858,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2715 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2715 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -927,9 +927,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P26 ?OBJ_2 .",
-            "?SUBJ_2 ps:P26 ?OBJ_3 ."
+            "?SUBJ_2 ps:P26 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -1222,8 +1222,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1082 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1082 ?OBJ_3"
+            "?SUBJ_2 ps:P1082 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -1626,8 +1626,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P4841 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P4841 ?OBJ_3"
+            "?SUBJ_2 ps:P4841 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -1767,9 +1767,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -2823,9 +2823,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P276 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1000 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1000 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1000 ?OBJ_3 .",
+            "?SUBJ_2 pq:P276 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -2881,8 +2881,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P443 ?OBJ_2 .",
-            "?SUBJ_2 pq:P407 ?OBJ_4 }",
-            "?SUBJ_2 ps:P443 ?OBJ_3"
+            "?SUBJ_2 ps:P443 ?OBJ_3",
+            "?SUBJ_2 pq:P407 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -3066,8 +3066,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P570 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P570 ?OBJ_3"
+            "?SUBJ_2 ps:P570 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -4583,9 +4583,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1350 ?OBJ_4 . }",
             "{ SUBJ_1 p:P54 ?OBJ_2 .",
-            "?SUBJ_2 ps:P54 ?OBJ_3 ."
+            "?SUBJ_2 ps:P54 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1350 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -4631,9 +4631,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P512 ?OBJ_4 . }",
             "{ SUBJ_1 p:P69 ?OBJ_2 .",
-            "?SUBJ_2 ps:P69 ?OBJ_3 ."
+            "?SUBJ_2 ps:P69 ?OBJ_3 .",
+            "?SUBJ_2 pq:P512 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -4787,8 +4787,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1373 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1373 ?OBJ_3"
+            "?SUBJ_2 ps:P1373 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -4938,9 +4938,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1534 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1534 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -5094,9 +5094,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P366 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3387 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3387 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P366 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -5143,8 +5143,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P348 ?OBJ_2 .",
-            "?SUBJ_2 pq:P582 ?OBJ_4 }",
-            "?SUBJ_2 ps:P348 ?OBJ_3"
+            "?SUBJ_2 ps:P348 ?OBJ_3",
+            "?SUBJ_2 pq:P582 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -5900,9 +5900,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P184 ?OBJ_4 . }",
             "{ SUBJ_1 p:P69 ?OBJ_2 .",
-            "?SUBJ_2 ps:P69 ?OBJ_3 ."
+            "?SUBJ_2 ps:P69 ?OBJ_3 .",
+            "?SUBJ_2 pq:P184 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -5925,8 +5925,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2573 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2573 ?OBJ_3"
+            "?SUBJ_2 ps:P2573 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -6288,9 +6288,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P155 ?OBJ_4 . }",
             "{ SUBJ_1 p:P179 ?OBJ_2 .",
-            "?SUBJ_2 ps:P179 ?OBJ_3 ."
+            "?SUBJ_2 ps:P179 ?OBJ_3 .",
+            "?SUBJ_2 pq:P155 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -6407,8 +6407,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1545 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1545 ?OBJ_3"
+            "?SUBJ_2 ps:P1545 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -6561,9 +6561,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P155 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P155 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -6607,8 +6607,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1082 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1082 ?OBJ_3"
+            "?SUBJ_2 ps:P1082 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -7625,9 +7625,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P570 ?OBJ_4 . }",
             "{ SUBJ_1 p:P40 ?OBJ_2 .",
-            "?SUBJ_2 ps:P40 ?OBJ_3 ."
+            "?SUBJ_2 ps:P40 ?OBJ_3 .",
+            "?SUBJ_2 pq:P570 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -8422,8 +8422,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P742 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P742 ?OBJ_3"
+            "?SUBJ_2 ps:P742 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -8760,9 +8760,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P4600 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5480 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5480 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P4600 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -9186,9 +9186,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P276 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1345 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1345 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P276 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -9559,8 +9559,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P571 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P571 ?OBJ_3"
+            "?SUBJ_2 ps:P571 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -9794,9 +9794,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P155 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1141 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1141 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P155 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -9870,8 +9870,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2054 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2076 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2054 ?OBJ_3"
+            "?SUBJ_2 ps:P2054 ?OBJ_3",
+            "?SUBJ_2 pq:P2076 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -9960,9 +9960,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P26 ?OBJ_2 .",
-            "?SUBJ_2 ps:P26 ?OBJ_3 ."
+            "?SUBJ_2 ps:P26 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -10020,9 +10020,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P291 ?OBJ_4 . }",
             "{ SUBJ_1 p:P123 ?OBJ_2 .",
-            "?SUBJ_2 ps:P123 ?OBJ_3 ."
+            "?SUBJ_2 ps:P123 ?OBJ_3 .",
+            "?SUBJ_2 pq:P291 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -10794,9 +10794,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P131 ?OBJ_2 .",
-            "?SUBJ_2 ps:P131 ?OBJ_3 ."
+            "?SUBJ_2 ps:P131 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -10865,9 +10865,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2121 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2121 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -11088,9 +11088,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P69 ?OBJ_2 .",
-            "?SUBJ_2 ps:P69 ?OBJ_3 ."
+            "?SUBJ_2 ps:P69 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -11136,9 +11136,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P156 ?OBJ_4 . }",
             "{ SUBJ_1 p:P97 ?OBJ_2 .",
-            "?SUBJ_2 ps:P97 ?OBJ_3 ."
+            "?SUBJ_2 ps:P97 ?OBJ_3 .",
+            "?SUBJ_2 pq:P156 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -12279,9 +12279,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P161 ?OBJ_2 .",
-            "?SUBJ_2 ps:P161 ?OBJ_3 ."
+            "?SUBJ_2 ps:P161 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -12304,8 +12304,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1279 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1279 ?OBJ_3"
+            "?SUBJ_2 ps:P1279 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -12404,9 +12404,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2935 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2436 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2436 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2935 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -12926,8 +12926,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P577 ?OBJ_2 .",
-            "?SUBJ_2 pq:P291 ?OBJ_4 }",
-            "?SUBJ_2 ps:P577 ?OBJ_3"
+            "?SUBJ_2 ps:P577 ?OBJ_3",
+            "?SUBJ_2 pq:P291 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -13225,9 +13225,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P155 ?OBJ_4 . }",
             "{ SUBJ_1 p:P97 ?OBJ_2 .",
-            "?SUBJ_2 ps:P97 ?OBJ_3 ."
+            "?SUBJ_2 ps:P97 ?OBJ_3 .",
+            "?SUBJ_2 pq:P155 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -13555,9 +13555,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2032 ?OBJ_4 . }",
             "{ SUBJ_1 p:P6 ?OBJ_2 .",
-            "?SUBJ_2 ps:P6 ?OBJ_3 ."
+            "?SUBJ_2 ps:P6 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2032 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -13578,9 +13578,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P371 ?OBJ_2 .",
-            "?SUBJ_2 ps:P371 ?OBJ_3 ."
+            "?SUBJ_2 ps:P371 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -13778,9 +13778,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4140 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4140 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -13867,9 +13867,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1697 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1697 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -13952,9 +13952,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P101 ?OBJ_4 . }",
             "{ SUBJ_1 p:P512 ?OBJ_2 .",
-            "?SUBJ_2 ps:P512 ?OBJ_3 ."
+            "?SUBJ_2 ps:P512 ?OBJ_3 .",
+            "?SUBJ_2 pq:P101 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -14025,9 +14025,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P812 ?OBJ_4 . }",
             "{ SUBJ_1 p:P69 ?OBJ_2 .",
-            "?SUBJ_2 ps:P69 ?OBJ_3 ."
+            "?SUBJ_2 ps:P69 ?OBJ_3 .",
+            "?SUBJ_2 pq:P812 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -14249,8 +14249,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2134 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2134 ?OBJ_3"
+            "?SUBJ_2 ps:P2134 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -15046,9 +15046,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P551 ?OBJ_2 .",
-            "?SUBJ_2 ps:P551 ?OBJ_3 ."
+            "?SUBJ_2 ps:P551 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -15581,8 +15581,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1191 ?OBJ_2 .",
-            "?SUBJ_2 pq:P161 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1191 ?OBJ_3"
+            "?SUBJ_2 ps:P1191 ?OBJ_3",
+            "?SUBJ_2 pq:P161 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -15734,9 +15734,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P577 ?OBJ_4 . }",
             "{ SUBJ_1 p:P800 ?OBJ_2 .",
-            "?SUBJ_2 ps:P800 ?OBJ_3 ."
+            "?SUBJ_2 ps:P800 ?OBJ_3 .",
+            "?SUBJ_2 pq:P577 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -15986,9 +15986,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1351 ?OBJ_4 . }",
             "{ SUBJ_1 p:P54 ?OBJ_2 .",
-            "?SUBJ_2 ps:P54 ?OBJ_3 ."
+            "?SUBJ_2 ps:P54 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1351 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -17726,9 +17726,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P131 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2547 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2547 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P131 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -18182,8 +18182,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3362 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3362 ?OBJ_3"
+            "?SUBJ_2 ps:P3362 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -18631,9 +18631,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P276 ?OBJ_4 . }",
             "{ SUBJ_1 p:P793 ?OBJ_2 .",
-            "?SUBJ_2 ps:P793 ?OBJ_3 ."
+            "?SUBJ_2 ps:P793 ?OBJ_3 .",
+            "?SUBJ_2 pq:P276 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -19460,8 +19460,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1081 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1081 ?OBJ_3"
+            "?SUBJ_2 ps:P1081 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -19617,9 +19617,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2031 ?OBJ_4 . }",
             "{ SUBJ_1 p:P6 ?OBJ_2 .",
-            "?SUBJ_2 ps:P6 ?OBJ_3 ."
+            "?SUBJ_2 ps:P6 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2031 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -19630,8 +19630,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P576 ?OBJ_2 .",
-            "?SUBJ_2 pq:P642 ?OBJ_4 }",
-            "?SUBJ_2 ps:P576 ?OBJ_3"
+            "?SUBJ_2 ps:P576 ?OBJ_3",
+            "?SUBJ_2 pq:P642 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -20151,9 +20151,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -20212,9 +20212,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2137 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2137 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -20479,8 +20479,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1540 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1540 ?OBJ_3"
+            "?SUBJ_2 ps:P1540 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -20511,9 +20511,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P127 ?OBJ_4 . }",
             "{ SUBJ_1 p:P551 ?OBJ_2 .",
-            "?SUBJ_2 ps:P551 ?OBJ_3 ."
+            "?SUBJ_2 ps:P551 ?OBJ_3 .",
+            "?SUBJ_2 pq:P127 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -20844,9 +20844,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P241 ?OBJ_4 . }",
             "{ SUBJ_1 p:P463 ?OBJ_2 .",
-            "?SUBJ_2 ps:P463 ?OBJ_3 ."
+            "?SUBJ_2 ps:P463 ?OBJ_3 .",
+            "?SUBJ_2 pq:P241 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -20998,9 +20998,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1532 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1532 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1532 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -21188,9 +21188,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2670 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4131 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4131 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2670 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -21470,9 +21470,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P108 ?OBJ_2 .",
-            "?SUBJ_2 ps:P108 ?OBJ_3 ."
+            "?SUBJ_2 ps:P108 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -21538,8 +21538,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2300 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2352 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2300 ?OBJ_3"
+            "?SUBJ_2 ps:P2300 ?OBJ_3",
+            "?SUBJ_2 pq:P2352 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -21742,9 +21742,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2048 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1000 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1000 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1000 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2048 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -21819,9 +21819,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1534 ?OBJ_4 . }",
             "{ SUBJ_1 p:P26 ?OBJ_2 .",
-            "?SUBJ_2 ps:P26 ?OBJ_3 ."
+            "?SUBJ_2 ps:P26 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1534 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -22182,9 +22182,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P186 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4350 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4350 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P186 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -22196,9 +22196,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P101 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P101 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -22408,8 +22408,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P571 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P571 ?OBJ_3"
+            "?SUBJ_2 ps:P571 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -23056,8 +23056,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P570 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P570 ?OBJ_3"
+            "?SUBJ_2 ps:P570 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -23130,9 +23130,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P768 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P768 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -23212,9 +23212,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P279 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2806 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2806 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P279 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -23437,8 +23437,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1449 ?OBJ_2 .",
-            "?SUBJ_2 pq:P805 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1449 ?OBJ_3"
+            "?SUBJ_2 ps:P1449 ?OBJ_3",
+            "?SUBJ_2 pq:P805 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -23859,9 +23859,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1706 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1706 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -23889,9 +23889,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P462 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2712 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2712 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P462 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -24383,8 +24383,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P569 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P569 ?OBJ_3"
+            "?SUBJ_2 ps:P569 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -24441,8 +24441,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1451 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1451 ?OBJ_3"
+            "?SUBJ_2 ps:P1451 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -25109,9 +25109,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P569 ?OBJ_4 . }",
             "{ SUBJ_1 p:P40 ?OBJ_2 .",
-            "?SUBJ_2 ps:P40 ?OBJ_3 ."
+            "?SUBJ_2 ps:P40 ?OBJ_3 .",
+            "?SUBJ_2 pq:P569 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -25567,8 +25567,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P569 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P569 ?OBJ_3"
+            "?SUBJ_2 ps:P569 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -26323,9 +26323,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P106 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2021 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2021 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P106 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -26786,8 +26786,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1458 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1227 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1458 ?OBJ_3"
+            "?SUBJ_2 ps:P1458 ?OBJ_3",
+            "?SUBJ_2 pq:P1227 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -26948,8 +26948,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2046 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2046 ?OBJ_3"
+            "?SUBJ_2 ps:P2046 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -27057,8 +27057,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P625 ?OBJ_2 .",
-            "?SUBJ_2 pq:P518 ?OBJ_4 }",
-            "?SUBJ_2 ps:P625 ?OBJ_3"
+            "?SUBJ_2 ps:P625 ?OBJ_3",
+            "?SUBJ_2 pq:P518 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -27259,8 +27259,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2196 ?OBJ_2 .",
-            "?SUBJ_2 pq:P813 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2196 ?OBJ_3"
+            "?SUBJ_2 ps:P2196 ?OBJ_3",
+            "?SUBJ_2 pq:P813 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -27333,8 +27333,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2139 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2139 ?OBJ_3"
+            "?SUBJ_2 ps:P2139 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -27687,8 +27687,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2119 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2076 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2119 ?OBJ_3"
+            "?SUBJ_2 ps:P2119 ?OBJ_3",
+            "?SUBJ_2 pq:P2076 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -27928,9 +27928,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P156 ?OBJ_4 . }",
             "{ SUBJ_1 p:P179 ?OBJ_2 .",
-            "?SUBJ_2 ps:P179 ?OBJ_3 ."
+            "?SUBJ_2 ps:P179 ?OBJ_3 .",
+            "?SUBJ_2 pq:P156 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -28262,8 +28262,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2610 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2610 ?OBJ_3"
+            "?SUBJ_2 ps:P2610 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -29030,9 +29030,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2128 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2128 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -29527,8 +29527,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P569 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P569 ?OBJ_3"
+            "?SUBJ_2 ps:P569 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -29673,9 +29673,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P793 ?OBJ_2 .",
-            "?SUBJ_2 ps:P793 ?OBJ_3 ."
+            "?SUBJ_2 ps:P793 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -29729,9 +29729,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P54 ?OBJ_2 .",
-            "?SUBJ_2 ps:P54 ?OBJ_3 ."
+            "?SUBJ_2 ps:P54 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -29849,9 +29849,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2407 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2407 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -29884,9 +29884,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P449 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2437 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2437 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P449 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -30156,9 +30156,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P25 ?OBJ_4 . }",
             "{ SUBJ_1 p:P40 ?OBJ_2 .",
-            "?SUBJ_2 ps:P40 ?OBJ_3 ."
+            "?SUBJ_2 ps:P40 ?OBJ_3 .",
+            "?SUBJ_2 pq:P25 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -30279,8 +30279,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3087 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3087 ?OBJ_3"
+            "?SUBJ_2 ps:P3087 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -31614,9 +31614,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P463 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2884 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2884 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P463 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -31735,9 +31735,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1001 ?OBJ_4 . }",
             "{ SUBJ_1 p:P793 ?OBJ_2 .",
-            "?SUBJ_2 ps:P793 ?OBJ_3 ."
+            "?SUBJ_2 ps:P793 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1001 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -33001,8 +33001,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1128 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1128 ?OBJ_3"
+            "?SUBJ_2 ps:P1128 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -34036,8 +34036,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P585 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P585 ?OBJ_3"
+            "?SUBJ_2 ps:P585 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -34154,9 +34154,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3078 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3078 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -34490,9 +34490,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1706 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1411 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1411 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1411 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1706 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -34620,8 +34620,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P31 ?OBJ_2 .",
-            "?SUBJ_2 pq:P582 ?OBJ_4 }",
-            "?SUBJ_2 ps:P31 ?OBJ_3"
+            "?SUBJ_2 ps:P31 ?OBJ_3",
+            "?SUBJ_2 pq:P582 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -34824,8 +34824,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P348 ?OBJ_2 .",
-            "?SUBJ_2 pq:P577 ?OBJ_4 }",
-            "?SUBJ_2 ps:P348 ?OBJ_3"
+            "?SUBJ_2 ps:P348 ?OBJ_3",
+            "?SUBJ_2 pq:P577 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -34890,9 +34890,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1346 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1346 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -35597,9 +35597,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P641 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4999 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4999 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P641 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -35802,9 +35802,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P26 ?OBJ_4 . }",
             "{ SUBJ_1 p:P793 ?OBJ_2 .",
-            "?SUBJ_2 ps:P793 ?OBJ_3 ."
+            "?SUBJ_2 ps:P793 ?OBJ_3 .",
+            "?SUBJ_2 pq:P26 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -35966,9 +35966,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4511 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4511 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -36286,9 +36286,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P515 ?OBJ_4 . }",
             "{ SUBJ_1 p:P873 ?OBJ_2 .",
-            "?SUBJ_2 ps:P873 ?OBJ_3 ."
+            "?SUBJ_2 ps:P873 ?OBJ_3 .",
+            "?SUBJ_2 pq:P515 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -36495,9 +36495,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1534 ?OBJ_4 . }",
             "{ SUBJ_1 p:P27 ?OBJ_2 .",
-            "?SUBJ_2 ps:P27 ?OBJ_3 ."
+            "?SUBJ_2 ps:P27 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1534 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -36690,9 +36690,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P131 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1538 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1538 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P131 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -37353,8 +37353,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P569 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P569 ?OBJ_3"
+            "?SUBJ_2 ps:P569 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -37523,8 +37523,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1539 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1539 ?OBJ_3"
+            "?SUBJ_2 ps:P1539 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -37855,8 +37855,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2260 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1545 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2260 ?OBJ_3"
+            "?SUBJ_2 ps:P2260 ?OBJ_3",
+            "?SUBJ_2 pq:P1545 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -38450,8 +38450,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2325 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2325 ?OBJ_3"
+            "?SUBJ_2 ps:P2325 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -38859,8 +38859,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2854 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2854 ?OBJ_3"
+            "?SUBJ_2 ps:P2854 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -39711,9 +39711,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2453 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2453 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -40428,9 +40428,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P92 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2998 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2998 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P92 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -40465,8 +40465,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2128 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2128 ?OBJ_3"
+            "?SUBJ_2 ps:P2128 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -41424,9 +41424,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5448 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5448 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -41605,9 +41605,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P366 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5483 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5483 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P366 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -42149,9 +42149,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P3027 ?OBJ_4 . }",
             "{ SUBJ_1 p:P3025 ?OBJ_2 .",
-            "?SUBJ_2 ps:P3025 ?OBJ_3 ."
+            "?SUBJ_2 ps:P3025 ?OBJ_3 .",
+            "?SUBJ_2 pq:P3027 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -42454,9 +42454,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P3026 ?OBJ_4 . }",
             "{ SUBJ_1 p:P3025 ?OBJ_2 .",
-            "?SUBJ_2 ps:P3025 ?OBJ_3 ."
+            "?SUBJ_2 ps:P3025 ?OBJ_3 .",
+            "?SUBJ_2 pq:P3026 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -42729,8 +42729,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2131 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2131 ?OBJ_3"
+            "?SUBJ_2 ps:P2131 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -42877,9 +42877,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P123 ?OBJ_4 . }",
             "{ SUBJ_1 p:P747 ?OBJ_2 .",
-            "?SUBJ_2 ps:P747 ?OBJ_3 ."
+            "?SUBJ_2 ps:P747 ?OBJ_3 .",
+            "?SUBJ_2 pq:P123 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -42916,9 +42916,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P156 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P156 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -44097,9 +44097,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P61 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1108 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1108 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P61 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -44178,8 +44178,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1559 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2125 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1559 ?OBJ_3"
+            "?SUBJ_2 ps:P1559 ?OBJ_3",
+            "?SUBJ_2 pq:P2125 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -44212,9 +44212,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -44224,9 +44224,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1833 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1833 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -44564,8 +44564,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1635 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1635 ?OBJ_3"
+            "?SUBJ_2 ps:P1635 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -44970,8 +44970,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2067 ?OBJ_2 .",
-            "?SUBJ_2 pq:P642 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2067 ?OBJ_3"
+            "?SUBJ_2 ps:P2067 ?OBJ_3",
+            "?SUBJ_2 pq:P642 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -45617,9 +45617,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P276 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1356 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1356 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P276 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -46131,8 +46131,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1082 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1539 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1082 ?OBJ_3"
+            "?SUBJ_2 ps:P1082 ?OBJ_3",
+            "?SUBJ_2 pq:P1539 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -46535,8 +46535,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P989 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P989 ?OBJ_3"
+            "?SUBJ_2 ps:P989 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -46738,8 +46738,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P742 ?OBJ_2 .",
-            "?SUBJ_2 pq:P138 ?OBJ_4 }",
-            "?SUBJ_2 ps:P742 ?OBJ_3"
+            "?SUBJ_2 ps:P742 ?OBJ_3",
+            "?SUBJ_2 pq:P138 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -47560,8 +47560,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P4841 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P4841 ?OBJ_3"
+            "?SUBJ_2 ps:P4841 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -47707,8 +47707,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2120 ?OBJ_2 .",
-            "?SUBJ_2 pq:P18 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2120 ?OBJ_3"
+            "?SUBJ_2 ps:P2120 ?OBJ_3",
+            "?SUBJ_2 pq:P18 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -48038,9 +48038,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2077 ?OBJ_4 . }",
             "{ SUBJ_1 p:P873 ?OBJ_2 .",
-            "?SUBJ_2 ps:P873 ?OBJ_3 ."
+            "?SUBJ_2 ps:P873 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2077 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -48417,9 +48417,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P3643 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2046 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2046 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P3643 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -48598,8 +48598,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P576 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P576 ?OBJ_3"
+            "?SUBJ_2 ps:P576 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -48756,9 +48756,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P69 ?OBJ_4 . }",
             "{ SUBJ_1 p:P512 ?OBJ_2 .",
-            "?SUBJ_2 ps:P512 ?OBJ_3 ."
+            "?SUBJ_2 ps:P512 ?OBJ_3 .",
+            "?SUBJ_2 pq:P69 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -48931,8 +48931,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2386 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1114 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2386 ?OBJ_3"
+            "?SUBJ_2 ps:P2386 ?OBJ_3",
+            "?SUBJ_2 pq:P1114 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -49195,9 +49195,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1129 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1129 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -49929,8 +49929,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2107 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2107 ?OBJ_3"
+            "?SUBJ_2 ps:P2107 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -51035,9 +51035,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2790 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2790 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -51842,9 +51842,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2060 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2060 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -52282,9 +52282,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2842 ?OBJ_4 . }",
             "{ SUBJ_1 p:P26 ?OBJ_2 .",
-            "?SUBJ_2 ps:P26 ?OBJ_3 ."
+            "?SUBJ_2 ps:P26 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2842 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -52822,9 +52822,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P131 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2907 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2907 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P131 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -53190,8 +53190,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2573 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2573 ?OBJ_3"
+            "?SUBJ_2 ps:P2573 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -53281,9 +53281,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -53384,9 +53384,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2453 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1411 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1411 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1411 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2453 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -54682,8 +54682,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2196 ?OBJ_2 .",
-            "?SUBJ_2 pq:P582 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2196 ?OBJ_3"
+            "?SUBJ_2 ps:P2196 ?OBJ_3",
+            "?SUBJ_2 pq:P582 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -54869,8 +54869,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1198 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1198 ?OBJ_3"
+            "?SUBJ_2 ps:P1198 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -55265,8 +55265,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1092 ?OBJ_2 .",
-            "?SUBJ_2 pq:P17 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1092 ?OBJ_3"
+            "?SUBJ_2 ps:P1092 ?OBJ_3",
+            "?SUBJ_2 pq:P17 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -55289,9 +55289,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3013 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3013 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -55553,8 +55553,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P31 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P31 ?OBJ_3"
+            "?SUBJ_2 ps:P31 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -55601,9 +55601,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2225 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2225 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -56417,8 +56417,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2300 ?OBJ_2 .",
-            "?SUBJ_2 pq:P689 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2300 ?OBJ_3"
+            "?SUBJ_2 ps:P2300 ?OBJ_3",
+            "?SUBJ_2 pq:P689 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -56505,9 +56505,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P530 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1689 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1689 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P530 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -56540,8 +56540,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1705 ?OBJ_2 .",
-            "?SUBJ_2 pq:P4187 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1705 ?OBJ_3"
+            "?SUBJ_2 ps:P1705 ?OBJ_3",
+            "?SUBJ_2 pq:P4187 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -56757,8 +56757,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1113 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1113 ?OBJ_3"
+            "?SUBJ_2 ps:P1113 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -58397,8 +58397,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2645 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2645 ?OBJ_3"
+            "?SUBJ_2 ps:P2645 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -58558,8 +58558,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2054 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2054 ?OBJ_3"
+            "?SUBJ_2 ps:P2054 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -58727,9 +58727,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P131 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1103 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1103 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P131 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -58877,8 +58877,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P577 ?OBJ_2 .",
-            "?SUBJ_2 pq:P304 ?OBJ_4 }",
-            "?SUBJ_2 ps:P577 ?OBJ_3"
+            "?SUBJ_2 ps:P577 ?OBJ_3",
+            "?SUBJ_2 pq:P304 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -58890,9 +58890,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1542 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2300 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2300 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1542 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -59306,8 +59306,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2177 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2178 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2177 ?OBJ_3"
+            "?SUBJ_2 ps:P2177 ?OBJ_3",
+            "?SUBJ_2 pq:P2178 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -59797,8 +59797,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2218 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2218 ?OBJ_3"
+            "?SUBJ_2 ps:P2218 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -60061,9 +60061,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P123 ?OBJ_4 . }",
             "{ SUBJ_1 p:P800 ?OBJ_2 .",
-            "?SUBJ_2 ps:P800 ?OBJ_3 ."
+            "?SUBJ_2 ps:P800 ?OBJ_3 .",
+            "?SUBJ_2 pq:P123 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -60352,9 +60352,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P398 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2214 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2214 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P398 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -60497,9 +60497,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P17 ?OBJ_2 .",
-            "?SUBJ_2 ps:P17 ?OBJ_3 ."
+            "?SUBJ_2 ps:P17 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -60694,9 +60694,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P991 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5043 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5043 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P991 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -60838,8 +60838,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P4442 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P4442 ?OBJ_3"
+            "?SUBJ_2 ps:P4442 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -61020,9 +61020,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P641 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1110 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1110 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P641 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -61623,9 +61623,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P463 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4010 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4010 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P463 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -62358,9 +62358,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2075 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2075 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -62772,9 +62772,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2595 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2595 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -63180,8 +63180,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2561 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2561 ?OBJ_3"
+            "?SUBJ_2 ps:P2561 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -63643,8 +63643,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1449 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2441 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1449 ?OBJ_3"
+            "?SUBJ_2 ps:P1449 ?OBJ_3",
+            "?SUBJ_2 pq:P2441 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -63885,9 +63885,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P570 ?OBJ_4 . }",
             "{ SUBJ_1 p:P106 ?OBJ_2 .",
-            "?SUBJ_2 ps:P106 ?OBJ_3 ."
+            "?SUBJ_2 ps:P106 ?OBJ_3 .",
+            "?SUBJ_2 pq:P570 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -64000,9 +64000,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P131 ?OBJ_2 .",
-            "?SUBJ_2 ps:P131 ?OBJ_3 ."
+            "?SUBJ_2 ps:P131 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -65009,9 +65009,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P22 ?OBJ_4 . }",
             "{ SUBJ_1 p:P40 ?OBJ_2 .",
-            "?SUBJ_2 ps:P40 ?OBJ_3 ."
+            "?SUBJ_2 ps:P40 ?OBJ_3 .",
+            "?SUBJ_2 pq:P22 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -65037,9 +65037,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P462 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1113 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1113 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P462 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -65144,8 +65144,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2075 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2076 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2075 ?OBJ_3"
+            "?SUBJ_2 ps:P2075 ?OBJ_3",
+            "?SUBJ_2 pq:P2076 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -65216,8 +65216,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2295 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2295 ?OBJ_3"
+            "?SUBJ_2 ps:P2295 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -65467,8 +65467,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1621 ?OBJ_2 .",
-            "?SUBJ_2 pq:P407 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1621 ?OBJ_3"
+            "?SUBJ_2 ps:P1621 ?OBJ_3",
+            "?SUBJ_2 pq:P407 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -65605,8 +65605,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2226 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2226 ?OBJ_3"
+            "?SUBJ_2 ps:P2226 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -65810,9 +65810,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P184 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1026 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1026 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1026 ?OBJ_3 .",
+            "?SUBJ_2 pq:P184 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -66315,9 +66315,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P150 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5167 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5167 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P150 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -66679,9 +66679,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P17 ?OBJ_2 .",
-            "?SUBJ_2 ps:P17 ?OBJ_3 ."
+            "?SUBJ_2 ps:P17 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -67867,8 +67867,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1215 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1227 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1215 ?OBJ_3"
+            "?SUBJ_2 ps:P1215 ?OBJ_3",
+            "?SUBJ_2 pq:P1227 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -67970,9 +67970,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1343 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2233 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2233 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1343 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -68156,9 +68156,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4176 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4176 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -68274,8 +68274,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P41 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P41 ?OBJ_3"
+            "?SUBJ_2 ps:P41 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -68390,8 +68390,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1813 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1813 ?OBJ_3"
+            "?SUBJ_2 ps:P1813 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -68894,9 +68894,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P569 ?OBJ_4 . }",
             "{ SUBJ_1 p:P26 ?OBJ_2 .",
-            "?SUBJ_2 ps:P26 ?OBJ_3 ."
+            "?SUBJ_2 ps:P26 ?OBJ_3 .",
+            "?SUBJ_2 pq:P569 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -69113,8 +69113,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1352 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1352 ?OBJ_3"
+            "?SUBJ_2 ps:P1352 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -69136,9 +69136,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P155 ?OBJ_4 . }",
             "{ SUBJ_1 p:P106 ?OBJ_2 .",
-            "?SUBJ_2 ps:P106 ?OBJ_3 ."
+            "?SUBJ_2 ps:P106 ?OBJ_3 .",
+            "?SUBJ_2 pq:P155 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -69205,9 +69205,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1026 ?OBJ_4 . }",
             "{ SUBJ_1 p:P69 ?OBJ_2 .",
-            "?SUBJ_2 ps:P69 ?OBJ_3 ."
+            "?SUBJ_2 ps:P69 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1026 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -69333,9 +69333,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4295 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4295 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -69466,9 +69466,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2094 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2257 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2257 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2094 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -69661,9 +69661,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1542 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2204 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2204 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1542 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -69858,8 +69858,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1705 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2378 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1705 ?OBJ_3"
+            "?SUBJ_2 ps:P1705 ?OBJ_3",
+            "?SUBJ_2 pq:P2378 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -70026,8 +70026,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1036 ?OBJ_2 .",
-            "?SUBJ_2 pq:P747 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1036 ?OBJ_3"
+            "?SUBJ_2 ps:P1036 ?OBJ_3",
+            "?SUBJ_2 pq:P747 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -70421,8 +70421,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P969 ?OBJ_2 .",
-            "?SUBJ_2 pq:P407 ?OBJ_4 }",
-            "?SUBJ_2 ps:P969 ?OBJ_3"
+            "?SUBJ_2 ps:P969 ?OBJ_3",
+            "?SUBJ_2 pq:P407 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -70984,9 +70984,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P937 ?OBJ_2 .",
-            "?SUBJ_2 ps:P937 ?OBJ_3 ."
+            "?SUBJ_2 ps:P937 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -71140,8 +71140,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2561 ?OBJ_2 .",
-            "?SUBJ_2 pq:P805 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2561 ?OBJ_3"
+            "?SUBJ_2 ps:P2561 ?OBJ_3",
+            "?SUBJ_2 pq:P805 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -71729,9 +71729,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P748 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P748 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -72134,9 +72134,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3738 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3738 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -72149,8 +72149,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P570 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P570 ?OBJ_3"
+            "?SUBJ_2 ps:P570 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -72323,9 +72323,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P106 ?OBJ_2 .",
-            "?SUBJ_2 ps:P106 ?OBJ_3 ."
+            "?SUBJ_2 ps:P106 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -72463,9 +72463,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P155 ?OBJ_4 . }",
             "{ SUBJ_1 p:P488 ?OBJ_2 .",
-            "?SUBJ_2 ps:P488 ?OBJ_3 ."
+            "?SUBJ_2 ps:P488 ?OBJ_3 .",
+            "?SUBJ_2 pq:P155 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -72586,9 +72586,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P451 ?OBJ_2 .",
-            "?SUBJ_2 ps:P451 ?OBJ_3 ."
+            "?SUBJ_2 ps:P451 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -72938,8 +72938,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2054 ?OBJ_2 .",
-            "?SUBJ_2 pq:P515 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2054 ?OBJ_3"
+            "?SUBJ_2 ps:P2054 ?OBJ_3",
+            "?SUBJ_2 pq:P515 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -72961,9 +72961,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P361 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2138 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2138 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P361 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -73391,8 +73391,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1963 ?OBJ_2 .",
-            "?SUBJ_2 pq:P17 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1963 ?OBJ_3"
+            "?SUBJ_2 ps:P1963 ?OBJ_3",
+            "?SUBJ_2 pq:P17 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -74848,9 +74848,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P3028 ?OBJ_4 . }",
             "{ SUBJ_1 p:P3025 ?OBJ_2 .",
-            "?SUBJ_2 ps:P3025 ?OBJ_3 ."
+            "?SUBJ_2 ps:P3025 ?OBJ_3 .",
+            "?SUBJ_2 pq:P3028 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -74993,9 +74993,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P577 ?OBJ_4 . }",
             "{ SUBJ_1 p:P747 ?OBJ_2 .",
-            "?SUBJ_2 ps:P747 ?OBJ_3 ."
+            "?SUBJ_2 ps:P747 ?OBJ_3 .",
+            "?SUBJ_2 pq:P577 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -75351,9 +75351,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1088 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1088 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -75508,9 +75508,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P397 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5348 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5348 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P397 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -76664,8 +76664,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2284 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2284 ?OBJ_3"
+            "?SUBJ_2 ps:P2284 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -76768,9 +76768,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P171 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2658 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2658 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P171 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -77670,9 +77670,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3439 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3439 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -78233,9 +78233,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2662 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2662 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -78525,9 +78525,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2047 ?OBJ_4 . }",
             "{ SUBJ_1 p:P108 ?OBJ_2 .",
-            "?SUBJ_2 ps:P108 ?OBJ_3 ."
+            "?SUBJ_2 ps:P108 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2047 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -78729,8 +78729,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2048 ?OBJ_2 .",
-            "?SUBJ_2 pq:P518 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2048 ?OBJ_3"
+            "?SUBJ_2 ps:P2048 ?OBJ_3",
+            "?SUBJ_2 pq:P518 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -79066,8 +79066,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P625 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P625 ?OBJ_3"
+            "?SUBJ_2 ps:P625 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -79090,8 +79090,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P529 ?OBJ_2 .",
-            "?SUBJ_2 pq:P186 ?OBJ_4 }",
-            "?SUBJ_2 ps:P529 ?OBJ_3"
+            "?SUBJ_2 ps:P529 ?OBJ_3",
+            "?SUBJ_2 pq:P186 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -79103,9 +79103,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P577 ?OBJ_4 . }",
             "{ SUBJ_1 p:P123 ?OBJ_2 .",
-            "?SUBJ_2 ps:P123 ?OBJ_3 ."
+            "?SUBJ_2 ps:P123 ?OBJ_3 .",
+            "?SUBJ_2 pq:P577 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -79213,9 +79213,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P118 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P118 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -79489,8 +79489,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3000 ?OBJ_2 .",
-            "?SUBJ_2 pq:P518 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3000 ?OBJ_3"
+            "?SUBJ_2 ps:P3000 ?OBJ_3",
+            "?SUBJ_2 pq:P518 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -79648,8 +79648,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P742 ?OBJ_2 .",
-            "?SUBJ_2 pq:P582 ?OBJ_4 }",
-            "?SUBJ_2 ps:P742 ?OBJ_3"
+            "?SUBJ_2 ps:P742 ?OBJ_3",
+            "?SUBJ_2 pq:P582 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -80427,8 +80427,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2102 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2077 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2102 ?OBJ_3"
+            "?SUBJ_2 ps:P2102 ?OBJ_3",
+            "?SUBJ_2 pq:P2077 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -80731,9 +80731,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P398 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1458 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1458 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P398 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -81216,8 +81216,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2196 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2196 ?OBJ_3"
+            "?SUBJ_2 ps:P2196 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -81417,8 +81417,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1174 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1174 ?OBJ_3"
+            "?SUBJ_2 ps:P1174 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -81932,9 +81932,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P576 ?OBJ_4 . }",
             "{ SUBJ_1 p:P155 ?OBJ_2 .",
-            "?SUBJ_2 ps:P155 ?OBJ_3 ."
+            "?SUBJ_2 ps:P155 ?OBJ_3 .",
+            "?SUBJ_2 pq:P576 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -82094,9 +82094,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P190 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2297 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2297 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P190 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -82579,8 +82579,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1334 ?OBJ_2 .",
-            "?SUBJ_2 pq:P706 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1334 ?OBJ_3"
+            "?SUBJ_2 ps:P1334 ?OBJ_3",
+            "?SUBJ_2 pq:P706 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -83112,8 +83112,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P742 ?OBJ_2 .",
-            "?SUBJ_2 pq:P434 ?OBJ_4 }",
-            "?SUBJ_2 ps:P742 ?OBJ_3"
+            "?SUBJ_2 ps:P742 ?OBJ_3",
+            "?SUBJ_2 pq:P434 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -83159,9 +83159,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2959 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2056 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2056 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2959 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -83367,9 +83367,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P366 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5529 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5529 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P366 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -83550,9 +83550,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P184 ?OBJ_4 . }",
             "{ SUBJ_1 p:P512 ?OBJ_2 .",
-            "?SUBJ_2 ps:P512 ?OBJ_3 ."
+            "?SUBJ_2 ps:P512 ?OBJ_3 .",
+            "?SUBJ_2 pq:P184 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -84538,8 +84538,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P31 ?OBJ_2 .",
-            "?SUBJ_2 pq:P642 ?OBJ_4 }",
-            "?SUBJ_2 ps:P31 ?OBJ_3"
+            "?SUBJ_2 ps:P31 ?OBJ_3",
+            "?SUBJ_2 pq:P642 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -84729,8 +84729,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3893 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1001 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3893 ?OBJ_3"
+            "?SUBJ_2 ps:P3893 ?OBJ_3",
+            "?SUBJ_2 pq:P1001 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -85185,8 +85185,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P569 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1326 ?OBJ_4 }",
-            "?SUBJ_2 ps:P569 ?OBJ_3"
+            "?SUBJ_2 ps:P569 ?OBJ_3",
+            "?SUBJ_2 pq:P1326 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -85305,8 +85305,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2437 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2437 ?OBJ_3"
+            "?SUBJ_2 ps:P2437 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -85609,9 +85609,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P571 ?OBJ_4 . }",
             "{ SUBJ_1 p:P155 ?OBJ_2 .",
-            "?SUBJ_2 ps:P155 ?OBJ_3 ."
+            "?SUBJ_2 ps:P155 ?OBJ_3 .",
+            "?SUBJ_2 pq:P571 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -86220,9 +86220,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P156 ?OBJ_4 . }",
             "{ SUBJ_1 p:P488 ?OBJ_2 .",
-            "?SUBJ_2 ps:P488 ?OBJ_3 ."
+            "?SUBJ_2 ps:P488 ?OBJ_3 .",
+            "?SUBJ_2 pq:P156 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -86455,9 +86455,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P276 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2105 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2105 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P276 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -86646,9 +86646,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P551 ?OBJ_2 .",
-            "?SUBJ_2 ps:P551 ?OBJ_3 ."
+            "?SUBJ_2 ps:P551 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -86658,9 +86658,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3337 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3337 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -87878,9 +87878,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P178 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1164 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1164 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P178 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -88218,8 +88218,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1813 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1813 ?OBJ_3"
+            "?SUBJ_2 ps:P1813 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -88448,9 +88448,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P136 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2142 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2142 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P136 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -88672,8 +88672,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P798 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P798 ?OBJ_3"
+            "?SUBJ_2 ps:P798 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -89076,9 +89076,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2842 ?OBJ_4 . }",
             "{ SUBJ_1 p:P793 ?OBJ_2 .",
-            "?SUBJ_2 ps:P793 ?OBJ_3 ."
+            "?SUBJ_2 ps:P793 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2842 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -89577,9 +89577,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P108 ?OBJ_2 .",
-            "?SUBJ_2 ps:P108 ?OBJ_3 ."
+            "?SUBJ_2 ps:P108 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -89623,9 +89623,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P279 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2154 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2154 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P279 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -90488,8 +90488,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3362 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3362 ?OBJ_3"
+            "?SUBJ_2 ps:P3362 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -91243,9 +91243,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P279 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3917 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3917 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P279 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -91396,9 +91396,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P279 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1086 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1086 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P279 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -91927,9 +91927,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2121 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2121 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -92733,8 +92733,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P348 ?OBJ_2 .",
-            "?SUBJ_2 pq:P548 ?OBJ_4 }",
-            "?SUBJ_2 ps:P348 ?OBJ_3"
+            "?SUBJ_2 ps:P348 ?OBJ_3",
+            "?SUBJ_2 pq:P548 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -92892,9 +92892,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1603 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1603 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -93113,8 +93113,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1082 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1082 ?OBJ_3"
+            "?SUBJ_2 ps:P1082 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -93718,9 +93718,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P155 ?OBJ_4 . }",
             "{ SUBJ_1 p:P463 ?OBJ_2 .",
-            "?SUBJ_2 ps:P463 ?OBJ_3 ."
+            "?SUBJ_2 ps:P463 ?OBJ_3 .",
+            "?SUBJ_2 pq:P155 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -94105,9 +94105,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2895 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2895 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -94221,9 +94221,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1319 ?OBJ_4 . }",
             "{ SUBJ_1 p:P551 ?OBJ_2 .",
-            "?SUBJ_2 ps:P551 ?OBJ_3 ."
+            "?SUBJ_2 ps:P551 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1319 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -94372,9 +94372,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1752 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1752 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -94569,9 +94569,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1343 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3485 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3485 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1343 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -95815,8 +95815,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P570 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1326 ?OBJ_4 }",
-            "?SUBJ_2 ps:P570 ?OBJ_3"
+            "?SUBJ_2 ps:P570 ?OBJ_3",
+            "?SUBJ_2 pq:P1326 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -95911,8 +95911,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1352 ?OBJ_2 .",
-            "?SUBJ_2 pq:P582 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1352 ?OBJ_3"
+            "?SUBJ_2 ps:P1352 ?OBJ_3",
+            "?SUBJ_2 pq:P582 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -96001,9 +96001,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P279 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3039 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3039 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P279 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -96016,8 +96016,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1082 ?OBJ_2 .",
-            "?SUBJ_2 pq:P123 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1082 ?OBJ_3"
+            "?SUBJ_2 ps:P1082 ?OBJ_3",
+            "?SUBJ_2 pq:P123 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -96305,8 +96305,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1082 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1540 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1082 ?OBJ_3"
+            "?SUBJ_2 ps:P1082 ?OBJ_3",
+            "?SUBJ_2 pq:P1540 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -96808,9 +96808,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P179 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2928 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2928 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P179 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -97227,8 +97227,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P577 ?OBJ_2 .",
-            "?SUBJ_2 pq:P548 ?OBJ_4 }",
-            "?SUBJ_2 ps:P577 ?OBJ_3"
+            "?SUBJ_2 ps:P577 ?OBJ_3",
+            "?SUBJ_2 pq:P548 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -97647,9 +97647,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2055 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2055 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -98149,9 +98149,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P241 ?OBJ_2 .",
-            "?SUBJ_2 ps:P241 ?OBJ_3 ."
+            "?SUBJ_2 ps:P241 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -98255,9 +98255,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2230 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2230 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -98552,8 +98552,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P742 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1953 ?OBJ_4 }",
-            "?SUBJ_2 ps:P742 ?OBJ_3"
+            "?SUBJ_2 ps:P742 ?OBJ_3",
+            "?SUBJ_2 pq:P1953 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -98990,8 +98990,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P529 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2049 ?OBJ_4 }",
-            "?SUBJ_2 ps:P529 ?OBJ_3"
+            "?SUBJ_2 ps:P529 ?OBJ_3",
+            "?SUBJ_2 pq:P2049 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -99332,9 +99332,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1037 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1037 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -99859,8 +99859,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1813 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1793 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1813 ?OBJ_3"
+            "?SUBJ_2 ps:P1813 ?OBJ_3",
+            "?SUBJ_2 pq:P1793 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -100904,8 +100904,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1112 ?OBJ_2 .",
-            "?SUBJ_2 pq:P155 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1112 ?OBJ_3"
+            "?SUBJ_2 ps:P1112 ?OBJ_3",
+            "?SUBJ_2 pq:P155 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -102101,8 +102101,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1333 ?OBJ_2 .",
-            "?SUBJ_2 pq:P805 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1333 ?OBJ_3"
+            "?SUBJ_2 ps:P1333 ?OBJ_3",
+            "?SUBJ_2 pq:P805 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -103069,8 +103069,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1109 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2077 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1109 ?OBJ_3"
+            "?SUBJ_2 ps:P1109 ?OBJ_3",
+            "?SUBJ_2 pq:P2077 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -103125,8 +103125,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1332 ?OBJ_2 .",
-            "?SUBJ_2 pq:P276 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1332 ?OBJ_3"
+            "?SUBJ_2 ps:P1332 ?OBJ_3",
+            "?SUBJ_2 pq:P276 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -103511,8 +103511,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P242 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2061 ?OBJ_4 }",
-            "?SUBJ_2 ps:P242 ?OBJ_3"
+            "?SUBJ_2 ps:P242 ?OBJ_3",
+            "?SUBJ_2 pq:P2061 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -104805,8 +104805,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P242 ?OBJ_2 .",
-            "?SUBJ_2 pq:P195 ?OBJ_4 }",
-            "?SUBJ_2 ps:P242 ?OBJ_3"
+            "?SUBJ_2 ps:P242 ?OBJ_3",
+            "?SUBJ_2 pq:P195 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -105225,8 +105225,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P444 ?OBJ_2 .",
-            "?SUBJ_2 pq:P31 ?OBJ_4 }",
-            "?SUBJ_2 ps:P444 ?OBJ_3"
+            "?SUBJ_2 ps:P444 ?OBJ_3",
+            "?SUBJ_2 pq:P31 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -105819,8 +105819,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1814 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2125 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1814 ?OBJ_3"
+            "?SUBJ_2 ps:P1814 ?OBJ_3",
+            "?SUBJ_2 pq:P2125 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -110902,9 +110902,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2046 ?OBJ_4 . }",
             "{ SUBJ_1 p:P551 ?OBJ_2 .",
-            "?SUBJ_2 ps:P551 ?OBJ_3 ."
+            "?SUBJ_2 ps:P551 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2046 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -110985,8 +110985,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2240 ?OBJ_2 .",
-            "?SUBJ_2 pq:P636 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2240 ?OBJ_3"
+            "?SUBJ_2 ps:P2240 ?OBJ_3",
+            "?SUBJ_2 pq:P636 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -112030,9 +112030,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P156 ?OBJ_4 . }",
             "{ SUBJ_1 p:P106 ?OBJ_2 .",
-            "?SUBJ_2 ps:P106 ?OBJ_3 ."
+            "?SUBJ_2 ps:P106 ?OBJ_3 .",
+            "?SUBJ_2 pq:P156 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -112165,8 +112165,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P570 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P570 ?OBJ_3"
+            "?SUBJ_2 ps:P570 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -112482,9 +112482,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2148 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2148 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -112684,9 +112684,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1604 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3253 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3253 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1604 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -113439,9 +113439,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2202 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2202 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -113541,9 +113541,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1706 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1344 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1344 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1344 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1706 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -113654,9 +113654,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1411 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1411 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1411 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -113875,9 +113875,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P156 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P156 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -114300,9 +114300,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P138 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2217 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2217 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P138 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -114935,9 +114935,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P27 ?OBJ_2 .",
-            "?SUBJ_2 ps:P27 ?OBJ_3 ."
+            "?SUBJ_2 ps:P27 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -115099,8 +115099,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P348 ?OBJ_2 .",
-            "?SUBJ_2 pq:P400 ?OBJ_4 }",
-            "?SUBJ_2 ps:P348 ?OBJ_3"
+            "?SUBJ_2 ps:P348 ?OBJ_3",
+            "?SUBJ_2 pq:P400 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -115419,9 +115419,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P410 ?OBJ_4 . }",
             "{ SUBJ_1 p:P463 ?OBJ_2 .",
-            "?SUBJ_2 ps:P463 ?OBJ_3 ."
+            "?SUBJ_2 ps:P463 ?OBJ_3 .",
+            "?SUBJ_2 pq:P410 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -115497,8 +115497,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1477 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1814 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1477 ?OBJ_3"
+            "?SUBJ_2 ps:P1477 ?OBJ_3",
+            "?SUBJ_2 pq:P1814 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -115510,9 +115510,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P54 ?OBJ_2 .",
-            "?SUBJ_2 ps:P54 ?OBJ_3 ."
+            "?SUBJ_2 ps:P54 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -115642,8 +115642,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3761 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1552 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3761 ?OBJ_3"
+            "?SUBJ_2 ps:P3761 ?OBJ_3",
+            "?SUBJ_2 pq:P1552 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -115773,9 +115773,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P816 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2223 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2223 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P816 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -115880,8 +115880,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P571 ?OBJ_2 .",
-            "?SUBJ_2 pq:P155 ?OBJ_4 }",
-            "?SUBJ_2 ps:P571 ?OBJ_3"
+            "?SUBJ_2 ps:P571 ?OBJ_3",
+            "?SUBJ_2 pq:P155 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -116043,8 +116043,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2046 ?OBJ_2 .",
-            "?SUBJ_2 pq:P518 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2046 ?OBJ_3"
+            "?SUBJ_2 ps:P2046 ?OBJ_3",
+            "?SUBJ_2 pq:P518 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -116265,9 +116265,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P279 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2557 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2557 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P279 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -116670,9 +116670,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P361 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2803 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2803 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P361 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -116769,8 +116769,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P529 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2043 ?OBJ_4 }",
-            "?SUBJ_2 ps:P529 ?OBJ_3"
+            "?SUBJ_2 ps:P529 ?OBJ_3",
+            "?SUBJ_2 pq:P2043 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -117175,9 +117175,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2196 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2196 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -117896,8 +117896,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2295 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1480 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2295 ?OBJ_3"
+            "?SUBJ_2 ps:P2295 ?OBJ_3",
+            "?SUBJ_2 pq:P1480 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -117980,9 +117980,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4296 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4296 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -118923,9 +118923,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P463 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3001 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3001 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P463 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -119395,9 +119395,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2670 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2635 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2635 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2670 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -119488,8 +119488,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1538 ?OBJ_2 .",
-            "?SUBJ_2 pq:P459 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1538 ?OBJ_3"
+            "?SUBJ_2 ps:P1538 ?OBJ_3",
+            "?SUBJ_2 pq:P459 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -119681,9 +119681,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1706 ?OBJ_4 . }",
             "{ SUBJ_1 p:P551 ?OBJ_2 .",
-            "?SUBJ_2 ps:P551 ?OBJ_3 ."
+            "?SUBJ_2 ps:P551 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1706 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -119750,9 +119750,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P512 ?OBJ_2 .",
-            "?SUBJ_2 ps:P512 ?OBJ_3 ."
+            "?SUBJ_2 ps:P512 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -119956,9 +119956,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P366 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5066 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5066 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P366 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -120199,9 +120199,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P735 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2999 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2999 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P735 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -120495,9 +120495,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P520 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2112 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2112 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P520 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -120746,8 +120746,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P577 ?OBJ_2 .",
-            "?SUBJ_2 pq:P400 ?OBJ_4 }",
-            "?SUBJ_2 ps:P577 ?OBJ_3"
+            "?SUBJ_2 ps:P577 ?OBJ_3",
+            "?SUBJ_2 pq:P400 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -121201,8 +121201,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1191 ?OBJ_2 .",
-            "?SUBJ_2 pq:P175 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1191 ?OBJ_3"
+            "?SUBJ_2 ps:P1191 ?OBJ_3",
+            "?SUBJ_2 pq:P175 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -121581,9 +121581,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2808 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2808 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -121893,9 +121893,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1343 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4341 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4341 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1343 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -122019,9 +122019,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1295 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1295 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -122194,9 +122194,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2068 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2068 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -122263,8 +122263,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P570 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1319 ?OBJ_4 }",
-            "?SUBJ_2 ps:P570 ?OBJ_3"
+            "?SUBJ_2 ps:P570 ?OBJ_3",
+            "?SUBJ_2 pq:P1319 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -122545,9 +122545,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P582 ?OBJ_4 . }",
             "{ SUBJ_1 p:P451 ?OBJ_2 .",
-            "?SUBJ_2 ps:P451 ?OBJ_3 ."
+            "?SUBJ_2 ps:P451 ?OBJ_3 .",
+            "?SUBJ_2 pq:P582 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -122643,9 +122643,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P527 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2203 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2203 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P527 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -122761,9 +122761,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P105 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3465 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3465 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P105 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -123058,9 +123058,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P69 ?OBJ_2 .",
-            "?SUBJ_2 ps:P69 ?OBJ_3 ."
+            "?SUBJ_2 ps:P69 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -123309,9 +123309,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P2076 ?OBJ_4 . }",
             "{ SUBJ_1 p:P873 ?OBJ_2 .",
-            "?SUBJ_2 ps:P873 ?OBJ_3 ."
+            "?SUBJ_2 ps:P873 ?OBJ_3 .",
+            "?SUBJ_2 pq:P2076 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -123471,9 +123471,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P161 ?OBJ_2 .",
-            "?SUBJ_2 ps:P161 ?OBJ_3 ."
+            "?SUBJ_2 ps:P161 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -123913,8 +123913,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2119 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1013 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2119 ?OBJ_3"
+            "?SUBJ_2 ps:P2119 ?OBJ_3",
+            "?SUBJ_2 pq:P1013 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -124676,9 +124676,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P106 ?OBJ_4 . }",
             "{ SUBJ_1 p:P108 ?OBJ_2 .",
-            "?SUBJ_2 ps:P108 ?OBJ_3 ."
+            "?SUBJ_2 ps:P108 ?OBJ_3 .",
+            "?SUBJ_2 pq:P106 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -125327,9 +125327,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P577 ?OBJ_4 . }",
             "{ SUBJ_1 p:P495 ?OBJ_2 .",
-            "?SUBJ_2 ps:P495 ?OBJ_3 ."
+            "?SUBJ_2 ps:P495 ?OBJ_3 .",
+            "?SUBJ_2 pq:P577 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -125351,9 +125351,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P276 ?OBJ_4 . }",
             "{ SUBJ_1 p:P512 ?OBJ_2 .",
-            "?SUBJ_2 ps:P512 ?OBJ_3 ."
+            "?SUBJ_2 ps:P512 ?OBJ_3 .",
+            "?SUBJ_2 pq:P276 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -125394,9 +125394,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1830 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1830 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1830 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -126037,9 +126037,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P580 ?OBJ_4 . }",
             "{ SUBJ_1 p:P937 ?OBJ_2 .",
-            "?SUBJ_2 ps:P937 ?OBJ_3 ."
+            "?SUBJ_2 ps:P937 ?OBJ_3 .",
+            "?SUBJ_2 pq:P580 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -126478,9 +126478,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3618 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3618 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -126875,9 +126875,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2051 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2051 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -127982,9 +127982,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P512 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2218 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2218 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P512 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -128289,9 +128289,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2102 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2102 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -128514,9 +128514,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P276 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1446 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1446 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P276 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -128626,8 +128626,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P154 ?OBJ_2 .",
-            "?SUBJ_2 pq:P2096 ?OBJ_4 }",
-            "?SUBJ_2 ps:P154 ?OBJ_3"
+            "?SUBJ_2 ps:P154 ?OBJ_3",
+            "?SUBJ_2 pq:P2096 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -128799,9 +128799,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P793 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2234 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2234 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P793 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -129920,8 +129920,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P571 ?OBJ_2 .",
-            "?SUBJ_2 pq:P1326 ?OBJ_4 }",
-            "?SUBJ_2 ps:P571 ?OBJ_3"
+            "?SUBJ_2 ps:P571 ?OBJ_3",
+            "?SUBJ_2 pq:P1326 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -130129,9 +130129,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2959 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2135 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2135 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2959 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -130228,8 +130228,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P577 ?OBJ_2 .",
-            "?SUBJ_2 pq:P518 ?OBJ_4 }",
-            "?SUBJ_2 ps:P577 ?OBJ_3"
+            "?SUBJ_2 ps:P577 ?OBJ_3",
+            "?SUBJ_2 pq:P518 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( year ( ?OBJ_3 ) , STR_VALUE_1 ) ) ."
@@ -130367,9 +130367,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P2348 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2103 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2103 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P2348 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -130381,9 +130381,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2109 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2109 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -130539,9 +130539,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P35 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2855 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2855 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P35 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -130683,8 +130683,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2854 ?OBJ_2 .",
-            "?SUBJ_2 pq:P276 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2854 ?OBJ_3"
+            "?SUBJ_2 ps:P2854 ?OBJ_3",
+            "?SUBJ_2 pq:P276 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -130697,8 +130697,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P3761 ?OBJ_2 .",
-            "?SUBJ_2 pq:P580 ?OBJ_4 }",
-            "?SUBJ_2 ps:P3761 ?OBJ_3"
+            "?SUBJ_2 ps:P3761 ?OBJ_3",
+            "?SUBJ_2 pq:P580 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -131066,9 +131066,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P101 ?OBJ_4 . }",
             "{ SUBJ_1 p:P108 ?OBJ_2 .",
-            "?SUBJ_2 ps:P108 ?OBJ_3 ."
+            "?SUBJ_2 ps:P108 ?OBJ_3 .",
+            "?SUBJ_2 pq:P101 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -131157,9 +131157,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P974 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P4441 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P4441 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P974 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -131182,9 +131182,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1121 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1121 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -131933,8 +131933,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1538 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1538 ?OBJ_3"
+            "?SUBJ_2 ps:P1538 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -132118,9 +132118,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P17 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1373 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1373 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P17 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -132338,9 +132338,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3559 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3559 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -134289,9 +134289,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P287 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2599 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2599 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P287 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -134775,9 +134775,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P463 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2927 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2927 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P463 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -134802,9 +134802,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1641 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1641 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [
@@ -134891,9 +134891,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3036 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3036 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -135281,9 +135281,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P1542 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P2113 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P2113 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P1542 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -135649,9 +135649,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1268 ?OBJ_4 . }",
             "{ SUBJ_1 p:P39 ?OBJ_2 .",
-            "?SUBJ_2 ps:P39 ?OBJ_3 ."
+            "?SUBJ_2 ps:P39 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1268 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -136241,8 +136241,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P1539 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P1539 ?OBJ_3"
+            "?SUBJ_2 ps:P1539 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -136778,9 +136778,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P585 ?OBJ_4 . }",
             "{ SUBJ_1 p:P1000 ?OBJ_2 .",
-            "?SUBJ_2 ps:P1000 ?OBJ_3 ."
+            "?SUBJ_2 ps:P1000 ?OBJ_3 .",
+            "?SUBJ_2 pq:P585 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -137571,9 +137571,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P710 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1358 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1358 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P710 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -137753,8 +137753,8 @@
         ],
         "triplet": [
             "{ SUBJ_1 p:P2403 ?OBJ_2 .",
-            "?SUBJ_2 pq:P585 ?OBJ_4 }",
-            "?SUBJ_2 ps:P2403 ?OBJ_3"
+            "?SUBJ_2 ps:P2403 ?OBJ_3",
+            "?SUBJ_2 pq:P585 ?OBJ_4 }"
         ],
         "filter": [
             "filter ( contains ( ?OBJ_3 , STR_VALUE_1 ) ) ."
@@ -138553,9 +138553,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P176 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P5520 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P5520 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P176 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -138646,9 +138646,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P1411 ?OBJ_4 . }",
             "{ SUBJ_1 p:P166 ?OBJ_2 .",
-            "?SUBJ_2 ps:P166 ?OBJ_3 ."
+            "?SUBJ_2 ps:P166 ?OBJ_3 .",
+            "?SUBJ_2 pq:P1411 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -139193,9 +139193,9 @@
             "select ?OBJ_4 ?OBJ_3 where"
         ],
         "triplet": [
-            "?SUBJ_2 pq:P136 ?OBJ_4 . }",
             "{ SUBJ_1 p:P800 ?OBJ_2 .",
-            "?SUBJ_2 ps:P800 ?OBJ_3 ."
+            "?SUBJ_2 ps:P800 ?OBJ_3 .",
+            "?SUBJ_2 pq:P136 ?OBJ_4 . }"
         ],
         "filter": [],
         "order": []
@@ -139502,9 +139502,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P463 OBJ_4 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P3086 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P3086 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P463 OBJ_4 . }"
         ],
         "filter": [],
         "order": [
@@ -139989,9 +139989,9 @@
             "select ?SUBJ_1 where"
         ],
         "triplet": [
-            "?SUBJ_1 wdt:P31 OBJ_2 . }",
             "{ ?SUBJ_1 wdt:P31 OBJ_2 .",
-            "?SUBJ_1 wdt:P1100 ?OBJ_3 ."
+            "?SUBJ_1 wdt:P1100 ?OBJ_3 .",
+            "?SUBJ_1 wdt:P31 OBJ_2 . }"
         ],
         "filter": [],
         "order": [

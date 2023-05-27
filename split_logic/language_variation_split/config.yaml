@@ -1,5 +1,5 @@
 ---
-language: "russian"
-dataset_path: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/kgqa_dataset/kgqa_dataset_vol_1.0.json"
-save_split_dir_path: "dataset/kgqa/language_variation_split"
+language: "english"
+dataset_path: "/Users/somov-od/Documents/phd/projects/CompGen/my_dataset/merged_dataset/merged_dataset_vol_4.5.json"
+save_split_dir_path: "dataset/lcquad/language_variation_split"
 dataset_train_frac: 0.6

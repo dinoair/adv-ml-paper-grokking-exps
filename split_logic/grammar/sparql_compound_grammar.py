@@ -5,7 +5,7 @@ from yargy.tokenizer import TokenRule
 from yargy.tokenizer import Tokenizer
 
 
-class BaseGrammar:
+class SparqlBaseGrammar:
     def __init__(self, predicates_list):
         SPACE_RULE = TokenRule('SPACE', r'\S+')
         MY_RULES = [SPACE_RULE]
@@ -68,9 +68,9 @@ class BaseGrammar:
         self.desc_keyword = rule('desc').named('DESC')
 
 
-class RequestGrammar(BaseGrammar):
+class RequestGrammarSparql(SparqlBaseGrammar):
     def __init__(self, predicates_list):
-        super(RequestGrammar, self).__init__(predicates_list)
+        super(RequestGrammarSparql, self).__init__(predicates_list)
 
         request_composition_fact = fact('request_composition',
                                        ['ask_node', 'select_composition', 'where_node'])
@@ -109,10 +109,10 @@ class RequestGrammar(BaseGrammar):
         self.parser = Parser(request_composition, tokenizer=self.space_tokenizer)
 
 
-class TripletGrammar(BaseGrammar):
+class TripletGrammarSparql(SparqlBaseGrammar):
     def __init__(self, predicates_list):
         # TODO: вынести where в Request grammar
-        super(TripletGrammar, self).__init__(predicates_list)
+        super(TripletGrammarSparql, self).__init__(predicates_list)
         triplet_composition_fact = fact('triplet_composition',
                                         ['open_brace_node',
                                          'subj_node', 'predicate_node', 'obj_node',
@@ -133,9 +133,9 @@ class TripletGrammar(BaseGrammar):
         self.parser = Parser(triplet_composition, tokenizer=self.space_tokenizer)
 
 
-class FilterGrammar(BaseGrammar):
+class FilterGrammarSparql(SparqlBaseGrammar):
     def __init__(self, predicates_list):
-        super(FilterGrammar, self).__init__(predicates_list)
+        super(FilterGrammarSparql, self).__init__(predicates_list)
 
         filter_composition_fact = fact('filter_composition',
                                        ['filter_keyword', 'opening_parenthesis_node',
@@ -186,9 +186,9 @@ class FilterGrammar(BaseGrammar):
         self.parser = Parser(filter_composition, tokenizer=self.space_tokenizer)
 
 
-class OrderGrammar(BaseGrammar):
+class OrderGrammarSparql(SparqlBaseGrammar):
     def __init__(self, predicates_list):
-        super(OrderGrammar, self).__init__(predicates_list)
+        super(OrderGrammarSparql, self).__init__(predicates_list)
 
         order_composition_fact = fact('order_composition',
                                       ['order_keyword', 'by_keyword',

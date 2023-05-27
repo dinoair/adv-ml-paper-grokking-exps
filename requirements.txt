@@ -5,3 +5,4 @@ PyYAML
 sentencepiece
 protobuf==3.20.1
 yargy==0.11.0
+records

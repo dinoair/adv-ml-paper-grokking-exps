@@ -4,15 +4,13 @@ import os
 import numpy as np
 import yaml
 
-from split_logic.grammar import atom_and_compound_cache
 import tmcd_utils
 from split_logic import split_utils
-from split_logic.grammar.sparql_parser import SPARQLParser
+from split_logic.grammar import sparql_parser, atom_and_compound_cache, sql_parser
 
 np.random.seed(42)
 
 if __name__ == '__main__':
-
     config = yaml.load(open('config.yaml', 'r'), Loader=yaml.Loader)
     split_dir_saving_path = config['save_split_dir_path']
     dataset_dir_path = os.path.dirname(split_dir_saving_path)
@@ -32,7 +30,7 @@ if __name__ == '__main__':
     assert language in ['russian', 'english']
 
     expected_keys = [split_utils.LANGUAGE2KEY_MAPPING[language], 'query', 'masked_query', 'attribute_mapping_dict',
-                     'source']
+                     'source', 'kb_id']
 
     queries_list = []
     updated_dataset = []
@@ -41,22 +39,20 @@ if __name__ == '__main__':
         queries_list.append(sample['masked_query'])
         updated_dataset.append(new_sample)
 
-    compound_parser = None
+    parser_instance = None
+    parser_dict = dict()
+    # TODO: Add SQL TMCD run
     if config['query_language'] == 'sparql':
-        compound_parser = SPARQLParser(sparql_queries_list=queries_list)
-    atoms_and_compound_cache_handler = atom_and_compound_cache.AtomAndCompoundCache(parser=compound_parser,
+        parser_instance = sparql_parser.SPARQLParser(sparql_queries_list=queries_list)
+        parser_dict = {'wikidata': parser_instance}
+    atoms_and_compound_cache_handler = atom_and_compound_cache.AtomAndCompoundCache(parser_dict=parser_dict,
                                                                                     query_key_name='masked_query',
-                                                                                    return_compound_list_flag=True)
-    if config['load_compounds_from_file']:
-        atoms_and_compound_cache_handler.load_cache(saving_path_dir)
+                                                                                    kb_id_key_name='kb_id',
+                                                                                    return_compound_list_flag=True,
+                                                                                    compound_cache_path=None)
 
     train_samples = updated_dataset[:len(updated_dataset) // 2]
     test_samples = updated_dataset[len(updated_dataset) // 2:]
-
-    train_tokens = []
-    for sample in train_samples:
-        train_tokens += sample['masked_query'].split()
-    train_tokens_set = set(train_tokens)
 
     train_samples, test_samples = tmcd_utils.swap_examples(
         train_samples,
@@ -70,8 +66,17 @@ if __name__ == '__main__':
         coef=chernoff_alpha_coef
     )
 
-    dev_samples = test_samples[:len(test_samples) // 2]
-    test_samples = test_samples[len(test_samples) // 2:]
+    train_tokens = []
+    for sample in train_samples:
+        train_tokens += sample['masked_query'].split()
+    train_tokens_set = set(train_tokens)
+
+    cleaned_test_samples = split_utils.align_test_dataset_with_train_tokens(test_samples,
+                                                                            target_dataset_tokens_set=train_tokens_set,
+                                                                            target_key_name='masked_query')
+
+    dev_samples = test_samples[:len(cleaned_test_samples) // 2]
+    test_samples = test_samples[len(cleaned_test_samples) // 2:]
 
     print(f'Train dataset size: {len(train_samples)}')
     print(f'Dev dataset size: {len(dev_samples)}')

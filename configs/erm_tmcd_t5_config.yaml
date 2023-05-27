@@ -1,5 +1,6 @@
 ---
 data:
+  target_language: "sparql"
   train: "dataset/lcquad/tmcd_split/english_train_split_coef_0.1.json"
   dev: "dataset/lcquad/tmcd_split/english_dev_split_coef_0.1.json"
   test: "dataset/lcquad/tmcd_split/english_test_split_coef_0.1.json"
@@ -23,8 +24,8 @@ model:
     pretrained_embeddings_path: "experiments/pretrained_lm_sparql_embs.pt"
     embeddings_size: 300
   t5:
-    tokenizer: "t5-small"
-    model: "t5-small"
+    tokenizer: "/home/etutubalina/somov-od/pretrained_models/t5_base_tokenizer"
+    model: "/home/etutubalina/somov-od/pretrained_models/t5_base"
     epochs_num: 100
     learning_rate: 0.001
     warmup_steps: 1000
@@ -32,9 +33,9 @@ model:
 
 
 test_one_batch: False
-run_name: "en_tmcd_erm_t5_v3"
+run_name: "erm_tmcd_t5_all_run"
 
 # for testing
 model_type: 'erm'
 save_model_path: "experiments"
-inference_model_name: "en_tmcd_erm_t5_v3/epoch_99_gm_0.46_em_0.21_t5.pt"
+inference_model_name: ""

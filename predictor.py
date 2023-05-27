@@ -3,7 +3,7 @@ import os
 from tqdm import tqdm
 
 import utils
-from metrics import calculate_batch_metrics
+from eval_metrics.metrics import calculate_batch_metrics
 
 
 class Predictor:

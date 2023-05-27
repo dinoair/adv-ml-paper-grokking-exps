@@ -3,19 +3,29 @@ import os
 
 class AtomAndCompoundCache:
 
-    def __init__(self, parser, query_key_name, return_compound_list_flag):
-        self.query_parser = parser
+    def __init__(self, parser_dict, query_key_name, kb_id_key_name, return_compound_list_flag, compound_cache_path=None):
+        self.query_parser_dict = parser_dict
         self.query_to_atoms = {}
         self.query_to_compounds = {}
         self.query_key_name = query_key_name
+        self.kb_id_key_name = kb_id_key_name
         self.return_compound_list = return_compound_list_flag
 
-    def get_atoms(self, query_sample):
+        first_parser = list(self.query_parser_dict.values())[0]
+        self.parsers_env_list = first_parser.parser_compounds
+
+        if compound_cache_path:
+            self.load_cache(compound_cache_path)
+            print("Loaded parser cache!")
+
+
+    def get_atoms(self, query_sample, kb_id=None):
         query = query_sample
-        if self.query_key_name is not None:
+        if self.query_key_name is not None and self.kb_id_key_name is not None:
             query = query_sample[self.query_key_name]
+            kb_id = query_sample[self.kb_id_key_name]
         if query not in self.query_to_atoms:
-            atoms = self.query_parser.get_atoms(query)
+            atoms = self.query_parser_dict[kb_id].get_atoms(query)
             self.query_to_atoms[query] = atoms
         else:
             atoms = self.query_to_atoms[query]
@@ -27,12 +37,13 @@ class AtomAndCompoundCache:
             compound_list += compound_dict[compound_name]
         return compound_list
 
-    def get_compounds(self, query_sample):
+    def get_compounds(self, query_sample, kb_id=None):
         query = query_sample
-        if self.query_key_name is not None:
+        if self.query_key_name is not None and self.kb_id_key_name is not None:
             query = query_sample[self.query_key_name]
+            kb_id = query_sample[self.kb_id_key_name]
         if query not in self.query_to_compounds:
-            compounds = self.query_parser.get_compounds(query)
+            compounds = self.query_parser_dict[kb_id].get_compounds(query)
             self.query_to_compounds[query] = compounds
         else:
             compounds = self.query_to_compounds[query]
